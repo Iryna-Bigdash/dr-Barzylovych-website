@@ -260,13 +260,6 @@ document.querySelectorAll('img[loading="lazy"]').forEach(img => {
     imageObserver.observe(img);
 });
 
-// Performance: Preload critical resources
-const preloadLink = document.createElement('link');
-preloadLink.rel = 'preload';
-preloadLink.as = 'style';
-preloadLink.href = 'styles.css';
-document.head.appendChild(preloadLink);
-
 // ===== Scroll to Top Button =====
 const scrollToTopButton = document.getElementById('scrollToTop');
 

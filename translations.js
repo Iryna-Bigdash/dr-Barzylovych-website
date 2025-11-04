@@ -10,63 +10,63 @@ const translations = {
             contact: "Контакти"
         },
         hero: {
-            title: "Професійна медична допомога у м. Порто",
-            subtitle: "Досвідчений лікар з багаторічною практикою в Португалії",
-            description: "Надання якісної медичної допомоги з індивідуальним підхідом до кожного пацієнта в м. Порто, Португалія. Записайтеся на консультацію вже сьогодні.",
+            title: "Професійна медична допомога у м.Порто",
+            subtitle: "Досвідчений педіатр та алерголог з приватною практикою в Порту",
+            description: "Я - педіатр та алерголог у Порто, Португалія, який працює самостійно. Надаю професійну медичну допомогу дітям, діагностику та лікування алергій у Порто. Спеціалізуюся на педіатричній допомозі та алергології для дітей у м. Порто. Записайтеся на консультацію педіатра або алерголога вже сьогодні.",
             cta: "Записатися на прийом",
             learn: "Дізнатися більше",
             feature1: "Багаторічний досвід",
             feature2: "Індивідуальний підхід",
-            feature3: "Сучасне обладнання"
+            feature3: "Португальська сертифікація"
         },
         about: {
-            title: "Про нас",
-            subtitle: "Ваш надійний партнер у забезпеченні здоров'я в Порту",
-            text1: "Ми пропонуємо професійні медичні послуги найвищої якості в м. Порто, Португалія. Наш досвід та індивідуальний підхід до кожного пацієнта забезпечують найкращий результат лікування.",
-            text2: "Висококваліфікований фахівець використовує сучасні методи діагностики та лікування, щоб забезпечити ефективну медичну допомогу жителям та гостям Порту."
+            title: "Про мене",
+            subtitle: "Ваш надійний педіатр та алерголог у Порто",
+            text1: "Я - досвідчений педіатр та алерголог, який працює самостійно в м. Порто, Португалія. Спеціалізуюся на педіатричній допомозі та лікуванні алергій у дітей. Моя приватна практика в Порто дозволяє мені надавати індивідуальний підхід до кожного маленького пацієнта та його батьків.",
+            text2: "Як педіатр та алерголог у Порто, я використовую сучасні методи діагностики та лікування алергій, проводжу алергологічні тести та надаю комплексну педіатричну допомогу дітям у м. Порто. Моя мета - забезпечити здоров'я та благополуччя ваших дітей."
         },
         services: {
-            title: "Наші послуги",
-            subtitle: "Повний спектр медичних послуг для вашої родини",
+            title: "Мої послуги",
+            subtitle: "Педіатрична допомога та алергологія для дітей у Порто",
             item1: {
-                title: "Консультації",
-                desc: "Професійні консультації з різних питань здоров'я"
+                title: "Педіатричні консультації",
+                desc: "Консультації педіатра у Порто з питань здоров'я дітей, розвитку та хвороб дитячого віку"
             },
             item2: {
-                title: "Діагностика",
-                desc: "Сучасні методи діагностики та обстеження"
+                title: "Алергологічна діагностика",
+                desc: "Діагностика алергій у дітей у Порто: алергологічні тести, визначення алергенів та діагностика алергічних захворювань"
             },
             item3: {
-                title: "Лікування",
-                desc: "Ефективне лікування з використанням найсучасніших методів"
+                title: "Лікування алергій",
+                desc: "Лікування алергічних захворювань у дітей: астма, алергічний риніт, атопічний дерматит, алергії на харчові продукти"
             },
             item4: {
-                title: "Профілактика",
-                desc: "Профілактичні обстеження та рекомендації"
+                title: "Профілактичні огляди",
+                desc: "Профілактичні медичні огляди дітей, щеплення та моніторинг розвитку дитини у Порто"
             },
             item5: {
-                title: "Реабілітація",
-                desc: "Програми відновлення та реабілітації"
+                title: "Лікування дитячих хвороб",
+                desc: "Лікування гострих та хронічних захворювань у дітей: інфекції, захворювання органів дихання, шлунково-кишкові розлади"
             },
             item6: {
-                title: "Огляд",
-                desc: "Комплексні медичні огляди та щорічні перевірки"
+                title: "Педіатричний огляд",
+                desc: "Комплексні педіатричні огляди дітей, щорічні перевірки здоров'я та консультації з розвитку дитини у Порто"
             }
         },
         feedbacks: {
             title: "Відгуки пацієнтів",
-            subtitle: "Що кажуть наші пацієнти",
+            subtitle: "Що кажуть батьки моїх маленьких пацієнтів",
             item1: {
-                text: "\"Професійний підхід та увага до деталей. Дуже задоволений обслуговуванням!\"",
-                author: "— Олена М."
+                text: "\"Чудовий педіатр у Порто! Професійний підхід до дітей та увага до деталей. Допомогла з лікуванням алергії у нашого сина. Рекомендую!\"",
+                author: "— Олена М., мама 5-річного сина"
             },
             item2: {
-                text: "\"Чудовий лікар, який справді піклується про пацієнтів. Рекомендую!\"",
-                author: "— Іван К."
+                text: "\"Досвідчений алерголог та педіатр у Порто. Лікар справді піклується про дітей та знаходить індивідуальний підхід до кожного маленького пацієнта. Дякую за допомогу!\"",
+                author: "— Іван К., батько 3-річної доньки"
             },
             item3: {
-                text: "\"Високий рівень професіоналізму та індивідуальний підхід. Дякую за допомогу!\"",
-                author: "— Марія С."
+                text: "\"Високий рівень професіоналізму педіатра у Порто. Проведені алергологічні тести та надане лікування допомогли нашій дитині. Індивідуальний підхід та турбота про здоров'я дитини.\"",
+                author: "— Марія С., мама 7-річної доньки"
             }
         },
         appointment: {
@@ -122,63 +122,63 @@ const translations = {
             contact: "Contact"
         },
         hero: {
-            title: "Professional Medical Care in Porto",
-            subtitle: "Experienced doctor with years of practice in Portugal",
-            description: "Providing quality medical care with an individual approach to each patient in Porto, Portugal. Book your consultation today.",
+            title: "Professional medical care in Porto",
+            subtitle: "Experienced pediatrician and allergist with private practice in Porto",
+            description: "I am a pediatrician and allergist in Porto, Portugal, working independently. I provide professional medical care for children, allergy diagnosis and treatment in Porto. I specialize in pediatric care and allergy treatment for children in Porto. Book your pediatrician or allergist consultation in Porto today.",
             cta: "Book an Appointment",
             learn: "Learn More",
             feature1: "Years of Experience",
             feature2: "Individual Approach",
-            feature3: "Modern Equipment"
+            feature3: "Portuguese Certification"
         },
         about: {
-            title: "About Us",
-            subtitle: "Your trusted partner in healthcare in Porto",
-            text1: "We offer professional medical services of the highest quality in Porto, Portugal. Our experience and individual approach to each patient ensure the best treatment results.",
-            text2: "Highly qualified specialist uses modern methods of diagnosis and treatment to provide effective medical care to residents and visitors of Porto."
+            title: "About Me",
+            subtitle: "Your trusted pediatrician and allergist in Porto",
+            text1: "I am an experienced pediatrician and allergist working independently in Porto, Portugal. I specialize in pediatric care and allergy treatment for children. My private practice in Porto allows me to provide an individual approach to each young patient and their parents.",
+            text2: "As a pediatrician and allergist in Porto, I use modern methods of allergy diagnosis and treatment, perform allergy testing, and provide comprehensive pediatric care for children in Porto. My goal is to ensure the health and well-being of your children."
         },
         services: {
-            title: "Our Services",
-            subtitle: "Full range of medical services for your family",
+            title: "My Services",
+            subtitle: "Pediatric care and allergy treatment for children in Porto",
             item1: {
-                title: "Consultations",
-                desc: "Professional consultations on various health issues"
+                title: "Pediatric Consultations",
+                desc: "Pediatrician consultations in Porto for children's health, development, and childhood diseases"
             },
             item2: {
-                title: "Diagnostics",
-                desc: "Modern diagnostic methods and examinations"
+                title: "Allergy Diagnostics",
+                desc: "Allergy diagnosis in children in Porto: allergy testing, allergen identification, and diagnosis of allergic diseases"
             },
             item3: {
-                title: "Treatment",
-                desc: "Effective treatment using the most advanced methods"
+                title: "Allergy Treatment",
+                desc: "Treatment of allergic diseases in children: asthma, allergic rhinitis, atopic dermatitis, food allergies"
             },
             item4: {
-                title: "Prevention",
-                desc: "Preventive examinations and recommendations"
+                title: "Preventive Check-ups",
+                desc: "Preventive medical examinations for children, vaccinations, and child development monitoring in Porto"
             },
             item5: {
-                title: "Rehabilitation",
-                desc: "Recovery and rehabilitation programs"
+                title: "Childhood Disease Treatment",
+                desc: "Treatment of acute and chronic diseases in children: infections, respiratory diseases, gastrointestinal disorders"
             },
             item6: {
-                title: "Check-up",
-                desc: "Comprehensive medical examinations and annual check-ups"
+                title: "Pediatric Examination",
+                desc: "Comprehensive pediatric examinations for children, annual health check-ups, and child development consultations in Porto"
             }
         },
         feedbacks: {
             title: "Patient Testimonials",
-            subtitle: "What our patients say",
+            subtitle: "What parents of my young patients say",
             item1: {
-                text: "\"Professional approach and attention to detail. Very satisfied with the service!\"",
-                author: "— Elena M."
+                text: "\"Excellent pediatrician in Porto! Professional approach to children and attention to detail. Helped with allergy treatment for our son. Highly recommend!\"",
+                author: "— Elena M., mother of 5-year-old son"
             },
             item2: {
-                text: "\"Excellent doctor who truly cares about patients. Highly recommend!\"",
-                author: "— Ivan K."
+                text: "\"Experienced allergist and pediatrician in Porto. The doctor truly cares about children and finds an individual approach to each young patient. Thank you for your help!\"",
+                author: "— Ivan K., father of 3-year-old daughter"
             },
             item3: {
-                text: "\"High level of professionalism and individual approach. Thank you for your help!\"",
-                author: "— Maria S."
+                text: "\"High level of professionalism of the pediatrician in Porto. Allergy testing and treatment provided helped our child. Individual approach and care for children's health.\"",
+                author: "— Maria S., mother of 7-year-old daughter"
             }
         },
         appointment: {
@@ -234,63 +234,63 @@ const translations = {
             contact: "Contato"
         },
         hero: {
-            title: "Cuidados Médicos Profissionais no Porto",
-            subtitle: "Médico experiente com anos de prática em Portugal",
-            description: "Fornecendo cuidados médicos de qualidade com uma abordagem individual para cada paciente no Porto, Portugal. Agende sua consulta hoje.",
+            title: "Assistência médica profissional no Porto",
+            subtitle: "Pediatra e alergologista experiente com consultório privado no Porto",
+            description: "Sou pediatra e alergologista no Porto, Portugal, trabalhando de forma independente. Forneço cuidados médicos profissionais para crianças, diagnóstico e tratamento de alergias no Porto. Especializo-me em cuidados pediátricos e tratamento de alergias para crianças no Porto. Agende sua consulta com pediatra ou alergologista no Porto hoje.",
             cta: "Agendar Consulta",
             learn: "Saber Mais",
             feature1: "Anos de Experiência",
             feature2: "Abordagem Individual",
-            feature3: "Equipamento Moderno"
+            feature3: "Certificação Portuguesa"
         },
         about: {
-            title: "Sobre Nós",
-            subtitle: "Seu parceiro confiável em saúde no Porto",
-            text1: "Oferecemos serviços médicos profissionais da mais alta qualidade no Porto, Portugal. Nossa experiência e abordagem individual para cada paciente garantem os melhores resultados de tratamento.",
-            text2: "Especialista altamente qualificado usa métodos modernos de diagnóstico e tratamento para fornecer assistência médica eficaz aos residentes e visitantes do Porto."
+            title: "Sobre Mim",
+            subtitle: "Seu pediatra e alergologista confiável no Porto",
+            text1: "Sou um pediatra e alergologista experiente trabalhando de forma independente no Porto, Portugal. Especializo-me em cuidados pediátricos e tratamento de alergias em crianças. Meu consultório privado no Porto me permite oferecer uma abordagem individual para cada paciente jovem e seus pais.",
+            text2: "Como pediatra e alergologista no Porto, uso métodos modernos de diagnóstico e tratamento de alergias, realizo testes de alergia e forneço cuidados pediátricos abrangentes para crianças no Porto. Meu objetivo é garantir a saúde e o bem-estar de suas crianças."
         },
         services: {
-            title: "Nossos Serviços",
-            subtitle: "Gama completa de serviços médicos para sua família",
+            title: "Meus Serviços",
+            subtitle: "Cuidados pediátricos e tratamento de alergias para crianças no Porto",
             item1: {
-                title: "Consultas",
-                desc: "Consultas profissionais sobre várias questões de saúde"
+                title: "Consultas Pediátricas",
+                desc: "Consultas com pediatra no Porto para saúde infantil, desenvolvimento e doenças da infância"
             },
             item2: {
-                title: "Diagnóstico",
-                desc: "Métodos modernos de diagnóstico e exames"
+                title: "Diagnóstico Alergológico",
+                desc: "Diagnóstico de alergias em crianças no Porto: testes de alergia, identificação de alérgenos e diagnóstico de doenças alérgicas"
             },
             item3: {
-                title: "Tratamento",
-                desc: "Tratamento eficaz usando os métodos mais avançados"
+                title: "Tratamento de Alergias",
+                desc: "Tratamento de doenças alérgicas em crianças: asma, rinite alérgica, dermatite atópica, alergias alimentares"
             },
             item4: {
-                title: "Prevenção",
-                desc: "Exames preventivos e recomendações"
+                title: "Exames Preventivos",
+                desc: "Exames médicos preventivos para crianças, vacinações e monitoramento do desenvolvimento infantil no Porto"
             },
             item5: {
-                title: "Reabilitação",
-                desc: "Programas de recuperação e reabilitação"
+                title: "Tratamento de Doenças Infantis",
+                desc: "Tratamento de doenças agudas e crônicas em crianças: infecções, doenças respiratórias, distúrbios gastrointestinal"
             },
             item6: {
-                title: "Check-up",
-                desc: "Exames médicos completos e check-ups anuais"
+                title: "Exame Pediátrico",
+                desc: "Exames pediátricos abrangentes para crianças, check-ups anuais de saúde e consultas sobre desenvolvimento infantil no Porto"
             }
         },
         feedbacks: {
             title: "Depoimentos de Pacientes",
-            subtitle: "O que nossos pacientes dizem",
+            subtitle: "O que os pais dos meus jovens pacientes dizem",
             item1: {
-                text: "\"Abordagem profissional e atenção aos detalhes. Muito satisfeito com o atendimento!\"",
-                author: "— Elena M."
+                text: "\"Excelente pediatra no Porto! Abordagem profissional com crianças e atenção aos detalhes. Ajudou com o tratamento de alergia do nosso filho. Recomendo!\"",
+                author: "— Elena M., mãe de filho de 5 anos"
             },
             item2: {
-                text: "\"Excelente médico que realmente se importa com os pacientes. Recomendo!\"",
-                author: "— Ivan K."
+                text: "\"Alergologista e pediatra experiente no Porto. O médico realmente se importa com as crianças e encontra uma abordagem individual para cada paciente jovem. Obrigado pela ajuda!\"",
+                author: "— Ivan K., pai de filha de 3 anos"
             },
             item3: {
-                text: "\"Alto nível de profissionalismo e abordagem individual. Obrigado pela ajuda!\"",
-                author: "— Maria S."
+                text: "\"Alto nível de profissionalismo do pediatra no Porto. Testes de alergia e tratamento fornecido ajudaram nossa criança. Abordagem individual e cuidado com a saúde das crianças.\"",
+                author: "— Maria S., mãe de filha de 7 anos"
             }
         },
         appointment: {

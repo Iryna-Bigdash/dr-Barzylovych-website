@@ -46,7 +46,7 @@
     --main-text: #2c3e50;
     --main-accent: #f9e076;
     --accent2: #a47864;
-    --accent3: #86a380;
+    --accent3: #028d96;
     --text-bg: #dde7f6;
     --bg-white: #ffffff;
     --transition: all 0.3s ease;
@@ -92,12 +92,6 @@ h1 {
     font-size: clamp(2rem, 5vw, 3.5rem);
 }
 
-h2 {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-    font-family: 'Roboto', serif;
-    font-weight: 700;
-}
-
 h3 {
     font-size: clamp(1.25rem, 3vw, 1.75rem);
 }
@@ -111,6 +105,10 @@ a {
     text-decoration: none;
     color: inherit;
     transition: var(--transition);
+}
+
+ul {
+    list-style: none;
 }
 
 img {
@@ -302,9 +300,7 @@ img[loading="lazy"].loaded {
 
 /* ===== Hero Section ===== */
 .hero {
-    padding: 120px 0 0px;
     background: linear-gradient(135deg, var(--text-bg) 0%, var(--bg-white) 50%, var(--text-bg) 100%);
-    min-height: 80vh;
     display: flex;
     align-items: center;
     position: relative;
@@ -380,7 +376,7 @@ img[loading="lazy"].loaded {
 .hero-title {
     font-family: 'Alegreya', serif;
     font-weight: 700;
-    color: var(--main-text);
+    color: var(--accent3);
     margin-bottom: 0.5rem;
     font-size: clamp(2.5rem, 5vw, 4rem);
     line-height: 1.1;
@@ -414,34 +410,37 @@ img[loading="lazy"].loaded {
     margin-top: 1rem;
 }
 
-.hero-features {
+.hero-features{
     display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(44, 62, 80, 0.1);
+    flex-direction: row;
+    justify-content: center;
+    gap: 4rem;
 }
 
 .hero-feature {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 0.75rem;
+    gap: 1rem;
     font-size: 1rem;
 }
 
 .hero-feature-icon {
-    width: 24px;
-    height: 24px;
-    background-color: var(--accent3);
-    color: var(--bg-white);
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 700;
-    font-size: 0.875rem;
     flex-shrink: 0;
+    padding: 10px;
+}
+
+.hero-feature-icon svg,
+.hero-feature-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .hero-feature-text {
@@ -463,8 +462,8 @@ img[loading="lazy"].loaded {
 }
 
 .btn-primary {
-    background-color: var(--main-accent);
-    color: var(--main-text);
+    background-color: var(--accent3);
+    color: var(--bg-white);
 }
 
 .btn-primary:hover {
@@ -487,8 +486,12 @@ img[loading="lazy"].loaded {
 }
 
 /* ===== Section Styles ===== */
-section {
-    padding: 80px 0;
+section.features,
+section.about,
+section.services,
+section.feedbacks,
+section.appointment {
+  padding: 80px 0;
 }
 
 .section-header {
@@ -497,10 +500,15 @@ section {
 }
 
 .section-title {
-    color: var(--main-accent);
     margin-bottom: 1rem;
     position: relative;
     display: inline-block;
+
+    font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+    font-family: 'Roboto', serif;
+    font-weight: 700;
+    color: var(--accent3);
+    line-height: 1.1;
 }
 
 .section-title::after {
@@ -589,45 +597,51 @@ section {
 /* ===== Feedbacks Section ===== */
 .feedbacks {
     background-color: var(--text-bg);
-}
-
-.feedbacks-grid {
+  }
+  
+  .feedbacks-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-}
-
-.feedback-card {
+    align-items: stretch; /* 👈 щоб усі картки мали однакову висоту */
+  }
+  
+  .feedback-card {
+    display: flex;
+    flex-direction: column; /* 👈 дозволяє розмістити елементи вертикально */
+    justify-content: space-between; /* 👈 текст зверху, автор знизу */
     background-color: var(--bg-white);
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     transition: var(--transition);
-}
-
-.feedback-card:hover {
+  }
+  
+  .feedback-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-.feedback-stars {
+  }
+  
+  .feedback-stars {
     color: var(--main-accent);
     font-size: 1.25rem;
     margin-bottom: 1rem;
-}
-
-.feedback-text {
+  }
+  
+  .feedback-text {
     font-family: 'EB Garamond', serif;
     font-style: italic;
-    margin-bottom: 1.5rem;
     color: var(--main-text);
-}
-
-.feedback-author {
+    flex-grow: 1; 
+    margin-bottom: 1.5rem;
+  }
+  
+  .feedback-author {
     font-weight: 600;
     color: var(--accent2);
-}
-
+    margin-top: auto; 
+  }
+  
 /* ===== Appointment Section ===== */
 .appointment-steps {
     display: grid;
@@ -886,6 +900,18 @@ section {
         max-width: 400px;
     }
 
+    .hero-features {
+        flex-direction: row;
+        gap: 2rem;
+        justify-content: flex-start;
+    }
+
+    .hero-feature-icon {
+        width: 44px;
+        height: 44px;
+        padding: 10px;
+    }
+
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -955,12 +981,20 @@ section {
     }
 
     .hero-features {
+        flex-direction: column;
         align-items: center;
         width: 100%;
+        gap: 1rem;
     }
 
     .hero-feature {
         justify-content: center;
+    }
+
+    .hero-feature-icon {
+        width: 36px;
+        height: 36px;
+        padding: 6px;
     }
 
     .btn {
