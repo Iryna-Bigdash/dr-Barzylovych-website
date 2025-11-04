@@ -10,6 +10,13 @@ const appointmentForm = document.getElementById('appointmentForm');
 
 // Initialize language on page load
 document.addEventListener('DOMContentLoaded', () => {
+    // Ensure hero title is visible before translation
+    const heroTitle = document.querySelector('.hero-title');
+    if (heroTitle) {
+        heroTitle.style.opacity = '1';
+        heroTitle.style.visibility = 'visible';
+    }
+    
     setLanguage(currentLanguage);
     updateActiveLangButton();
 });

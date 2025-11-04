@@ -1,3 +1,46 @@
+/* ===== Font Face Declarations (З WOFF2 - Must Have!) ===== */
+
+/* РОБОТО */
+@font-face {
+    font-family: 'Roboto';
+    /* Спершу WOFF2 для швидкості, потім WOFF для сумісності */
+    src: url('assets/fonts/Roboto-Regular.woff2') format('woff2'),
+         url('assets/fonts/Roboto-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ALEGREYA REGULAR (для h2-h6) */
+@font-face {
+    font-family: 'Alegreya';
+    src: url('assets/fonts/Alegreya-Regular.woff2') format('woff2'),
+         url('assets/fonts/Alegreya-Regular.woff') format('woff');
+    font-weight: 400; /* Regular */
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ALEGREYA BOLD (для h1) */
+@font-face {
+    font-family: 'Alegreya';
+    src: url('assets/fonts/Alegreya-Bold.woff2') format('woff2'),
+         url('assets/fonts/Alegreya-Bold.woff') format('woff');
+    font-weight: 700; /* Bold */
+    font-style: normal;
+    font-display: swap;
+}
+
+/* EB GARAMOND (для акцентів/цитат) */
+@font-face {
+    font-family: 'EB Garamond'; 
+    src: url('assets/fonts/EBGaramond-Regular.woff2') format('woff2'),
+         url('assets/fonts/EBGaramond-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* ===== CSS Variables ===== */
 :root {
     --main-text: #2c3e50;
@@ -22,9 +65,8 @@ html {
 }
 
 body {
-    /* Optimized font stack for Ukrainian (Cyrillic), English, and Portuguese */
-    /* Segoe UI and Arial have excellent Cyrillic support for Ukrainian */
-    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, Helvetica, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    /* Roboto for main text with fallbacks for Ukrainian (Cyrillic), English, and Portuguese */
+    font-family: 'Roboto', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, Helvetica, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
     color: var(--main-text);
     background-color: var(--bg-white);
     line-height: 1.6;
@@ -35,18 +77,25 @@ body {
 }
 
 /* ===== Typography ===== */
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 700;
+h3, h4, h5, h6 {
+    /* Використовуємо Alegreya Regular (400) */
+    font-family: 'Alegreya', serif; 
+    font-weight: 500; 
     line-height: 1.2;
     color: var(--main-text);
 }
 
 h1 {
+    /* Використовуємо Alegreya Bold (700) */
+    font-family: 'Alegreya', serif;
+    font-weight: 700;
     font-size: clamp(2rem, 5vw, 3.5rem);
 }
 
 h2 {
     font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-family: 'Roboto', serif;
+    font-weight: 700;
 }
 
 h3 {
@@ -314,6 +363,7 @@ img[loading="lazy"].loaded {
     flex-direction: column;
     gap: 1.5rem;
     animation: fadeInRight 0.8s ease-out 0.2s both;
+    opacity: 1; /* Ensure it's visible even if animation fails */
 }
 
 @keyframes fadeInRight {
@@ -328,11 +378,13 @@ img[loading="lazy"].loaded {
 }
 
 .hero-title {
+    font-family: 'Alegreya', serif;
+    font-weight: 700;
     color: var(--main-text);
     margin-bottom: 0.5rem;
     font-size: clamp(2.5rem, 5vw, 4rem);
     line-height: 1.1;
-    font-weight: 800;
+    letter-spacing: -0.02em;
 }
 
 .hero-title span.accent {
@@ -565,6 +617,7 @@ section {
 }
 
 .feedback-text {
+    font-family: 'EB Garamond', serif;
     font-style: italic;
     margin-bottom: 1.5rem;
     color: var(--main-text);

@@ -10,9 +10,9 @@ const translations = {
             contact: "Контакти"
         },
         hero: {
-            title: "Професійна медична допомога",
-            subtitle: "Досвідчений лікар з багаторічною практикою",
-            description: "Надання якісної медичної допомоги з індивідуальним підходом до кожного пацієнта. Записайтеся на консультацію вже сьогодні.",
+            title: "Професійна медична допомога у м. Порто",
+            subtitle: "Досвідчений лікар з багаторічною практикою в Португалії",
+            description: "Надання якісної медичної допомоги з індивідуальним підхідом до кожного пацієнта в м. Порто, Португалія. Записайтеся на консультацію вже сьогодні.",
             cta: "Записатися на прийом",
             learn: "Дізнатися більше",
             feature1: "Багаторічний досвід",
@@ -21,9 +21,9 @@ const translations = {
         },
         about: {
             title: "Про нас",
-            subtitle: "Ваш надійний партнер у забезпеченні здоров'я",
-            text1: "Ми пропонуємо професійні медичні послуги найвищої якості. Наш досвід та індивідуальний підхід до кожного пацієнта забезпечують найкращий результат лікування.",
-            text2: "Команда висококваліфікованих фахівців використовує сучасні методи діагностики та лікування, щоб забезпечити ефективну медичну допомогу."
+            subtitle: "Ваш надійний партнер у забезпеченні здоров'я в Порту",
+            text1: "Ми пропонуємо професійні медичні послуги найвищої якості в м. Порто, Португалія. Наш досвід та індивідуальний підхід до кожного пацієнта забезпечують найкращий результат лікування.",
+            text2: "Висококваліфікований фахівець використовує сучасні методи діагностики та лікування, щоб забезпечити ефективну медичну допомогу жителям та гостям Порту."
         },
         services: {
             title: "Наші послуги",
@@ -95,11 +95,11 @@ const translations = {
         footer: {
             contact: "Контакти",
             phone: "Телефон:",
-            "phone.value": "+380 12 345 67 89",
+            "phone.value": "+351 912 345 678",
             email: "Email:",
-            "email.value": "info@doctor.com",
+            "email.value": "info@doctor-barzylovych.com",
             address: "Адреса:",
-            "address.value": "м. Київ, вул. Прикладна, 1",
+            "address.value": "м. Порто, Португалія",
             hours: "Робочі години",
             "hours.weekday": "Пн-Пт: 09:00 - 18:00",
             "hours.saturday": "Субота: 10:00 - 14:00",
@@ -122,9 +122,9 @@ const translations = {
             contact: "Contact"
         },
         hero: {
-            title: "Professional Medical Care",
-            subtitle: "Experienced doctor with years of practice",
-            description: "Providing quality medical care with an individual approach to each patient. Book your consultation today.",
+            title: "Professional Medical Care in Porto",
+            subtitle: "Experienced doctor with years of practice in Portugal",
+            description: "Providing quality medical care with an individual approach to each patient in Porto, Portugal. Book your consultation today.",
             cta: "Book an Appointment",
             learn: "Learn More",
             feature1: "Years of Experience",
@@ -133,9 +133,9 @@ const translations = {
         },
         about: {
             title: "About Us",
-            subtitle: "Your trusted partner in healthcare",
-            text1: "We offer professional medical services of the highest quality. Our experience and individual approach to each patient ensure the best treatment results.",
-            text2: "A team of highly qualified specialists uses modern methods of diagnosis and treatment to provide effective medical care."
+            subtitle: "Your trusted partner in healthcare in Porto",
+            text1: "We offer professional medical services of the highest quality in Porto, Portugal. Our experience and individual approach to each patient ensure the best treatment results.",
+            text2: "Highly qualified specialist uses modern methods of diagnosis and treatment to provide effective medical care to residents and visitors of Porto."
         },
         services: {
             title: "Our Services",
@@ -207,11 +207,11 @@ const translations = {
         footer: {
             contact: "Contact",
             phone: "Phone:",
-            "phone.value": "+380 12 345 67 89",
+            "phone.value": "+351 912 345 678",
             email: "Email:",
-            "email.value": "info@doctor.com",
+            "email.value": "info@doctor-barzylovych.com",
             address: "Address:",
-            "address.value": "Kyiv, Example Street, 1",
+            "address.value": "Porto, Portugal",
             hours: "Working Hours",
             "hours.weekday": "Mon-Fri: 09:00 - 18:00",
             "hours.saturday": "Saturday: 10:00 - 14:00",
@@ -234,9 +234,9 @@ const translations = {
             contact: "Contato"
         },
         hero: {
-            title: "Cuidados Médicos Profissionais",
-            subtitle: "Médico experiente com anos de prática",
-            description: "Fornecendo cuidados médicos de qualidade com uma abordagem individual para cada paciente. Agende sua consulta hoje.",
+            title: "Cuidados Médicos Profissionais no Porto",
+            subtitle: "Médico experiente com anos de prática em Portugal",
+            description: "Fornecendo cuidados médicos de qualidade com uma abordagem individual para cada paciente no Porto, Portugal. Agende sua consulta hoje.",
             cta: "Agendar Consulta",
             learn: "Saber Mais",
             feature1: "Anos de Experiência",
@@ -245,9 +245,9 @@ const translations = {
         },
         about: {
             title: "Sobre Nós",
-            subtitle: "Seu parceiro confiável em saúde",
-            text1: "Oferecemos serviços médicos profissionais da mais alta qualidade. Nossa experiência e abordagem individual para cada paciente garantem os melhores resultados de tratamento.",
-            text2: "Uma equipe de especialistas altamente qualificados usa métodos modernos de diagnóstico e tratamento para fornecer assistência médica eficaz."
+            subtitle: "Seu parceiro confiável em saúde no Porto",
+            text1: "Oferecemos serviços médicos profissionais da mais alta qualidade no Porto, Portugal. Nossa experiência e abordagem individual para cada paciente garantem os melhores resultados de tratamento.",
+            text2: "Especialista altamente qualificado usa métodos modernos de diagnóstico e tratamento para fornecer assistência médica eficaz aos residentes e visitantes do Porto."
         },
         services: {
             title: "Nossos Serviços",
@@ -319,11 +319,11 @@ const translations = {
         footer: {
             contact: "Contato",
             phone: "Telefone:",
-            "phone.value": "+380 12 345 67 89",
+            "phone.value": "+351 912 345 678",
             email: "Email:",
-            "email.value": "info@doctor.com",
+            "email.value": "info@doctor-barzylovych.com",
             address: "Endereço:",
-            "address.value": "Kyiv, Rua Exemplo, 1",
+            "address.value": "Porto, Portugal",
             hours: "Horário de Funcionamento",
             "hours.weekday": "Seg-Sex: 09:00 - 18:00",
             "hours.saturday": "Sábado: 10:00 - 14:00",
