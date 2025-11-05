@@ -3,7 +3,7 @@ const translations = {
     uk: {
         logo: "Dr. Barzylovych",
         nav: {
-            about: "Про нас",
+            about: "Про мене",
             services: "Послуги",
             feedbacks: "Відгуки",
             appointment: "Запис на прийом",
@@ -67,6 +67,18 @@ const translations = {
             item3: {
                 text: "\"Високий рівень професіоналізму педіатра у Порто. Проведені алергологічні тести та надане лікування допомогли нашій дитині. Індивідуальний підхід та турбота про здоров'я дитини.\"",
                 author: "— Марія С., мама 7-річної доньки"
+            },
+            item4: {
+                text: "\"Дуже вдячна за професійну допомогу! Лікар детально пояснила всі аспекти лікування та дала корисні поради. Наша дитина почувається набагато краще.\"",
+                author: "— Наталія П., мама 4-річного сина"
+            },
+            item5: {
+                text: "\"Чудовий спеціаліст! Відмінно знає свою справу, завжди уважна та терпляча. Рекомендую всім батькам, хто шукає якісну медичну допомогу для дітей.\"",
+                author: "— Андрій В., батько 6-річної доньки"
+            },
+            item6: {
+                text: "\"Професіоналізм на найвищому рівні! Лікар знайшла причину проблеми нашого сина та призначила ефективне лікування. Дуже задоволені результатом!\"",
+                author: "— Тетяна К., мама 8-річного сина"
             }
         },
         appointment: {
@@ -115,7 +127,7 @@ const translations = {
     en: {
         logo: "Dr. Barzylovych",
         nav: {
-            about: "About",
+            about: "About Me",
             services: "Services",
             feedbacks: "Testimonials",
             appointment: "Appointment",
@@ -179,6 +191,18 @@ const translations = {
             item3: {
                 text: "\"High level of professionalism of the pediatrician in Porto. Allergy testing and treatment provided helped our child. Individual approach and care for children's health.\"",
                 author: "— Maria S., mother of 7-year-old daughter"
+            },
+            item4: {
+                text: "\"Very grateful for the professional help! The doctor explained all aspects of treatment in detail and gave useful advice. Our child feels much better.\"",
+                author: "— Natalia P., mother of 4-year-old son"
+            },
+            item5: {
+                text: "\"Excellent specialist! Knows her job very well, always attentive and patient. I recommend to all parents looking for quality medical care for children.\"",
+                author: "— Andrii V., father of 6-year-old daughter"
+            },
+            item6: {
+                text: "\"Professionalism at the highest level! The doctor found the cause of our son's problem and prescribed effective treatment. Very satisfied with the result!\"",
+                author: "— Tetyana K., mother of 8-year-old son"
             }
         },
         appointment: {
@@ -227,7 +251,7 @@ const translations = {
     pt: {
         logo: "Dr. Barzylovych",
         nav: {
-            about: "Sobre",
+            about: "Sobre Mim",
             services: "Serviços",
             feedbacks: "Depoimentos",
             appointment: "Agendamento",
@@ -291,6 +315,18 @@ const translations = {
             item3: {
                 text: "\"Alto nível de profissionalismo do pediatra no Porto. Testes de alergia e tratamento fornecido ajudaram nossa criança. Abordagem individual e cuidado com a saúde das crianças.\"",
                 author: "— Maria S., mãe de filha de 7 anos"
+            },
+            item4: {
+                text: "\"Muito grata pela ajuda profissional! O médico explicou todos os aspectos do tratamento em detalhes e deu conselhos úteis. Nossa criança se sente muito melhor.\"",
+                author: "— Natalia P., mãe de filho de 4 anos"
+            },
+            item5: {
+                text: "\"Excelente especialista! Conhece muito bem seu trabalho, sempre atenta e paciente. Recomendo a todos os pais que procuram cuidados médicos de qualidade para crianças.\"",
+                author: "— Andrii V., pai de filha de 6 anos"
+            },
+            item6: {
+                text: "\"Profissionalismo do mais alto nível! O médico encontrou a causa do problema do nosso filho e prescreveu um tratamento eficaz. Muito satisfeitos com o resultado!\"",
+                author: "— Tetyana K., mãe de filho de 8 anos"
             }
         },
         appointment: {

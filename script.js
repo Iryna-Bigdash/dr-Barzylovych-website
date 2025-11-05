@@ -17,8 +17,16 @@ document.addEventListener('DOMContentLoaded', () => {
         heroTitle.style.visibility = 'visible';
     }
     
+    // Fix language button texts immediately (prevent auto-translation issues)
+    updateActiveLangButton();
+    
     setLanguage(currentLanguage);
     updateActiveLangButton();
+    
+    // Continuously monitor and fix button texts (in case browser auto-translates)
+    setInterval(() => {
+        updateActiveLangButton();
+    }, 1000);
 });
 
 // Create overlay element for mobile menu
@@ -97,7 +105,21 @@ langButtons.forEach(button => {
 // Update active language button
 function updateActiveLangButton() {
     langButtons.forEach(btn => {
-        if (btn.getAttribute('data-lang') === currentLanguage) {
+        const lang = btn.getAttribute('data-lang');
+        // Ensure button text is correct (prevent auto-translation issues)
+        // Force correct text based on language code
+        if (lang === 'uk') {
+            btn.textContent = 'UA';
+            btn.setAttribute('translate', 'no');
+        } else if (lang === 'en') {
+            btn.textContent = 'EN';
+            btn.setAttribute('translate', 'no');
+        } else if (lang === 'pt') {
+            btn.textContent = 'PT';
+            btn.setAttribute('translate', 'no');
+        }
+        
+        if (lang === currentLanguage) {
             btn.classList.add('active');
         } else {
             btn.classList.remove('active');
@@ -114,7 +136,11 @@ function setLanguage(lang) {
         const translation = getTranslation(key, lang);
         
         if (translation) {
-            if (element.tagName === 'INPUT' && element.type === 'submit') {
+            // Ensure logo is always "Dr. Barzylovych" in all languages
+            if (key === 'logo') {
+                element.textContent = 'Dr. Barzylovych';
+                element.setAttribute('translate', 'no');
+            } else if (element.tagName === 'INPUT' && element.type === 'submit') {
                 element.value = translation;
             } else if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                 element.placeholder = translation;
@@ -291,4 +317,66 @@ if (scrollToTopButton) {
         });
     });
 }
+
+// ===== Swiper for Feedbacks Section =====
+function initFeedbacksSwiper() {
+    // Wait for Swiper to be available
+    if (typeof Swiper === 'undefined') {
+        console.error('Swiper is not loaded');
+        setTimeout(initFeedbacksSwiper, 100);
+        return;
+    }
+
+    const swiperElement = document.querySelector('.feedbacks-swiper');
+    if (!swiperElement) {
+        console.error('Swiper element not found');
+        return;
+    }
+
+    const swiper = new Swiper(swiperElement, {
+        loop: true,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: false,
+        },
+        pagination: {
+            el: swiperElement.querySelector('.swiper-pagination'),
+            clickable: true,
+        },
+        effect: 'slide',
+        speed: 800,
+        // Responsive breakpoints
+        breakpoints: {
+            // when window width is >= 640px
+            640: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+            },
+            // when window width is >= 768px
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 30,
+            },
+            // when window width is >= 1024px
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+            },
+        },
+    });
+
+    // Stop autoplay only when clicking on the slider (as per your example)
+    const sliderContainer = document.querySelector('.feedbacks-swiper');
+    if (sliderContainer) {
+        sliderContainer.addEventListener('click', function () {
+            swiper.autoplay.stop();
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    initFeedbacksSwiper();
+});
+
 

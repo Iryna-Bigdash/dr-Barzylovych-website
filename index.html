@@ -48,6 +48,8 @@
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <title>Dr. Barzylovych - Pediatrician and Allergist in Porto, Portugal | Pediatric Care & Allergy Treatment</title>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="styles.css">
     <!-- Preload critical CSS for faster rendering -->
     <link rel="preload" href="styles.css" as="style">
@@ -104,11 +106,11 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <a href="#hero" data-i18n="logo">Dr. Barzylovych</a>
+                    <a href="#hero" data-i18n="logo" translate="no">Dr. Barzylovych</a>
                 </div>
                 <nav class="nav" id="nav">
                     <ul class="nav-list">
-                        <li><a href="#about" class="nav-link" data-i18n="nav.about">Про нас</a></li>
+                        <li><a href="#about" class="nav-link" data-i18n="nav.about">Про мене</a></li>
                         <li><a href="#services" class="nav-link" data-i18n="nav.services">Послуги</a></li>
                         <li><a href="#feedbacks" class="nav-link" data-i18n="nav.feedbacks">Відгуки</a></li>
                         <li><a href="#appointment" class="nav-link" data-i18n="nav.appointment">Запис на прийом</a></li>
@@ -117,9 +119,9 @@
                 </nav>
                 <div class="header-actions">
                     <div class="language-switcher">
-                        <button class="lang-btn active" data-lang="uk" aria-label="Українська">UA</button>
-                        <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
-                        <button class="lang-btn" data-lang="pt" aria-label="Português">PT</button>
+                        <button class="lang-btn active" data-lang="uk" aria-label="Українська" type="button" translate="no">UA</button>
+                        <button class="lang-btn" data-lang="en" aria-label="English" type="button" translate="no">EN</button>
+                        <button class="lang-btn" data-lang="pt" aria-label="Português" type="button" translate="no">PT</button>
                     </div>
                     <button class="burger-menu" id="burgerMenu" aria-label="Menu">
                         <span></span>
@@ -315,44 +317,95 @@
                     </p>
                 </header>
 
-                <ul class="feedbacks-grid">
-                    <li class="feedback-card">
-                        <figure>
-                            <div class="feedback-stars" aria-label="5 зірок">★★★★★</div>
-                            <blockquote class="feedback-text" data-i18n="feedbacks.item1.text">
-                                Професійний підхід та увага до деталей. Дуже задоволений обслуговуванням!
-                            </blockquote>
-                            <figcaption class="feedback-author" data-i18n="feedbacks.item1.author">
-                                — Олена М.
-                            </figcaption>
-                        </figure>
-                    </li>
+                <div class="swiper feedbacks-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="feedback-card">
+                                <figure>
+                                    <div class="feedback-stars" aria-label="5 зірок">★★★★★</div>
+                                    <blockquote class="feedback-text" data-i18n="feedbacks.item1.text">
+                                        Професійний підхід та увага до деталей. Дуже задоволений обслуговуванням!
+                                    </blockquote>
+                                    <figcaption class="feedback-author" data-i18n="feedbacks.item1.author">
+                                        — Олена М.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
 
-                    <li class="feedback-card">
-                        <figure>
-                            <div class="feedback-stars" aria-label="5 зірок">★★★★★</div>
-                            <blockquote class="feedback-text" data-i18n="feedbacks.item2.text">
-                                Чудовий лікар, який справді піклується про пацієнтів. Рекомендую!
-                            </blockquote>
-                            <figcaption class="feedback-author" data-i18n="feedbacks.item2.author">
-                                — Іван К.
-                            </figcaption>
-                        </figure>
-                    </li>
+                        <div class="swiper-slide">
+                            <div class="feedback-card">
+                                <figure>
+                                    <div class="feedback-stars" aria-label="5 зірок">★★★★★</div>
+                                    <blockquote class="feedback-text" data-i18n="feedbacks.item2.text">
+                                        Чудовий лікар, який справді піклується про пацієнтів. Рекомендую!
+                                    </blockquote>
+                                    <figcaption class="feedback-author" data-i18n="feedbacks.item2.author">
+                                        — Іван К.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
 
-                    <li class="feedback-card">
-                        <figure>
-                            <div class="feedback-stars" aria-label="5 зірок">★★★★★</div>
-                            <blockquote class="feedback-text" data-i18n="feedbacks.item3.text">
-                                Високий рівень професіоналізму та індивідуальний підхід. Дякую за допомогу!
-                            </blockquote>
-                            <figcaption class="feedback-author" data-i18n="feedbacks.item3.author">
-                                — Марія С.
-                            </figcaption>
-                        </figure>
-                    </li>
-                </ul>
+                        <div class="swiper-slide">
+                            <div class="feedback-card">
+                                <figure>
+                                    <div class="feedback-stars" aria-label="5 зірок">★★★★★</div>
+                                    <blockquote class="feedback-text" data-i18n="feedbacks.item3.text">
+                                        Високий рівень професіоналізму та індивідуальний підхід. Дякую за допомогу!
+                                    </blockquote>
+                                    <figcaption class="feedback-author" data-i18n="feedbacks.item3.author">
+                                        — Марія С.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
 
+                        <div class="swiper-slide">
+                            <div class="feedback-card">
+                                <figure>
+                                    <div class="feedback-stars" aria-label="5 зірок">★★★★★</div>
+                                    <blockquote class="feedback-text" data-i18n="feedbacks.item4.text">
+                                        Дуже вдячна за професійну допомогу! Лікар детально пояснила всі аспекти лікування.
+                                    </blockquote>
+                                    <figcaption class="feedback-author" data-i18n="feedbacks.item4.author">
+                                        — Наталія П.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="feedback-card">
+                                <figure>
+                                    <div class="feedback-stars" aria-label="5 зірок">★★★★★</div>
+                                    <blockquote class="feedback-text" data-i18n="feedbacks.item5.text">
+                                        Чудовий спеціаліст! Відмінно знає свою справу, завжди уважна та терпляча.
+                                    </blockquote>
+                                    <figcaption class="feedback-author" data-i18n="feedbacks.item5.author">
+                                        — Андрій В.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="feedback-card">
+                                <figure>
+                                    <div class="feedback-stars" aria-label="5 зірок">★★★★★</div>
+                                    <blockquote class="feedback-text" data-i18n="feedbacks.item6.text">
+                                        Професіоналізм на найвищому рівні! Лікар знайшла причину проблеми та призначила ефективне лікування.
+                                    </blockquote>
+                                    <figcaption class="feedback-author" data-i18n="feedbacks.item6.author">
+                                        — Тетяна К.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
             </div>
         </section>
 
@@ -465,6 +518,8 @@
         </svg>
     </button>
 
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="translations.js?v=4"></script>
     <script src="script.js?v=2"></script>
 </body>

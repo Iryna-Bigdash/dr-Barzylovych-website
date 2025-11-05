@@ -589,29 +589,63 @@ section.appointment {
 /* ===== Feedbacks Section ===== */
 .feedbacks {
     background-color: var(--text-bg);
+    padding: 80px 0;
+  }
+
+  .feedbacks-swiper {
+    padding: 2rem 0 4rem;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .feedbacks-swiper .swiper-wrapper {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .feedbacks-swiper .swiper-slide {
+    height: auto;
+    display: flex;
   }
   
   .feedbacks-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    align-items: stretch; /* 👈 щоб усі картки мали однакову висоту */
+    align-items: stretch;
   }
   
   .feedback-card {
     display: flex;
-    flex-direction: column; /* 👈 дозволяє розмістити елементи вертикально */
-    justify-content: space-between; /* 👈 текст зверху, автор знизу */
+    flex-direction: column;
+    justify-content: space-between;
     background-color: var(--bg-white);
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     transition: var(--transition);
+    height: 100%;
+    width: 100%;
   }
   
   .feedback-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Swiper Pagination Customization */
+  .feedbacks-swiper .swiper-pagination-bullet {
+    background-color: var(--accent3);
+    opacity: 0.5;
+    width: 12px;
+    height: 12px;
+    transition: var(--transition);
+  }
+
+  .feedbacks-swiper .swiper-pagination-bullet-active {
+    background-color: var(--accent3);
+    opacity: 1;
+    transform: scale(1.2);
   }
   
   .feedback-stars {
