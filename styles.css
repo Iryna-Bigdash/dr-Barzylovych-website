@@ -531,8 +531,9 @@ section.appointment {
 .about-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 2rem;
     align-items: center;
+    justify-content: space-between;
 }
 
 .about-text p {
@@ -540,12 +541,133 @@ section.appointment {
     font-size: clamp(1rem, 2vw, 1.125rem);
 }
 
+/* ====================================
+   1. БАЗОВІ СТИЛІ (Mobile-First: 0px до 767px)
+      Вертикальний макет: Текст над Картинкою (порядок елементів зберігається)
+   ==================================== */
+
+   .about-content {
+    /* Використовуємо flex, щоб контролювати розташування */
+    display: flex;
+    /* За замовчуванням: Вертикальне розташування (Mobile-First) */
+    flex-direction: column; 
+    /* Картинку та текст вирівнюємо по центру */
+    align-items: center; 
+    gap: 20px;
+    padding: 20px 0;
+}
+
+/* Текстовий блок */
+.about-text {
+    width: 90%;
+    /* Текст має бути зверху (Mobile-First) */
+    order: 1; 
+    text-align: left;
+}
+
+/* Контейнер зображення */
+.about-image {
+    width: 90%; 
+    /* Обмежуємо максимальний розмір картинки на мобільних, щоб не була надто великою */
+    max-width: 320px; 
+    /* Картинка йде після тексту (Mobile-First) */
+    order: 2; 
+}
+
+/* Стиль для самої картинки */
 .about-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+/* ====================================
+   2. ПЛАНШЕТ ТА ДЕСКТОП (min-width: 768px)
+      Перехід на горизонтальний макет: Текст зліва, Картинка справа.
+   ==================================== */
+
+@media (min-width: 768px) {
+    .about-content {
+        /* Змінюємо напрямок на горизонтальний */
+        flex-direction: row; 
+        /* Рівномірно розподіляємо вміст по ширині */
+        justify-content: space-between; 
+        /* Вирівнюємо елементи по верхньому краю */
+        align-items: flex-start; 
+        gap: 40px;
+        padding: 40px 0;
+    }
+
+    /* Текстовий блок (ЗЛІВА) */
+    .about-text {
+        /* Текст займає більшу частину простору */
+        flex-basis: 60%; 
+        width: auto;
+        order: 1; /* Залишається зліва */
+    }
+
+    /* Контейнер зображення (СПРАВА) */
+    .about-image {
+        /* Картинка займає меншу частину простору */
+        flex-basis: 40%; 
+        /* Перезаписуємо max-width для планшетного розміру (350px) */
+        max-width: 350px; 
+        order: 2; /* Залишається справа */
+        /* Це гарантує, що вона не стискатиметься чи розтягуватиметься понад max-width */
+        flex-shrink: 0; 
+    }
+}
+
+/* ====================================
+   3. ВЕЛИКИЙ ДЕСКТОП (min-width: 1200px)
+   ==================================== */
+
+@media (min-width: 1200px) {
+    .about-image {
+        /* Збільшуємо максимальний розмір для десктопного файлу (940x788) */
+        max-width: 450px; /* Або 500px, в залежності від вашого макета */
+    }
+}
+
+/* .about-image img{
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     width: 100%;
     object-fit: cover;
+    margin: 0 auto;
+    text-align: center;
 }
+
+@media (max-width: 399px) {
+    .about-image {
+        max-width: 220px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (min-width: 400px) and (max-width: 767px) {
+    .about-image {
+        max-width: 260px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .about-image {
+        max-width: 350px;
+        flex-shrink: 0;
+    }
+}
+
+@media (min-width: 900px) {
+    .about-image {
+        max-width: 940px;
+        flex-shrink: 0;
+    }
+} */
 
 /* ===== Services Section ===== */
 .services-grid {
@@ -917,7 +1039,7 @@ section.appointment {
 }
 
 /* Tablet specific styles (768px - 1024px) */
-@media screen and (max-width: 1024px) and (min-width: 769px) {
+@media screen and (min-width: 769px) {
     .hero{
         padding: 120px 0 60px;
     }
