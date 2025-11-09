@@ -89,27 +89,53 @@
     />
 
     <!-- Preconnect for performance -->
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
     <title>
       Dr. Barzylovych - Pediatrician and Allergist in Porto, Portugal |
       Pediatric Care & Allergy Treatment
     </title>
 
-    <!-- Swiper CSS -->
+    <!-- Critical CSS inline for immediate rendering -->
+    <style>
+      *{margin:0;padding:0;box-sizing:border-box}
+      html{scroll-behavior:smooth}
+      body{font-family:'Roboto','Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,Helvetica,'Noto Sans',sans-serif;color:#2c3e50;background-color:#ffffff;line-height:1.6;letter-spacing:0.03em;overflow-x:hidden;font-size:16px;display:block!important;visibility:visible!important;opacity:1!important}
+      h1{font-family:'Alegreya',serif;font-weight:700;font-size:clamp(2.5rem,5vw,4rem);display:block!important;visibility:visible!important}
+      h2{font-size:clamp(2rem,4vw,3.5rem);font-family:'Alegreya',serif;font-weight:500;color:#028d96;line-height:1.1;display:block!important;visibility:visible!important}
+      .container{width:100%;max-width:1200px;margin:0 auto;padding:0 1rem;display:block!important}
+      .header{position:fixed;top:0;left:0;right:0;background-color:#ffffff;box-shadow:0 2px 10px rgba(0,0,0,0.1);z-index:1000;display:block!important;visibility:visible!important}
+      .header-content{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;position:relative}
+      .hero{padding:40px 0;display:flex!important;align-items:center;visibility:visible!important}
+      .hero-content{display:grid!important;grid-template-columns:1fr;gap:2rem;align-items:center}
+      .hero-text-wrapper{display:flex!important;flex-direction:column;opacity:1!important;visibility:visible!important}
+      .hero-title{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;color:#2c3e50;margin-bottom:1rem;line-height:1.1;display:block!important;visibility:visible!important;opacity:1!important}
+      .hero-subtitle{font-size:clamp(1.25rem,2.5vw,1.75rem);color:#a47864;margin-bottom:1rem;font-weight:600;display:block!important;visibility:visible!important;opacity:1!important}
+      .hero-description{font-size:clamp(1rem,2vw,1.125rem);margin-bottom:1rem;text-align:center;display:block!important;visibility:visible!important;opacity:1!important}
+      main{display:block!important;visibility:visible!important}
+      section{display:block!important;visibility:visible!important}
+    </style>
+    
+    <!-- Normalize CSS - Load asynchronously -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"></noscript>
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Swiper CSS - Load after critical CSS -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-      media="print" 
-      onload="this.media='all'" 
-    />
-
-  <link 
-      rel="stylesheet" 
-      href="styles.css" 
-      media="print" 
+      media="print"
       onload="this.media='all'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+      />
+    </noscript>
 
     <!-- Preload fonts for better performance -->
     <link
@@ -126,6 +152,7 @@
       type="font/woff2"
       crossorigin="anonymous"
     />
+
     <link
       rel="preload"
       href="assets/fonts/Alegreya-Bold.woff2"
@@ -148,7 +175,7 @@
         "description": "Pediatrician and allergist providing pediatric care and allergy treatment for children in Porto, Portugal",
         "medicalSpecialty": ["Pediatrics", "Allergy and Immunology"],
         "url": "https://www.doctor-barzylovych.com",
-        "telephone": "+351912345678",
+        "telephone": "+380502771244",
         "email": "allergo.online@gmail.com",
         "address": {
           "@type": "PostalAddress",
@@ -162,38 +189,21 @@
           "@type": "GeoCoordinates",
           "latitude": "41.1579",
           "longitude": "-8.6291"
-        },
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-              "Monday",
-              "Tuesday",
-              "Wednesday",
-              "Thursday",
-              "Friday"
-            ],
-            "opens": "09:00",
-            "closes": "18:00"
-          },
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": "Saturday",
-            "opens": "10:00",
-            "closes": "14:00"
-          }
-        ]
+        }
       }
     </script>
   </head>
 
   <body>
+    <!-- Ensure content is visible immediately -->
+    <noscript><div style="padding:20px;text-align:center;background:#fff;color:#000;">JavaScript is disabled. Please enable it to view this site.</div></noscript>
     <!-- Header -->
     <header class="header" id="header">
       <div class="container">
         <div class="header-content">
           <div class="logo">
-            <a href="#hero" data-i18n="logo" translate="no">Dr. Barzylovych</a>
+            <a href="#hero" data-i18n="logo" translate="no">Dra. Vlada Barzylovych</a>
+            <span style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;">Dra. Vlada Barzylovych</span>
           </div>
           <nav class="nav" id="nav">
             <ul class="nav-list">
@@ -203,18 +213,13 @@
                 >
               </li>
               <li>
-                <a href="#services" class="nav-link" data-i18n="nav.services"
-                  >Послуги</a
-                >
-              </li>
-              <li>
-                <a href="#feedbacks" class="nav-link" data-i18n="nav.feedbacks"
-                  >Відгуки</a
+                <a href="molochna-drabyna.html" class="nav-link" data-i18n="nav.services"
+                  >Молочна драбина</a
                 >
               </li>
               <li>
                 <a
-                  href="#appointment"
+                  href="appointment.html"
                   class="nav-link"
                   data-i18n="nav.appointment"
                   >Запис на прийом</a
@@ -270,87 +275,35 @@
       <!-- Hero Section -->
       <section class="hero" id="hero">
         <div class="container">
+        
+          <div style="position:absolute;left:0;top:0;width:1px;height:1px;padding:0;margin:0;border:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">Dra. Vlada Barzylovych - Лікар педіатр, алерголог</div>
           <div class="hero-content">
             <div class="hero-image-wrapper">
               <div class="hero-image-container">
-                <picture>
-                  <!-- Desktop (від 900px) -->
-                  <source
-                    srcset="assets/images/photo-main.webp"
-                    media="(min-width: 900px)"
-                    fetchpriority="high"
-                    type="image/webp"
-                  />
-                  <source
-                    srcset="assets/images/photo-main.png"
-                    media="(min-width: 900px)"
-                    fetchpriority="high"
-                    type="image/png"
-                  />
-
-                  <!-- Tablet (600–899px) -->
-                  <source
-                    srcset="assets/images/hero-380x500-tablet.webp"
-                    media="(min-width: 600px)"
-                    fetchpriority="high"
-                    type="image/webp"
-                  />
-                  <source
-                    srcset="assets/images/hero-380x500-tablet.png"
-                    media="(min-width: 600px)"
-                    fetchpriority="high"
-                    type="image/png"
-                  />
-
-                  <!-- Mobile (до 599px) -->
-                  <source
-                    srcset="assets/images/hero-320x400-mobile.webp"
-                    media="(max-width: 599px)"
-                    fetchpriority="high"
-                    type="image/webp"
-                  />
-                  <source
-                    srcset="assets/images/hero-320x400-mobile.png"
-                    media="(max-width: 599px)"
-                    fetchpriority="high"
-                    type="image/png"
-                  />
-
-                  <!-- Fallback -->
-                  <img
-                    src="assets/images/hero-320x400-mobile.png"
-                    alt="Dr. Barzylovych — Professional Doctor"
-                    fetchpriority="high"
-                    loading="eager"
-                    decoding="async"
-                    width="320"
-                    height="400"
-                  />
-                </picture>
+                <img
+                  src="assets/images/hero/main-processed.jpg"
+                  alt="Dra. Vlada Barzylovych — Professional Doctor"
+                  fetchpriority="high"
+                  loading="eager"
+                  decoding="async"
+                />
               </div>
             </div>
 
-            <div class="hero-text-wrapper">
+            <div class="hero-text-wrapper"> 
               <h1 class="hero-title" data-i18n="hero.title">
-                Професійна медична допомога у м.Порто
-              </h1>
-              <p class="hero-subtitle" data-i18n="hero.subtitle">
-                Досвідчений лікар з багаторічною практикою
-              </p>
-              <p class="hero-description" data-i18n="hero.description">
-                Надання якісної медичної допомоги з індивідуальним підходом до
-                кожного пацієнта. Записайтеся на консультацію вже сьогодні.
-              </p>
-              <div class="hero-button">
-                <a
-                  href="#appointment"
-                  class="btn btn-primary"
-                  data-i18n="hero.cta"
-                  >Записатися на прийом</a
-                >
-              </div>
-            </div>
+                Вадислава Барзилович
+              </h1> 
+              <p class="hero-subtitle hero-subtitle1" data-i18n="hero.subtitle1">
+                Лікар педіатр, алерголог 🇺🇦 </p>
+            <p class="hero-subtitle hero-subtitle2" data-i18n="hero.subtitle2">
+              З листопада 2024 року лікар з правом автономної роботи в Португалії (CÉDULA PROFISSIONAL N° 79747) 🇵🇹
+          </p>
+            </div> 
+
+
           </div>
+          
         </div>
       </section>
 
@@ -358,33 +311,84 @@
         <div class="container">
           <ul class="hero-features">
             <li class="hero-feature">
-              <img
-                src="assets/images/1.png"
-                alt="Багаторічний досвід"
-                class="hero-feature-icon"
-              />
-              <p class="hero-feature-text" data-i18n="hero.feature1">
-                Багаторічний досвід
-              </p>
-            </li>
-            <li class="hero-feature">
-              <img
-                src="assets/images/6.png"
-                alt="Сертифікований лікар в Португалії"
-                class="hero-feature-icon"
-              />
-              <p class="hero-feature-text" data-i18n="hero.feature3">
-                Португальська сертифікація
-              </p>
-            </li>
-            <li class="hero-feature">
-              <img
-                src="assets/images/3.png"
-                alt="Iндивідуальний підхід"
-                class="hero-feature-icon"
-              />
+              <div class="hero-feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                  <path d="M2 17l10 5 10-5"/>
+                  <path d="M2 12l10 5 10-5"/>
+                </svg>
+              </div>
               <p class="hero-feature-text" data-i18n="hero.feature2">
-                індивідуальний підхід
+                Лікар із понад 13 роками медичного стажу (практикує з 2011 року)
+              </p>
+            </li>
+            <li class="hero-feature">
+              <div class="hero-feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2"/>
+                  <line x1="8" y1="21" x2="16" y2="21"/>
+                  <line x1="12" y1="17" x2="12" y2="21"/>
+                  <circle cx="7" cy="8" r="1"/>
+                  <circle cx="17" cy="8" r="1"/>
+                  <line x1="7" y1="12" x2="17" y2="12"/>
+                </svg>
+              </div>
+              <p class="hero-feature-text" data-i18n="hero.feature3">
+                Більше 6 років успішних онлайн-консультацій
+              </p>
+            </li>
+            <li class="hero-feature">
+              <div class="hero-feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="8" y="2" width="8" height="20" rx="2"/>
+                  <line x1="12" y1="6" x2="12" y2="18"/>
+                  <line x1="6" y1="10" x2="18" y2="10"/>
+                  <line x1="6" y1="14" x2="18" y2="14"/>
+                </svg>
+              </div>
+              <p class="hero-feature-text" data-i18n="hero.feature4">
+                Глибокий досвід у протоколах лікування медикаментозної алергії
+              </p>
+            </li>
+            <li class="hero-feature">
+              <div class="hero-feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                  <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                  <line x1="12" y1="19" x2="12" y2="23"/>
+                  <line x1="8" y1="23" x2="16" y2="23"/>
+                </svg>
+              </div>
+              <p class="hero-feature-text" data-i18n="hero.feature5">
+                Спікер на медичних конференціях
+              </p>
+            </li>
+            <li class="hero-feature">
+              <div class="hero-feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                  <line x1="8" y1="7" x2="16" y2="7"/>
+                  <line x1="8" y1="11" x2="16" y2="11"/>
+                  <line x1="8" y1="15" x2="12" y2="15"/>
+                </svg>
+              </div>
+              <p class="hero-feature-text" data-i18n="hero.feature6">
+                Автор <a href="molochna-drabyna.html">Української молочної драбини</a>
+              </p>
+            </li>
+            <li class="hero-feature">
+              <div class="hero-feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <path d="M14 2v6h6"/>
+                  <line x1="10" y1="12" x2="18" y2="12"/>
+                  <line x1="10" y1="16" x2="18" y2="16"/>
+                  <line x1="10" y1="20" x2="18" y2="20"/>
+                </svg>
+              </div>
+              <p class="hero-feature-text" data-i18n="hero.feature7">
+                Автор спеціалізованого блогу <a href="https://www.instagram.com/vladabarz?igsh=MWNrMmduNjk4bXRjag%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">"Здоров'я без кордонів"</a>
               </p>
             </li>
           </ul>
@@ -395,369 +399,46 @@
       <section class="about" id="about">
         <div class="container">
           <div class="section-header">
-            <h2 class="section-title" data-i18n="about.title">Про мене</h2>
-            <p class="section-subtitle" data-i18n="about.subtitle">
-              Ваш надійний партнер у забезпеченні здоров'я
-            </p>
+            <h2 class="section-title is-hidden" data-i18n="about.title">Про мене</h2>
           </div>
           <div class="about-content">
             <div class="about-text">
-              <p data-i18n="about.text1">
-                Ми пропонуємо професійні медичні послуги найвищої якості. Наш
-                досвід та індивідуальний підхід до кожного пацієнта забезпечують
-                найкращий результат лікування.
-              </p>
-              <p data-i18n="about.text2">
-                Команда висококваліфікованих фахівців використовує сучасні
-                методи діагностики та лікування, щоб забезпечити ефективну
-                медичну допомогу.
-              </p>
+              <div data-i18n="about.text2">
+                <h3>Як алерголог:</h3>
+                <ul>
+                  <li>Проводжу діагностику та лікування пацієнтів з атопічним дерматитом, гострою та хронічною кропивянкою, бронхіальною астмою, алергічним ринітом і іншими алергопатологіями</li>
+                  <li>Призначаю АСІТ імунотерапія</li>
+                  <li>Консультую щодо протоколів градуйованого введення продуктів, оральної десенсибілізації</li>
+                </ul>
+
+                <h3>Як педіатр:</h3>
+                <ul>
+                  <li>Допомогаю ростити здорових дітей по всьому світу 🌍</li>
+                  <li>Контролюємо графіки вакцин</li>
+                  <li>Водимо прикорм</li>
+                  <li>Не даємо зайвих ліків</li>
+                </ul>
+
+                <p>Як мама 2-х дітей – не даю порад, які батьки не зможуть виконати ;)</p>
+              </div>
+              <div class="about-cta">
+                <a href="appointment.html" data-i18n="appointment.cta">
+                  Записатися на прийом
+                </a>
+              </div>
             </div>
             <div class="about-image">
-                <picture>
-                    <source 
-                        type="image/webp"
-                        sizes="(min-width: 1440px) 35vw, (min-width: 768px) 50vw, 100vw"
-                        srcset="
-                            assets/images/about/220x270.webp 220w, 
-                            assets/images/about/260x310.webp 260w,
-                            assets/images/about/360x360.webp 360w,
-                            assets/images/about/480x480.webp 480w,
-                            assets/images/about/600x600.webp 600w,
-                            assets/images/about/640x640.webp 640w,
-                            assets/images/about/720x720.webp 720w,
-                            assets/images/about/840x840.webp 840w 
-                        "
-                    />
-                
-                    <source 
-                        type="image/jpeg"
-                        sizes="(min-width: 1440px) 35vw, (min-width: 768px) 50vw, 100vw"
-                        srcset="
-                            assets/images/about/220x270.jpg 220w,
-                            assets/images/about/260x310.jpg 260w,
-                            assets/images/about/360x360.jpg 360w,
-                            assets/images/about/480x480.jpg 480w,
-                            assets/images/about/600x600.jpg 600w,
-                            assets/images/about/640x640.jpg 640w,
-                            assets/images/about/720x720.jpg 720w,
-                            assets/images/about/840x840.jpg 840w
-                        "
-                    />
-                
-                    <img
-                        src="assets/images/about/260x310.jpg"
-                        alt="Педіатр проводить огляд дитини"
-                        loading="lazy"
-                        decoding="async"
-                        width="260"
-                        height="310"
-                    />
-                </picture>
-            </div>
+                <img
+                  src="assets/images/about/about.jpg"
+                  alt="Dra. Vlada Barzylovych — Pediatrician and Allergist"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
           </div>
         </div>
       </section>
 
-      <!-- Services Section -->
-      <section class="services" id="services">
-        <div class="container">
-          <div class="section-header">
-            <h2 class="section-title" data-i18n="services.title">
-              Наші послуги
-            </h2>
-            <p class="section-subtitle" data-i18n="services.subtitle">
-              Повний спектр медичних послуг для вашої родини
-            </p>
-          </div>
-          <div class="services-grid">
-            <div class="service-card">
-              <div class="service-icon">🏥</div>
-              <h3 class="service-title" data-i18n="services.item1.title">
-                Консультації
-              </h3>
-              <p class="service-description" data-i18n="services.item1.desc">
-                Професійні консультації з різних питань здоров'я
-              </p>
-            </div>
-            <div class="service-card">
-              <div class="service-icon">🩺</div>
-              <h3 class="service-title" data-i18n="services.item2.title">
-                Діагностика
-              </h3>
-              <p class="service-description" data-i18n="services.item2.desc">
-                Сучасні методи діагностики та обстеження
-              </p>
-            </div>
-            <div class="service-card">
-              <div class="service-icon">💊</div>
-              <h3 class="service-title" data-i18n="services.item3.title">
-                Лікування
-              </h3>
-              <p class="service-description" data-i18n="services.item3.desc">
-                Ефективне лікування з використанням найсучасніших методів
-              </p>
-            </div>
-            <div class="service-card">
-              <div class="service-icon">🩹</div>
-              <h3 class="service-title" data-i18n="services.item4.title">
-                Профілактика
-              </h3>
-              <p class="service-description" data-i18n="services.item4.desc">
-                Профілактичні обстеження та рекомендації
-              </p>
-            </div>
-            <div class="service-card">
-              <div class="service-icon">🏃</div>
-              <h3 class="service-title" data-i18n="services.item5.title">
-                Реабілітація
-              </h3>
-              <p class="service-description" data-i18n="services.item5.desc">
-                Програми відновлення та реабілітації
-              </p>
-            </div>
-            <div class="service-card">
-              <div class="service-icon">📋</div>
-              <h3 class="service-title" data-i18n="services.item6.title">
-                Огляд
-              </h3>
-              <p class="service-description" data-i18n="services.item6.desc">
-                Комплексні медичні огляди та щорічні перевірки
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Feedbacks Section -->
-      <section
-        id="feedbacks"
-        class="feedbacks"
-        aria-labelledby="feedbacks-title"
-      >
-        <div class="container">
-          <header class="section-header">
-            <h2
-              id="feedbacks-title"
-              class="section-title"
-              data-i18n="feedbacks.title"
-            >
-              Відгуки пацієнтів
-            </h2>
-            <p class="section-subtitle" data-i18n="feedbacks.subtitle">
-              Що кажуть наші пацієнти
-            </p>
-          </header>
-
-          <div class="swiper feedbacks-swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="feedback-card">
-                  <figure>
-                    <div class="feedback-stars" aria-label="5 зірок">★★★★★</div>
-                    <blockquote
-                      class="feedback-text"
-                      data-i18n="feedbacks.item1.text"
-                    >
-                      Професійний підхід та увага до деталей. Дуже задоволений
-                      обслуговуванням!
-                    </blockquote>
-                    <figcaption
-                      class="feedback-author"
-                      data-i18n="feedbacks.item1.author"
-                    >
-                      — Олена М.
-                    </figcaption>
-                  </figure>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="feedback-card">
-                  <figure>
-                    <div class="feedback-stars" aria-label="5 зірок">★★★★★</div>
-                    <blockquote
-                      class="feedback-text"
-                      data-i18n="feedbacks.item2.text"
-                    >
-                      Чудовий лікар, який справді піклується про пацієнтів.
-                      Рекомендую!
-                    </blockquote>
-                    <figcaption
-                      class="feedback-author"
-                      data-i18n="feedbacks.item2.author"
-                    >
-                      — Іван К.
-                    </figcaption>
-                  </figure>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="feedback-card">
-                  <figure>
-                    <div class="feedback-stars" aria-label="5 зірок">★★★★★</div>
-                    <blockquote
-                      class="feedback-text"
-                      data-i18n="feedbacks.item3.text"
-                    >
-                      Високий рівень професіоналізму та індивідуальний підхід.
-                      Дякую за допомогу!
-                    </blockquote>
-                    <figcaption
-                      class="feedback-author"
-                      data-i18n="feedbacks.item3.author"
-                    >
-                      — Марія С.
-                    </figcaption>
-                  </figure>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="feedback-card">
-                  <figure>
-                    <div class="feedback-stars" aria-label="5 зірок">★★★★★</div>
-                    <blockquote
-                      class="feedback-text"
-                      data-i18n="feedbacks.item4.text"
-                    >
-                      Дуже вдячна за професійну допомогу! Лікар детально
-                      пояснила всі аспекти лікування.
-                    </blockquote>
-                    <figcaption
-                      class="feedback-author"
-                      data-i18n="feedbacks.item4.author"
-                    >
-                      — Наталія П.
-                    </figcaption>
-                  </figure>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="feedback-card">
-                  <figure>
-                    <div class="feedback-stars" aria-label="5 зірок">★★★★★</div>
-                    <blockquote
-                      class="feedback-text"
-                      data-i18n="feedbacks.item5.text"
-                    >
-                      Чудовий спеціаліст! Відмінно знає свою справу, завжди
-                      уважна та терпляча.
-                    </blockquote>
-                    <figcaption
-                      class="feedback-author"
-                      data-i18n="feedbacks.item5.author"
-                    >
-                      — Андрій В.
-                    </figcaption>
-                  </figure>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="feedback-card">
-                  <figure>
-                    <div class="feedback-stars" aria-label="5 зірок">★★★★★</div>
-                    <blockquote
-                      class="feedback-text"
-                      data-i18n="feedbacks.item6.text"
-                    >
-                      Професіоналізм на найвищому рівні! Лікар знайшла причину
-                      проблеми та призначила ефективне лікування.
-                    </blockquote>
-                    <figcaption
-                      class="feedback-author"
-                      data-i18n="feedbacks.item6.author"
-                    >
-                      — Тетяна К.
-                    </figcaption>
-                  </figure>
-                </div>
-              </div>
-            </div>
-            <!-- Pagination -->
-            <div class="swiper-pagination"></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- How to Appointment Section -->
-      <section class="appointment" id="appointment">
-        <div class="container">
-          <div class="section-header">
-            <h2 class="section-title" data-i18n="appointment.title">
-              Як записатися на прийом
-            </h2>
-            <p class="section-subtitle" data-i18n="appointment.subtitle">
-              Простий процес запису на консультацію
-            </p>
-          </div>
-          <div class="appointment-steps">
-            <div class="step-card">
-              <div class="step-number">1</div>
-              <h3 class="step-title" data-i18n="appointment.step1.title">
-                Оберіть спосіб
-              </h3>
-              <p class="step-description" data-i18n="appointment.step1.desc">
-                Зателефонуйте або заповніть форму онлайн
-              </p>
-            </div>
-            <div class="step-card">
-              <div class="step-number">2</div>
-              <h3 class="step-title" data-i18n="appointment.step2.title">
-                Оберіть дату
-              </h3>
-              <p class="step-description" data-i18n="appointment.step2.desc">
-                Виберіть зручний для вас час та дату
-              </p>
-            </div>
-            <div class="step-card">
-              <div class="step-number">3</div>
-              <h3 class="step-title" data-i18n="appointment.step3.title">
-                Підтвердіть
-              </h3>
-              <p class="step-description" data-i18n="appointment.step3.desc">
-                Отримайте підтвердження та приходьте на прийом
-              </p>
-            </div>
-          </div>
-          <div class="appointment-form-wrapper">
-            <form class="appointment-form" id="appointmentForm">
-              <div class="form-group">
-                <label for="name" data-i18n="appointment.form.name">Ім'я</label>
-                <input type="text" id="name" name="name" required />
-              </div>
-              <div class="form-group">
-                <label for="phone" data-i18n="appointment.form.phone"
-                  >Телефон</label
-                >
-                <input type="tel" id="phone" name="phone" required />
-              </div>
-              <div class="form-group">
-                <label for="date" data-i18n="appointment.form.date"
-                  >Бажана дата</label
-                >
-                <input type="date" id="date" name="date" required />
-              </div>
-              <div class="form-group">
-                <label for="message" data-i18n="appointment.form.message"
-                  >Повідомлення</label
-                >
-                <textarea id="message" name="message" rows="4"></textarea>
-              </div>
-              <button
-                type="submit"
-                class="btn btn-primary"
-                data-i18n="appointment.form.submit"
-              >
-                Відправити запит
-              </button>
-            </form>
-          </div>
-        </div>
-      </section>
     </main>
 
     <!-- Footer -->
@@ -769,30 +450,16 @@
             <div class="footer-contact">
               <p>
                 <strong data-i18n="footer.phone">Телефон:</strong>
-                <a href="tel:+380123456789" data-i18n="footer.phone.value"
-                  >+380 12 345 67 89</a
+                <a href="tel:+380502771244" data-i18n="footer.phone.value"
+                  >+38 (050) 277 12 44</a
                 >
               </p>
               <p>
                 <strong data-i18n="footer.email">Email:</strong>
-                <a href="mailto:info@doctor.com" data-i18n="footer.email.value"
-                  >info@doctor.com</a
+                <a href="mailto:allergo.online@gmail.com" data-i18n="footer.email.value"
+                  >allergo.online@gmail.com</a
                 >
               </p>
-              <p>
-                <strong data-i18n="footer.address">Адреса:</strong>
-                <span data-i18n="footer.address.value"
-                  >м. Київ, вул. Прикладна, 1</span
-                >
-              </p>
-            </div>
-          </div>
-          <div class="footer-column">
-            <h3 class="footer-title" data-i18n="footer.hours">Робочі години</h3>
-            <div class="footer-hours">
-              <p data-i18n="footer.hours.weekday">Пн-Пт: 09:00 - 18:00</p>
-              <p data-i18n="footer.hours.saturday">Субота: 10:00 - 14:00</p>
-              <p data-i18n="footer.hours.sunday">Неділя: Вихідний</p>
             </div>
           </div>
           <div class="footer-column">
@@ -801,12 +468,12 @@
             </h3>
             <ul class="footer-links">
               <li>
-                <a href="#" data-i18n="footer.privacy"
+                <a href="privacy-policy.html" data-i18n="footer.privacy"
                   >Політика конфіденційності</a
                 >
               </li>
               <li>
-                <a href="#" data-i18n="footer.terms">Умови використання</a>
+                <a href="terms-of-use.html" data-i18n="footer.terms">Умови використання</a>
               </li>
               <li><a href="#" data-i18n="footer.license">Ліцензія</a></li>
             </ul>
@@ -820,13 +487,12 @@
               <a href="#" class="social-link" aria-label="Instagram"
                 >Instagram</a
               >
-              <a href="#" class="social-link" aria-label="LinkedIn">LinkedIn</a>
             </div>
           </div>
         </div>
         <div class="footer-bottom">
           <p class="footer-copyright" data-i18n="footer.copyright">
-            © 2025 Dr. Barzylovych. Всі права захищені.
+            © 2025 Dra. Vlada Barzylovych. Всі права захищені.
           </p>
         </div>
       </div>
@@ -849,9 +515,11 @@
       </svg>
     </button>
 
-    <!-- Swiper JS -->
+    <!-- JavaScript - Load asynchronously to avoid blocking critical path -->
+    <!-- translations.js must load before script.js, so we use defer to maintain order -->
+    <script src="translations.js?v=4" defer></script>
+    <script src="script.js?v=7" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
-    <script src="translations.js?v=4" ></script>
-    <script src="script.js?v=2"></script>
   </body>
 </html>
+

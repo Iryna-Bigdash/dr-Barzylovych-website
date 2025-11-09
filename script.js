@@ -1,41 +1,69 @@
-// Language Management
-let currentLanguage = localStorage.getItem('language') || 'uk';
+let currentLanguage = 'uk';
+try {
+    if (typeof localStorage !== 'undefined') {
+        currentLanguage = localStorage.getItem('language') || 'uk';
+    }
+} catch (e) {
+    // localStorage not available, use default
+    currentLanguage = 'uk';
+}
 
-// DOM Elements
-const burgerMenu = document.getElementById('burgerMenu');
-const nav = document.getElementById('nav');
-const langButtons = document.querySelectorAll('.lang-btn');
-const elementsWithI18n = document.querySelectorAll('[data-i18n]');
-const appointmentForm = document.getElementById('appointmentForm');
+let burgerMenu;
+let nav;
+let langButtons;
+let elementsWithI18n;
+let appointmentForm;
 
-// Initialize language on page load
-document.addEventListener('DOMContentLoaded', () => {
-    // Ensure hero title is visible before translation
+function initializeApp() {
+    // Initialize DOM elements
+    burgerMenu = document.getElementById('burgerMenu');
+    nav = document.getElementById('nav');
+    langButtons = document.querySelectorAll('.lang-btn');
+    appointmentForm = document.getElementById('appointmentForm');
+    elementsWithI18n = document.querySelectorAll('[data-i18n]');
+    
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
         heroTitle.style.opacity = '1';
         heroTitle.style.visibility = 'visible';
     }
     
-    // Fix language button texts immediately (prevent auto-translation issues)
     updateActiveLangButton();
     
     setLanguage(currentLanguage);
     updateActiveLangButton();
     
-    // Continuously monitor and fix button texts (in case browser auto-translates)
     setInterval(() => {
         updateActiveLangButton();
     }, 1000);
-});
+}
 
-// Create overlay element for mobile menu
-const navOverlay = document.createElement('div');
-navOverlay.className = 'nav-overlay';
-document.body.appendChild(navOverlay);
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeApp);
+} else {
+    initializeApp();
+}
 
-// Burger Menu Toggle
-if (burgerMenu) {
+function createNavOverlay() {
+    const navOverlay = document.createElement('div');
+    navOverlay.className = 'nav-overlay';
+    if (document.body) {
+        document.body.appendChild(navOverlay);
+        return navOverlay;
+    }
+    return null;
+}
+
+let navOverlay;
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        navOverlay = createNavOverlay();
+    });
+} else {
+    navOverlay = createNavOverlay();
+}
+
+if (burgerMenu && nav && navOverlay) {
     burgerMenu.addEventListener('click', (e) => {
         e.stopPropagation();
         const isActive = burgerMenu.classList.toggle('active');
@@ -43,7 +71,6 @@ if (burgerMenu) {
         navOverlay.classList.toggle('active', isActive);
         document.body.style.overflow = isActive ? 'hidden' : '';
         
-        // Prevent body scroll when menu is open
         if (isActive) {
             document.body.style.position = 'fixed';
             document.body.style.width = '100%';
@@ -52,62 +79,75 @@ if (burgerMenu) {
             document.body.style.width = '';
         }
     });
+
+    navOverlay.addEventListener('click', () => {
+        burgerMenu.classList.remove('active');
+        nav.classList.remove('active');
+        navOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.width = '';
+    });
 }
 
-// Close menu when clicking overlay
-navOverlay.addEventListener('click', () => {
-    burgerMenu.classList.remove('active');
-    nav.classList.remove('active');
-    navOverlay.classList.remove('active');
-    document.body.style.overflow = '';
-    document.body.style.position = '';
-    document.body.style.width = '';
-});
-
-// Close mobile menu when clicking on a link
-const navLinks = document.querySelectorAll('.nav-link');
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        burgerMenu.classList.remove('active');
-        nav.classList.remove('active');
-        navOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-        document.body.style.position = '';
-        document.body.style.width = '';
+function setupNavLinks() {
+    if (!burgerMenu || !nav || !navOverlay) return;
+    
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            burgerMenu.classList.remove('active');
+            nav.classList.remove('active');
+            navOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+        });
     });
-});
 
-// Close menu on Escape key
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && nav.classList.contains('active')) {
-        burgerMenu.classList.remove('active');
-        nav.classList.remove('active');
-        navOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-        document.body.style.position = '';
-        document.body.style.width = '';
-    }
-});
-
-// Language Switcher
-langButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const lang = button.getAttribute('data-lang');
-        setLanguage(lang);
-        updateActiveLangButton();
-        localStorage.setItem('language', lang);
-        
-        // Update HTML lang attribute
-        document.documentElement.lang = lang;
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && nav && nav.classList.contains('active')) {
+            burgerMenu.classList.remove('active');
+            nav.classList.remove('active');
+            navOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+        }
     });
-});
+}
 
-// Update active language button
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupNavLinks);
+} else {
+    setupNavLinks();
+}
+
+function setupLangButtons() {
+    if (!langButtons || langButtons.length === 0) return;
+    
+    langButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const lang = button.getAttribute('data-lang');
+            setLanguage(lang);
+            updateActiveLangButton();
+            localStorage.setItem('language', lang);
+            
+            document.documentElement.lang = lang;
+        });
+    });
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupLangButtons);
+} else {
+    setupLangButtons();
+}
+
 function updateActiveLangButton() {
+    if (!langButtons || langButtons.length === 0) return;
     langButtons.forEach(btn => {
         const lang = btn.getAttribute('data-lang');
-        // Ensure button text is correct (prevent auto-translation issues)
-        // Force correct text based on language code
         if (lang === 'uk') {
             btn.textContent = 'UA';
             btn.setAttribute('translate', 'no');
@@ -127,7 +167,6 @@ function updateActiveLangButton() {
     });
 }
 
-// Set language function
 function setLanguage(lang) {
     currentLanguage = lang;
     
@@ -136,25 +175,113 @@ function setLanguage(lang) {
         const translation = getTranslation(key, lang);
         
         if (translation) {
-            // Ensure logo is always "Dr. Barzylovych" in all languages
             if (key === 'logo') {
-                element.textContent = 'Dr. Barzylovych';
+                element.textContent = translation;
                 element.setAttribute('translate', 'no');
             } else if (element.tagName === 'INPUT' && element.type === 'submit') {
                 element.value = translation;
             } else if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                element.placeholder = translation;
+                // Handle floating label inputs
+                if (element.hasAttribute('data-i18n-label')) {
+                    const labelKey = element.getAttribute('data-i18n-label');
+                    const labelTranslation = getTranslation(labelKey, lang);
+                    if (labelTranslation) {
+                        element.setAttribute('aria-label', labelTranslation);
+                        // Update the associated label text (form-label class)
+                        const label = document.querySelector(`label.form-label[for="${element.id}"]`);
+                        if (label) {
+                            label.textContent = labelTranslation;
+                        }
+                    }
+                    // Handle placeholder for floating label inputs
+                    if (element.hasAttribute('data-i18n-placeholder')) {
+                        const placeholderKey = element.getAttribute('data-i18n-placeholder');
+                        const placeholderTranslation = getTranslation(placeholderKey, lang);
+                        if (placeholderTranslation) {
+                            element.setAttribute('placeholder', placeholderTranslation);
+                        }
+                    }
+                } else {
+                    element.placeholder = translation;
+                }
             } else {
-                element.textContent = translation;
+                const flagIconWrapper = element.querySelector('.flag-icon-wrapper');
+                const ptFlagWrapper = element.querySelector('.pt-flag-wrapper');
+                const flagIcons = element.querySelectorAll('.flag-icon');
+                const isHeroTitle = element.classList.contains('hero-title');
+                const isHeroSubtitle = element.classList.contains('hero-subtitle');
+                
+                // Check hero-title first, before checking for existing flag wrappers
+                if (isHeroTitle) {
+                    // Check if translation contains HTML tags
+                    if (translation.includes('<') && (translation.includes('</') || translation.includes('/>'))) {
+                        // Translation contains HTML, use innerHTML directly
+                        element.innerHTML = translation;
+                        // SVG flags are now optimized (simple SVG, not embedded images)
+                        const svgImgs = element.querySelectorAll('img[src*="flag-simple.svg"]');
+                        svgImgs.forEach(img => {
+                            img.setAttribute('loading', 'eager');
+                        });
+                    } else {
+                        // No HTML in translation, add flag wrapper
+                        element.innerHTML = translation + ' <span class="flag-icon-wrapper"></span>';
+                    }
+                } else if (isHeroSubtitle) {
+                    element.innerHTML = translation;
+                    // SVG flags are now optimized (simple SVG, not embedded images)
+                    const svgImgs = element.querySelectorAll('img[src*="flag-simple.svg"]');
+                    svgImgs.forEach(img => {
+                        img.setAttribute('loading', 'eager');
+                    });
+                } else if (flagIconWrapper) {
+                    const clonedWrapper = flagIconWrapper.cloneNode(true);
+                    const textNode = document.createTextNode(translation + ' ');
+                    element.innerHTML = '';
+                    element.appendChild(textNode);
+                    element.appendChild(clonedWrapper);
+                } else if (ptFlagWrapper) {
+                    const clonedWrapper = ptFlagWrapper.cloneNode(true);
+                    const textNode = document.createTextNode(translation + ' ');
+                    element.innerHTML = '';
+                    element.appendChild(textNode);
+                    element.appendChild(clonedWrapper);
+                } else if (flagIcons.length > 0) {
+                    const textNode = document.createTextNode(translation + ' ');
+                    element.innerHTML = '';
+                    element.appendChild(textNode);
+                    flagIcons.forEach(flag => element.appendChild(flag));
+                } else {
+                    // Check if element is policy-text (contains HTML content)
+                    const isPolicyText = element.classList.contains('policy-text');
+                    
+                    // Check if translation contains HTML tags
+                    if (isPolicyText || (translation.includes('<') && (translation.includes('</') || translation.includes('/>')))) {
+                        element.innerHTML = translation;
+                        // SVG flags are now optimized (simple SVG, not embedded images)
+                        const svgImgs = element.querySelectorAll('img[src*="flag-simple.svg"]');
+                        svgImgs.forEach(img => {
+                            img.setAttribute('loading', 'eager');
+                        });
+                    } else {
+                        element.textContent = translation;
+                    }
+                }
             }
         }
     });
     
-    // Update HTML lang attribute
+    // Update success message text if it exists
+    const successMessageText = document.querySelector('#successMessage .success-text');
+    if (successMessageText) {
+        const successTranslation = getTranslation('appointment.form.success', lang);
+        if (successTranslation) {
+            successMessageText.textContent = successTranslation;
+        }
+    }
+    
     document.documentElement.lang = lang;
 }
 
-// Get translation by key path
 function getTranslation(key, lang) {
     const keys = key.split('.');
     let value = translations[lang];
@@ -170,7 +297,6 @@ function getTranslation(key, lang) {
     return value;
 }
 
-// Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
@@ -191,7 +317,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Header scroll effect
 let lastScroll = 0;
 const header = document.getElementById('header');
 
@@ -207,29 +332,207 @@ window.addEventListener('scroll', () => {
     lastScroll = currentScroll;
 });
 
-// Form submission handler
+// Form validation
+function validateEmail(email) {
+    // More strict email validation: must contain @ and valid domain
+    // Format: local-part@domain.tld
+    // Domain must have at least one dot and valid TLD (2+ characters)
+    const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$/;
+    
+    // Basic check: must contain @
+    if (!email.includes('@')) {
+        return false;
+    }
+    
+    // Split email into local and domain parts
+    const parts = email.split('@');
+    if (parts.length !== 2) {
+        return false; // Must have exactly one @
+    }
+    
+    const [localPart, domain] = parts;
+    
+    // Check local part (before @)
+    if (!localPart || localPart.length === 0 || localPart.length > 64) {
+        return false;
+    }
+    
+    // Check domain (after @)
+    if (!domain || domain.length === 0) {
+        return false;
+    }
+    
+    // Domain must contain at least one dot
+    if (!domain.includes('.')) {
+        return false;
+    }
+    
+    // Domain must have valid TLD (at least 2 characters after last dot)
+    const domainParts = domain.split('.');
+    const tld = domainParts[domainParts.length - 1];
+    if (!tld || tld.length < 2) {
+        return false;
+    }
+    
+    // Use regex for final validation
+    return emailRegex.test(email);
+}
+
+function validatePhone(phone) {
+    // Remove all non-digit characters for validation
+    const digitsOnly = phone.replace(/\D/g, '');
+    // Ukrainian phone numbers: 10 digits (0501234567) or 12 digits with country code
+    return digitsOnly.length >= 10 && digitsOnly.length <= 12;
+}
+
+function showError(fieldId, message) {
+    const errorElement = document.getElementById(`${fieldId}-error`);
+    const inputElement = document.getElementById(fieldId);
+    if (errorElement && inputElement) {
+        errorElement.textContent = message;
+        inputElement.classList.add('invalid');
+    }
+}
+
+function clearError(fieldId) {
+    const errorElement = document.getElementById(`${fieldId}-error`);
+    const inputElement = document.getElementById(fieldId);
+    if (errorElement && inputElement) {
+        errorElement.textContent = '';
+        inputElement.classList.remove('invalid');
+    }
+}
+
+function checkFieldValidity(fieldId, value, validator, requiredMessage, invalidMessage) {
+    if (!value || !value.trim()) {
+        return { isValid: false, message: requiredMessage };
+    }
+    if (validator && !validator(value)) {
+        return { isValid: false, message: invalidMessage };
+    }
+    return { isValid: true };
+}
+
+function validateForm(showErrors = false) {
+    const fullname = document.getElementById('fullname');
+    const phone = document.getElementById('phone');
+    const email = document.getElementById('email');
+    const terms = document.getElementById('terms');
+    
+    let isValid = true;
+    
+    // Validate fullname
+    const fullnameCheck = checkFieldValidity(
+        'fullname',
+        fullname?.value,
+        null,
+        currentLanguage === 'uk' ? 'Поле ПІБ обов\'язкове для заповнення' :
+        currentLanguage === 'en' ? 'Full name is required' :
+        'Nome completo é obrigatório',
+        ''
+    );
+    if (!fullnameCheck.isValid) {
+        if (showErrors) {
+            showError('fullname', fullnameCheck.message);
+        }
+        isValid = false;
+    } else if (showErrors) {
+        clearError('fullname');
+    }
+    
+    // Validate phone
+    const phoneCheck = checkFieldValidity(
+        'phone',
+        phone?.value,
+        validatePhone,
+        currentLanguage === 'uk' ? 'Поле телефону обов\'язкове для заповнення' :
+        currentLanguage === 'en' ? 'Phone number is required' :
+        'Número de telefone é obrigatório',
+        currentLanguage === 'uk' ? 'Введіть коректний номер телефону' :
+        currentLanguage === 'en' ? 'Please enter a valid phone number' :
+        'Por favor, insira um número de telefone válido'
+    );
+    if (!phoneCheck.isValid) {
+        if (showErrors) {
+            showError('phone', phoneCheck.message);
+        }
+        isValid = false;
+    } else if (showErrors) {
+        clearError('phone');
+    }
+    
+    // Validate email
+    const emailCheck = checkFieldValidity(
+        'email',
+        email?.value,
+        validateEmail,
+        currentLanguage === 'uk' ? 'Поле email обов\'язкове для заповнення' :
+        currentLanguage === 'en' ? 'Email is required' :
+        'Email é obrigatório',
+        currentLanguage === 'uk' ? 'Введіть коректну email адресу' :
+        currentLanguage === 'en' ? 'Please enter a valid email address' :
+        'Por favor, insira um endereço de email válido'
+    );
+    if (!emailCheck.isValid) {
+        if (showErrors) {
+            showError('email', emailCheck.message);
+        }
+        isValid = false;
+    } else if (showErrors) {
+        clearError('email');
+    }
+    
+    // Validate terms
+    if (!terms || !terms.checked) {
+        if (showErrors) {
+            // Show error for terms if needed
+        }
+        isValid = false;
+    }
+    
+    return isValid;
+}
+
 if (appointmentForm) {
     appointmentForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        // Get form data
+        // Clear all previous errors
+        clearError('fullname');
+        clearError('phone');
+        clearError('email');
+        
+        // Validate form and show errors if validation fails
+        if (!validateForm(true)) {
+            // Errors are shown by validateForm function
+            return;
+        }
+        
+        // If validation passed, submit the form
         const formData = new FormData(appointmentForm);
-        const data = Object.fromEntries(formData);
+        Object.fromEntries(formData);
         
-        // Here you would typically send the data to a server
-        console.log('Form submitted:', data);
+        // Show success message
+        const successMessage = document.getElementById('successMessage');
+        if (successMessage) {
+            successMessage.classList.add('show');
+        }
         
-        // Show success message (you can replace this with actual form handling)
-        alert(currentLanguage === 'uk' ? 'Дякуємо! Ваш запит відправлено. Ми зв\'яжемося з вами найближчим часом.' :
-              currentLanguage === 'en' ? 'Thank you! Your request has been sent. We will contact you soon.' :
-              'Obrigado! Sua solicitação foi enviada. Entraremos em contato em breve.');
-        
-        // Reset form
         appointmentForm.reset();
+        // Clear errors after successful submission
+        clearError('fullname');
+        clearError('phone');
+        clearError('email');
+        
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+            if (successMessage) {
+                successMessage.classList.remove('show');
+            }
+        }, 5000);
     });
 }
 
-// Intersection Observer for fade-in animations
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -238,40 +541,41 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
+            entry.target.style.visibility = 'visible';
             entry.target.style.opacity = '1';
             entry.target.style.transform = 'translateY(0)';
+            observer.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
-// Observe elements for animation
 document.querySelectorAll('.service-card, .feedback-card, .step-card').forEach(el => {
+    el.style.visibility = 'hidden';
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease, visibility 0.6s ease';
     observer.observe(el);
 });
 
-// Lazy loading images with fade-in effect
 const imageObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             const img = entry.target;
             
-            // Load image if srcset or data-src is used
             if (img.dataset.src) {
                 img.src = img.dataset.src;
                 delete img.dataset.src;
             }
             
-            // Add loaded class for fade-in animation
-            img.addEventListener('load', () => {
+            const markAsLoaded = () => {
                 img.classList.add('loaded');
-            }, { once: true });
+            };
             
-            // If image is already loaded (cached), add loaded class immediately
-            if (img.complete) {
-                img.classList.add('loaded');
+            if (img.complete && img.naturalHeight !== 0) {
+                markAsLoaded();
+            } else {
+                img.addEventListener('load', markAsLoaded, { once: true });
+                img.addEventListener('error', markAsLoaded, { once: true });
             }
             
             observer.unobserve(img);
@@ -281,21 +585,22 @@ const imageObserver = new IntersectionObserver((entries, observer) => {
     rootMargin: '50px'
 });
 
-// Observe all lazy-loaded images
 document.querySelectorAll('img[loading="lazy"]').forEach(img => {
-    imageObserver.observe(img);
+    if (img.complete && img.naturalHeight !== 0) {
+        img.classList.add('loaded');
+    } else {
+        imageObserver.observe(img);
+    }
 });
 
-// ===== Scroll to Top Button =====
 const scrollToTopButton = document.getElementById('scrollToTop');
 
-// Function to show/hide scroll to top button
 function toggleScrollToTopButton() {
     if (!scrollToTopButton) return;
     
     const scrollPosition = window.scrollY;
     const viewportHeight = window.innerHeight;
-    const scrollThreshold = Math.max(viewportHeight * 0.5, 500); // 50% of viewport or 500px, whichever is larger
+    const scrollThreshold = Math.max(viewportHeight * 0.5, 500);
     
     if (scrollPosition > scrollThreshold) {
         scrollToTopButton.classList.add('visible');
@@ -304,12 +609,10 @@ function toggleScrollToTopButton() {
     }
 }
 
-// Check scroll position on page load and scroll
 if (scrollToTopButton) {
     window.addEventListener('scroll', toggleScrollToTopButton);
     window.addEventListener('load', toggleScrollToTopButton);
 
-    // Smooth scroll to top on button click
     scrollToTopButton.addEventListener('click', () => {
         window.scrollTo({
             top: 0,
@@ -318,18 +621,14 @@ if (scrollToTopButton) {
     });
 }
 
-// ===== Swiper for Feedbacks Section =====
 function initFeedbacksSwiper() {
-    // Wait for Swiper to be available
     if (typeof Swiper === 'undefined') {
-        console.error('Swiper is not loaded');
         setTimeout(initFeedbacksSwiper, 100);
         return;
     }
 
     const swiperElement = document.querySelector('.feedbacks-swiper');
     if (!swiperElement) {
-        console.error('Swiper element not found');
         return;
     }
 
@@ -346,19 +645,15 @@ function initFeedbacksSwiper() {
         },
         effect: 'slide',
         speed: 800,
-        // Responsive breakpoints
         breakpoints: {
-            // when window width is >= 640px
             640: {
                 slidesPerView: 1,
                 spaceBetween: 20,
             },
-            // when window width is >= 768px
             768: {
                 slidesPerView: 2,
                 spaceBetween: 30,
             },
-            // when window width is >= 1024px
             1024: {
                 slidesPerView: 3,
                 spaceBetween: 30,
@@ -366,7 +661,6 @@ function initFeedbacksSwiper() {
         },
     });
 
-    // Stop autoplay only when clicking on the slider (as per your example)
     const sliderContainer = document.querySelector('.feedbacks-swiper');
     if (sliderContainer) {
         sliderContainer.addEventListener('click', function () {
@@ -376,7 +670,136 @@ function initFeedbacksSwiper() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    initFeedbacksSwiper();
+    // initFeedbacksSwiper(); // Feedbacks section removed
+    initMolochnaDownload();
+    initFloatingLabels();
 });
 
+function initFloatingLabels() {
+    const floatingInputs = document.querySelectorAll('.floating-label input');
+    
+    floatingInputs.forEach(input => {
+        // Check if input has value on load
+        if (input.value) {
+            input.classList.add('has-value');
+        }
+        
+        // Handle focus
+        input.addEventListener('focus', function() {
+            this.classList.add('has-value');
+        });
+        
+        // Handle blur - keep has-value if there's content
+        input.addEventListener('blur', function() {
+            if (this.value.trim()) {
+                this.classList.add('has-value');
+            } else {
+                this.classList.remove('has-value');
+            }
+        });
+        
+        // Handle input - update has-value class
+        input.addEventListener('input', function() {
+            if (this.value.trim()) {
+                this.classList.add('has-value');
+            } else {
+                this.classList.remove('has-value');
+            }
+        });
+    });
+}
 
+function downloadPDF() {
+    const pdfUrl = 'recipies.pdf';
+    const pdfName = 'ukrainska-molochna-drabyna-recepty.pdf';
+    
+    fetch(pdfUrl)
+        .then(response => response.blob())
+        .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = pdfName;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+        })
+        .catch(error => {
+            const a = document.createElement('a');
+            a.href = pdfUrl;
+            a.download = pdfName;
+            a.target = '_blank';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        });
+}
+
+function downloadMolochnaImage() {
+    const imageUrl = 'assets/images/molochna-drabyna/2400x1350.jpg';
+    const imageName = 'ukrainska-molochna-drabyna.jpg';
+    
+    fetch(imageUrl)
+        .then(response => response.blob())
+        .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = imageName;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+        })
+        .catch(error => {
+            const image = document.getElementById('molochnaDrabynaImg');
+            const fallbackUrl = image ? image.src : 'assets/images/molochna-drabyna/2400x1350.jpg';
+            const a = document.createElement('a');
+            a.href = fallbackUrl;
+            a.download = imageName;
+            a.target = '_blank';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        });
+}
+
+function initMolochnaDownload() {
+    const molochnaDrabynaClickable = document.getElementById('molochnaDrabynaClickable');
+    const downloadRecipesBtn = document.getElementById('downloadRecipesBtn');
+    const recipesImageClickable = document.getElementById('recipesImageClickable');
+    
+    // Handle click on first image (molochna-drabyna)
+    if (molochnaDrabynaClickable) {
+        molochnaDrabynaClickable.addEventListener('click', downloadMolochnaImage);
+    }
+    
+    // Handle click on overlay text for first image
+    const molochnaImageOverlay = document.querySelector('.molochna-image-overlay');
+    if (molochnaImageOverlay && molochnaDrabynaClickable) {
+        molochnaImageOverlay.style.pointerEvents = 'auto';
+        molochnaImageOverlay.addEventListener('click', function(e) {
+            e.stopPropagation();
+            downloadMolochnaImage();
+        });
+    }
+    
+    if (downloadRecipesBtn) {
+        downloadRecipesBtn.addEventListener('click', downloadPDF);
+    }
+    
+    if (recipesImageClickable) {
+        recipesImageClickable.addEventListener('click', downloadPDF);
+    }
+    
+    // Also handle click on the overlay text for recipes image
+    const recipesImageOverlay = document.querySelector('.recipes-image-overlay');
+    if (recipesImageOverlay && recipesImageClickable) {
+        recipesImageOverlay.style.pointerEvents = 'auto';
+        recipesImageOverlay.addEventListener('click', function(e) {
+            e.stopPropagation();
+            downloadPDF();
+        });
+    }
+}

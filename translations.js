@@ -1,29 +1,31 @@
 // Translations object for all languages
 const translations = {
     uk: {
-        logo: "Dr. Barzylovych",
+        logo: "Dra. Vlada Barzylovych",
         nav: {
             about: "Про мене",
-            services: "Послуги",
+            services: "Молочна драбина",
             feedbacks: "Відгуки",
             appointment: "Запис на прийом",
             contact: "Контакти"
         },
         hero: {
-            title: "Професійна медична допомога у м.Порто",
-            subtitle: "Досвідчений педіатр та алерголог з приватною практикою в Порту",
-            description: "Я - педіатр та алерголог у Порто, Португалія, який працює самостійно. Надаю професійну медичну допомогу дітям, діагностику та лікування алергій у Порто. Спеціалізуюся на педіатричній допомозі та алергології для дітей у м. Порто. Записайтеся на консультацію педіатра або алерголога вже сьогодні.",
+            title: "Вадислава Барзилович",
+            subtitle1: "К.м.н. Лікар педіатр, алерголог 🇺🇦",
+            subtitle2: "З листопада 2024 року лікар з правом автономної роботи в Португалії (CÉDULA PROFISSIONAL N° 79747) 🇵🇹",
+            description: "Надання якісної медичної допомоги з індивідуальним підходом до кожного пацієнта. Записайтеся на консультацію вже сьогодні.",
             cta: "Записатися на прийом",
             learn: "Дізнатися більше",
-            feature1: "Багаторічний досвід",
-            feature2: "Індивідуальний підхід",
-            feature3: "Португальська сертифікація"
+            feature2: "Лікар із понад 13 роками медичного стажу (практикує з 2011 року)",
+            feature3: "Більше 6 років успішних онлайн-консультацій",
+            feature4: "Глибокий досвід у протоколах лікування медикаментозної алергії",
+            feature5: "Спікер на медичних конференціях",
+            feature6: "Автор <a href=\"molochna-drabyna.html\">Української молочної драбини</a>",
+            feature7: "Автор спеціалізованого блогу <a href=\"https://www.instagram.com/vladabarz?igsh=MWNrMmduNjk4bXRjag%3D%3D&utm_source=qr\" target=\"_blank\" rel=\"noopener noreferrer\">\"Здоров'я без кордонів\"</a>"
         },
         about: {
             title: "Про мене",
-            subtitle: "Ваш надійний педіатр та алерголог у Порто",
-            text1: "Я - досвідчений педіатр та алерголог, який працює самостійно в м. Порто, Португалія. Спеціалізуюся на педіатричній допомозі та лікуванні алергій у дітей. Моя приватна практика в Порто дозволяє мені надавати індивідуальний підхід до кожного маленького пацієнта та його батьків.",
-            text2: "Як педіатр та алерголог у Порто, я використовую сучасні методи діагностики та лікування алергій, проводжу алергологічні тести та надаю комплексну педіатричну допомогу дітям у м. Порто. Моя мета - забезпечити здоров'я та благополуччя ваших дітей."
+            text2: "<h3>Як алерголог:</h3><ul><li>Проводжу діагностику та лікування пацієнтів з атопічним дерматитом, гострою та хронічною кропивянкою, бронхіальною астмою, алергічним ринітом і іншими алергопатологіями</li><li>Призначаю АСІТ імунотерапія</li><li>Консультую щодо протоколів градуйованого введення продуктів, оральної десенсибілізації</li></ul><h3>Як педіатр:</h3><ul><li>Допомогаю ростити здорових дітей по всьому світу 🌍</li><li>Контролюємо графіки вакцин</li><li>Водимо прикорм</li><li>Не даємо зайвих ліків</li></ul><p>Як мама 2-х дітей – не даю порад, які батьки не зможуть виконати ;)</p>"
         },
         services: {
             title: "Мої послуги",
@@ -84,6 +86,14 @@ const translations = {
         appointment: {
             title: "Як записатися на прийом",
             subtitle: "Простий процес запису на консультацію",
+            cta: "Записатися на прийом",
+            "page.title": "Запис на прийом",
+            benefits: {
+                title: "На консультації Ви отримаєте:",
+                item1: "Розбір клінічного випадку з наданням рекомендацій",
+                item2: "Коментарі і корекцію рекомендацій по результатам дообстеження",
+                item3: "Загальні рекомендації по тактиці спостереження за дитиною (раціон дитини - алергика, рекомендації по веденню прикорму, по догляду за шкірою і т.і.)"
+            },
             step1: {
                 title: "Оберіть спосіб",
                 desc: "Зателефонуйте або заповніть форму онлайн"
@@ -98,16 +108,43 @@ const translations = {
             },
             form: {
                 name: "Ім'я",
-                phone: "Телефон",
+                fullname: "ПІБ",
+                phone: "Номер телефону, на якому є месенджери (Скайп, VIBER, WhatsApp, Telegram)",
+                email: "E-mail",
+                contactMethod: "Яким способом вам зручно, щоб ми з вами зв'язалися?",
                 date: "Бажана дата",
                 message: "Повідомлення",
-                submit: "Відправити запит"
+                terms: "Підтверджую, що мною прочитані умови надання консультацій",
+                submit: "Відправити",
+                success: "Дякуємо! Ваш запит відправлено. Ми зв'яжемося з вами найближчим часом."
+            },
+            pricing: {
+                title: "Вартість консультації:",
+                ukraine: {
+                    label: "для тих хто в Україні",
+                    value: "- 1350 грн."
+                },
+                portugal: {
+                    label: "для тих хто в Португалії",
+                    value: "- 65 євро (за необхідності з рецептами на ліки, направленнями на аналізи, довідкою у школу/садок)"
+                },
+                abroad: {
+                    label: "для тих хто за кордоном і потребує заключення англійською мовою з печаткою європейського лікаря",
+                    value: "- оплата в доларах або євро (еквівалент 65 євро)"
+                }
+            },
+            notice: {
+                title: "Зверніть увагу",
+                item1: "Онлайн консультація не замінює очний прийом лікаря і не призначена для надання екстреної медичної допомоги.",
+                item2: "Після онлайн консультації не видається лікувально-консультативний висновок.",
+                item3: "Консультація відбувається у форматі діалогу у зручному для вас месенджері (Скайп, VIBER, WhatsApp, Telegram) в заздалегідь обумовлений час. За бажанням можливий також формат переписки (без зідзвону).",
+                item4: "Тривалість онлайн консультації - 40 хвилин."
             }
         },
         footer: {
             contact: "Контакти",
             phone: "Телефон:",
-            "phone.value": "+351 912 345 678",
+            "phone.value": "+38 (050) 277 12 44",
             email: "Email:",
             "email.value": "allergo.online@gmail.com",
             address: "Адреса:",
@@ -121,33 +158,52 @@ const translations = {
             terms: "Умови використання",
             license: "Ліцензія",
             social: "Соціальні мережі",
-            copyright: "© 2025 Dr. Barzylovych. Всі права захищені."
+            copyright: "© 2025 Dra. Vlada Barzylovych. Всі права захищені."
+        },
+        privacy: {
+            "page.title": "Політика конфіденційності",
+            content: "<p>Останнє оновлення: 2025 рік</p><h2>1. Загальні положення</h2><p>Ця Політика конфіденційності описує, як Dra. Vlada Barzylovych (\"ми\", \"наш\", \"нас\") збирає, використовує та захищає вашу персональну інформацію при використанні нашого веб-сайту.</p><h2>2. Збір інформації</h2><p>Ми збираємо інформацію, яку ви надаєте нам безпосередньо, включаючи:</p><ul><li>Ім'я та контактна інформація (телефон, email)</li><li>Інформація, надана через форму запису на прийом</li><li>Інша інформація, яку ви добровільно надаєте</li></ul><h2>3. Використання інформації</h2><p>Ми використовуємо зібрану інформацію для:</p><ul><li>Надання медичних консультацій та послуг</li><li>Зв'язку з вами щодо запису на прийом</li><li>Покращення якості наших послуг</li></ul><h2>4. Захист інформації</h2><p>Ми вживаємо заходів для захисту вашої персональної інформації від несанкціонованого доступу, зміни, розкриття або знищення.</p><h2>5. Розкриття інформації</h2><p>Ми не продаємо, не обмінюємо та не передаємо вашу персональну інформацію третім особам без вашої згоди, за винятком випадків, передбачених законом.</p><h2>6. Ваші права</h2><p>Ви маєте право:</p><ul><li>Отримати доступ до вашої персональної інформації</li><li>Вимагати виправлення неточної інформації</li><li>Вимагати видалення вашої інформації</li><li>Відкликати згоду на обробку даних</li></ul><h2>7. Контакти</h2><p>Якщо у вас є питання щодо цієї Політики конфіденційності, будь ласка, зв'яжіться з нами:</p><p>Email: <a href=\"mailto:allergo.online@gmail.com\">allergo.online@gmail.com</a></p><p>Телефон: <a href=\"tel:+380502771244\">+38 (050) 277 12 44</a></p>"
+        },
+        terms: {
+            "page.title": "Умови використання",
+            content: "<p>Останнє оновлення: 2025 рік</p><h2>1. Прийняття умов</h2><p>Використовуючи цей веб-сайт, ви приймаєте та погоджуєтеся дотримуватися цих Умов використання. Якщо ви не згодні з цими умовами, будь ласка, не використовуйте цей сайт.</p><h2>2. Використання сайту</h2><p>Цей веб-сайт призначений для інформаційних цілей та для запису на консультації. Ви зобов'язуєтеся використовувати сайт лише в законних цілях.</p><h2>3. Медична інформація</h2><p>Інформація, представлена на цьому веб-сайті, призначена лише для загальної інформації та не замінює професійну медичну консультацію, діагностику або лікування. Завжди звертайтеся за порадою до кваліфікованого лікаря щодо будь-яких питань, пов'язаних зі здоров'ям.</p><h2>4. Онлайн консультації</h2><p>Онлайн консультації не замінюють очний прийом лікаря і не призначені для надання екстреної медичної допомоги. Після онлайн консультації не видається лікувально-консультативний висновок.</p><h2>5. Інтелектуальна власність</h2><p>Весь контент на цьому веб-сайті, включаючи текст, графіку, логотипи та інші матеріали, є власністю Dra. Vlada Barzylovych або її ліцензіарів і захищений законами про авторське право.</p><h2>6. Обмеження відповідальності</h2><p>Dra. Vlada Barzylovych не несе відповідальності за будь-які прямі, непрямі, випадкові або наслідкові збитки, що виникають в результаті використання або неможливості використання цього веб-сайту.</p><h2>7. Зміни умов</h2><p>Ми залишаємо за собою право змінювати ці Умови використання в будь-який час. Зміни набувають чинності з моменту їх публікації на сайті.</p><h2>8. Контакти</h2><p>Якщо у вас є питання щодо цих Умов використання, будь ласка, зв'яжіться з нами:</p><p>Email: <a href=\"mailto:allergo.online@gmail.com\">allergo.online@gmail.com</a></p><p>Телефон: <a href=\"tel:+380502771244\">+38 (050) 277 12 44</a></p>"
+        },
+        molochna: {
+            download: "Завантажити",
+            downloadRecipes: "Завантажити рецепти (PDF)",
+            recipesTitle: "Рецепти",
+            featuresTitle: "Особливості використання Української молочної драбини",
+            recipesDescription: "Для завантаження збірки рецептів - натисніть на зображення",
+            clickToDownload: "Натисніть для завантаження",
+            recipesNote: "<small>*Ви можете використовувати зображення в гарній якості з некомерційною метою за умови обов'язкового зазначення авторських прав: к.м.н Барзилович В.Д., д.м.н. Уманець Т.Р., к.м.н.Барзилович А.Д.., Стельмах В.В, Гіленко Г.І.</small>"
         }
     },
     en: {
-        logo: "Dr. Barzylovych",
+        logo: "Dra. Vlada Barzylovych",
         nav: {
             about: "About Me",
-            services: "Services",
+            services: "Milk Ladder",
             feedbacks: "Testimonials",
             appointment: "Appointment",
             contact: "Contact"
         },
         hero: {
-            title: "Professional medical care in Porto",
-            subtitle: "Experienced pediatrician and allergist with private practice in Porto",
-            description: "I am a pediatrician and allergist in Porto, Portugal, working independently. I provide professional medical care for children, allergy diagnosis and treatment in Porto. I specialize in pediatric care and allergy treatment for children in Porto. Book your pediatrician or allergist consultation in Porto today.",
+            title: "Vladyslava Barzylovych",
+            subtitle1: "Cand. Med. Sc. Pediatrician, Allergist 🇺🇦",
+            subtitle2: "Since November 2024, doctor with the right to autonomous practice in Portugal (CÉDULA PROFISSIONAL N° 79747) 🇵🇹",
+            description: "Providing quality medical care with an individual approach to each patient. Book your consultation today.",
             cta: "Book an Appointment",
             learn: "Learn More",
-            feature1: "Years of Experience",
-            feature2: "Individual Approach",
-            feature3: "Portuguese Certification"
+            feature2: "Doctor with over 13 years of medical experience (practicing since 2011)",
+            feature3: "More than 6 years of successful online consultations",
+            feature4: "Deep experience in drug allergy treatment protocols",
+            feature5: "Speaker at medical conferences",
+            feature6: "Author of the <a href=\"molochna-drabyna.html\">Ukrainian Milk Ladder</a>",
+            feature7: "Author of the specialized blog <a href=\"https://www.instagram.com/vladabarz?igsh=MWNrMmduNjk4bXRjag%3D%3D&utm_source=qr\" target=\"_blank\" rel=\"noopener noreferrer\">\"Health Without Borders\"</a>"
         },
         about: {
             title: "About Me",
-            subtitle: "Your trusted pediatrician and allergist in Porto",
-            text1: "I am an experienced pediatrician and allergist working independently in Porto, Portugal. I specialize in pediatric care and allergy treatment for children. My private practice in Porto allows me to provide an individual approach to each young patient and their parents.",
-            text2: "As a pediatrician and allergist in Porto, I use modern methods of allergy diagnosis and treatment, perform allergy testing, and provide comprehensive pediatric care for children in Porto. My goal is to ensure the health and well-being of your children."
+            text2: "<h3>As an allergist:</h3><ul><li>I diagnose and treat patients with atopic dermatitis, acute and chronic urticaria, bronchial asthma, allergic rhinitis and other allergopathologies</li><li>I prescribe ASIT immunotherapy</li><li>I consult on protocols for graded food introduction, oral desensitization</li></ul><h3>As a pediatrician:</h3><ul><li>I help raise healthy children around the world 🌍</li><li>We monitor vaccination schedules</li><li>We introduce complementary foods</li><li>We don't prescribe unnecessary medications</li></ul><p>As a mother of 2 children – I don't give advice that parents can't follow ;)</p>"
         },
         services: {
             title: "My Services",
@@ -208,6 +264,14 @@ const translations = {
         appointment: {
             title: "How to Book an Appointment",
             subtitle: "Simple process to schedule a consultation",
+            cta: "Book an Appointment",
+            "page.title": "Book an Appointment",
+            benefits: {
+                title: "During the consultation you will receive:",
+                item1: "Analysis of the clinical case with recommendations",
+                item2: "Comments and correction of recommendations based on additional examination results",
+                item3: "General recommendations on child monitoring tactics (diet for allergic children, recommendations on complementary feeding, skin care, etc.)"
+            },
             step1: {
                 title: "Choose a Method",
                 desc: "Call us or fill out the online form"
@@ -222,16 +286,43 @@ const translations = {
             },
             form: {
                 name: "Name",
-                phone: "Phone",
+                fullname: "Full Name",
+                phone: "Phone number with messengers (Skype, VIBER, WhatsApp, Telegram)",
+                email: "E-mail",
+                contactMethod: "How would you like us to contact you?",
                 date: "Preferred Date",
                 message: "Message",
-                submit: "Submit Request"
+                terms: "I confirm that I have read the consultation terms",
+                submit: "Submit",
+                success: "Thank you! Your request has been sent. We will contact you soon."
+            },
+            pricing: {
+                title: "Consultation Fee:",
+                ukraine: {
+                    label: "for those in Ukraine",
+                    value: "- 1350 UAH"
+                },
+                portugal: {
+                    label: "for those in Portugal",
+                    value: "- 65 euros (if necessary with prescriptions for medications, referrals for tests, school/kindergarten certificates)"
+                },
+                abroad: {
+                    label: "for those abroad who need a conclusion in English with a European doctor's stamp",
+                    value: "- payment in dollars or euros (equivalent to 65 euros)"
+                }
+            },
+            notice: {
+                title: "Please note",
+                item1: "Online consultation does not replace an in-person doctor's visit and is not intended for emergency medical care.",
+                item2: "A medical-consultative conclusion is not issued after an online consultation.",
+                item3: "The consultation takes place in a dialogue format in a convenient messenger for you (Skype, VIBER, WhatsApp, Telegram) at a pre-agreed time. If desired, a correspondence format (without a call) is also possible.",
+                item4: "The duration of the online consultation is 40 minutes."
             }
         },
         footer: {
             contact: "Contact",
             phone: "Phone:",
-            "phone.value": "+351 912 345 678",
+            "phone.value": "+38 (050) 277 12 44",
             email: "Email:",
             "email.value": "allergo.online@gmail.com",
             address: "Address:",
@@ -245,33 +336,52 @@ const translations = {
             terms: "Terms of Use",
             license: "License",
             social: "Social Media",
-            copyright: "© 2025 Dr. Barzylovych. All rights reserved."
+            copyright: "© 2025 Dra. Vlada Barzylovych. All rights reserved."
+        },
+        privacy: {
+            "page.title": "Privacy Policy",
+            content: "<p>Last updated: 2025</p><h2>1. General Provisions</h2><p>This Privacy Policy describes how Dra. Vlada Barzylovych (\"we\", \"our\", \"us\") collects, uses, and protects your personal information when using our website.</p><h2>2. Information Collection</h2><p>We collect information that you provide to us directly, including:</p><ul><li>Name and contact information (phone, email)</li><li>Information provided through the appointment booking form</li><li>Other information you voluntarily provide</li></ul><h2>3. Use of Information</h2><p>We use the collected information for:</p><ul><li>Providing medical consultations and services</li><li>Contacting you regarding appointment bookings</li><li>Improving the quality of our services</li></ul><h2>4. Information Protection</h2><p>We take measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction.</p><h2>5. Information Disclosure</h2><p>We do not sell, exchange, or transfer your personal information to third parties without your consent, except as required by law.</p><h2>6. Your Rights</h2><p>You have the right to:</p><ul><li>Access your personal information</li><li>Request correction of inaccurate information</li><li>Request deletion of your information</li><li>Withdraw consent for data processing</li></ul><h2>7. Contact</h2><p>If you have any questions about this Privacy Policy, please contact us:</p><p>Email: <a href=\"mailto:allergo.online@gmail.com\">allergo.online@gmail.com</a></p><p>Phone: <a href=\"tel:+380502771244\">+38 (050) 277 12 44</a></p>"
+        },
+        terms: {
+            "page.title": "Terms of Use",
+            content: "<p>Last updated: 2025</p><h2>1. Acceptance of Terms</h2><p>By using this website, you accept and agree to comply with these Terms of Use. If you do not agree with these terms, please do not use this site.</p><h2>2. Use of Site</h2><p>This website is intended for informational purposes and for booking consultations. You agree to use the site only for lawful purposes.</p><h2>3. Medical Information</h2><p>The information presented on this website is for general information only and does not replace professional medical consultation, diagnosis, or treatment. Always seek advice from a qualified physician regarding any health-related questions.</p><h2>4. Online Consultations</h2><p>Online consultations do not replace an in-person doctor's visit and are not intended for emergency medical care. A medical-consultative conclusion is not issued after an online consultation.</p><h2>5. Intellectual Property</h2><p>All content on this website, including text, graphics, logos, and other materials, is the property of Dra. Vlada Barzylovych or its licensors and is protected by copyright laws.</p><h2>6. Limitation of Liability</h2><p>Dra. Vlada Barzylovych is not liable for any direct, indirect, incidental, or consequential damages arising from the use or inability to use this website.</p><h2>7. Changes to Terms</h2><p>We reserve the right to change these Terms of Use at any time. Changes take effect from the moment they are published on the site.</p><h2>8. Contact</h2><p>If you have any questions about these Terms of Use, please contact us:</p><p>Email: <a href=\"mailto:allergo.online@gmail.com\">allergo.online@gmail.com</a></p><p>Phone: <a href=\"tel:+380502771244\">+38 (050) 277 12 44</a></p>"
+        },
+        molochna: {
+            download: "Download",
+            downloadRecipes: "Download Recipes (PDF)",
+            recipesTitle: "Recipes",
+            featuresTitle: "Features of Using the Ukrainian Milk Ladder",
+            recipesDescription: "To download the recipe collection - click on the image",
+            clickToDownload: "Click to download",
+            recipesNote: "<small>*You may use the images in good quality for non-commercial purposes provided that you must indicate the copyright: Ph.D. Barzylovych V.D., Dr. Med. Sci. Umanets T.R., Ph.D. Barzylovych A.D., Stelmakh V.V., Hilenko G.I.</small>"
         }
     },
     pt: {
-        logo: "Dr. Barzylovych",
+        logo: "Dra. Vlada Barzylovych",
         nav: {
             about: "Sobre Mim",
-            services: "Serviços",
+            services: "Escada do Leite",
             feedbacks: "Depoimentos",
             appointment: "Agendamento",
             contact: "Contato"
         },
         hero: {
-            title: "Assistência médica profissional no Porto",
-            subtitle: "Pediatra e alergologista experiente com consultório privado no Porto",
-            description: "Sou pediatra e alergologista no Porto, Portugal, trabalhando de forma independente. Forneço cuidados médicos profissionais para crianças, diagnóstico e tratamento de alergias no Porto. Especializo-me em cuidados pediátricos e tratamento de alergias para crianças no Porto. Agende sua consulta com pediatra ou alergologista no Porto hoje.",
+            title: "Vladyslava Barzylovych",
+            subtitle1: "Cand. Ciên. Méd. Médica pediatra, alergologista 🇺🇦",
+            subtitle2: "Desde novembro de 2024, médica com direito ao exercício autónomo em Portugal (CÉDULA PROFISSIONAL N° 79747) 🇵🇹",
+            description: "Fornecendo cuidados médicos de qualidade com uma abordagem individual para cada paciente. Agende sua consulta hoje.",
             cta: "Agendar Consulta",
             learn: "Saber Mais",
-            feature1: "Anos de Experiência",
-            feature2: "Abordagem Individual",
-            feature3: "Certificação Portuguesa"
+            feature2: "Médica com mais de 13 anos de experiência médica (praticando desde 2011)",
+            feature3: "Mais de 6 anos de consultas online bem-sucedidas",
+            feature4: "Experiência profunda em protocolos de tratamento de alergia medicamentosa",
+            feature5: "Palestrante em conferências médicas",
+            feature6: "Autora da <a href=\"molochna-drabyna.html\">Escada do Leite Ucraniana</a>",
+            feature7: "Autora do blog especializado <a href=\"https://www.instagram.com/vladabarz?igsh=MWNrMmduNjk4bXRjag%3D%3D&utm_source=qr\" target=\"_blank\" rel=\"noopener noreferrer\">\"Saúde Sem Fronteiras\"</a>"
         },
         about: {
             title: "Sobre Mim",
-            subtitle: "Seu pediatra e alergologista confiável no Porto",
-            text1: "Sou um pediatra e alergologista experiente trabalhando de forma independente no Porto, Portugal. Especializo-me em cuidados pediátricos e tratamento de alergias em crianças. Meu consultório privado no Porto me permite oferecer uma abordagem individual para cada paciente jovem e seus pais.",
-            text2: "Como pediatra e alergologista no Porto, uso métodos modernos de diagnóstico e tratamento de alergias, realizo testes de alergia e forneço cuidados pediátricos abrangentes para crianças no Porto. Meu objetivo é garantir a saúde e o bem-estar de suas crianças."
+            text2: "<h3>Como alergologista:</h3><ul><li>Realizo diagnóstico e tratamento de pacientes com dermatite atópica, urticária aguda e crónica, asma brônquica, rinite alérgica e outras alergopatologias</li><li>Prescrevo imunoterapia ASIT</li><li>Consulto sobre protocolos de introdução gradual de alimentos, dessensibilização oral</li></ul><h3>Como pediatra:</h3><ul><li>Ajudo a criar crianças saudáveis em todo o mundo 🌍</li><li>Controlamos os calendários de vacinação</li><li>Introduzimos alimentos complementares</li><li>Não prescrevemos medicamentos desnecessários</li></ul><p>Como mãe de 2 filhos – não dou conselhos que os pais não possam seguir ;)</p>"
         },
         services: {
             title: "Meus Serviços",
@@ -332,6 +442,7 @@ const translations = {
         appointment: {
             title: "Como Agendar uma Consulta",
             subtitle: "Processo simples para agendar uma consulta",
+            cta: "Agendar Consulta",
             step1: {
                 title: "Escolha um Método",
                 desc: "Ligue para nós ou preencha o formulário online"
@@ -344,18 +455,52 @@ const translations = {
                 title: "Confirme",
                 desc: "Receba a confirmação e compareça à sua consulta"
             },
+            "page.title": "Agendar Consulta",
+            benefits: {
+                title: "Durante a consulta você receberá:",
+                item1: "Análise do caso clínico com recomendações",
+                item2: "Comentários e correção de recomendações com base nos resultados de exames adicionais",
+                item3: "Recomendações gerais sobre táticas de monitoramento da criança (dieta para crianças alérgicas, recomendações sobre alimentação complementar, cuidados com a pele, etc.)"
+            },
             form: {
                 name: "Nome",
-                phone: "Telefone",
+                fullname: "Nome Completo",
+                phone: "Número de telefone com mensageiros (Skype, VIBER, WhatsApp, Telegram)",
+                email: "E-mail",
+                contactMethod: "Como você prefere que entremos em contato?",
                 date: "Data Preferida",
                 message: "Mensagem",
-                submit: "Enviar Solicitação"
+                terms: "Confirmo que li os termos da consulta",
+                submit: "Enviar",
+                success: "Obrigado! Sua solicitação foi enviada. Entraremos em contato em breve."
+            },
+            pricing: {
+                title: "Custo da Consulta:",
+                ukraine: {
+                    label: "para quem está na Ucrânia",
+                    value: "- 1350 UAH"
+                },
+                portugal: {
+                    label: "para quem está em Portugal",
+                    value: "- 65 euros (se necessário com receitas de medicamentos, encaminhamentos para exames, certificados para escola/jardim de infância)"
+                },
+                abroad: {
+                    label: "para quem está no exterior e precisa de uma conclusão em inglês com carimbo de médico europeu",
+                    value: "- pagamento em dólares ou euros (equivalente a 65 euros)"
+                }
+            },
+            notice: {
+                title: "Atenção",
+                item1: "A consulta online não substitui uma consulta presencial com o médico e não se destina ao fornecimento de cuidados médicos de emergência.",
+                item2: "Após a consulta online, não é emitido um parecer médico-consultivo.",
+                item3: "A consulta ocorre em formato de diálogo em um mensageiro conveniente para você (Skype, VIBER, WhatsApp, Telegram) em um horário previamente acordado. Se desejar, também é possível o formato de correspondência (sem chamada).",
+                item4: "A duração da consulta online é de 40 minutos."
             }
         },
         footer: {
             contact: "Contato",
             phone: "Telefone:",
-            "phone.value": "+351 912 345 678",
+            "phone.value": "+38 (050) 277 12 44",
             email: "Email:",
             "email.value": "allergo.online@gmail.com",
             address: "Endereço:",
@@ -369,7 +514,24 @@ const translations = {
             terms: "Termos de Uso",
             license: "Licença",
             social: "Redes Sociais",
-            copyright: "© 2025 Dr. Barzylovych. Todos os direitos reservados."
+            copyright: "© 2025 Dra. Vlada Barzylovych. Todos os direitos reservados."
+        },
+        privacy: {
+            "page.title": "Política de Privacidade",
+            content: "<p>Última atualização: 2025</p><h2>1. Disposições Gerais</h2><p>Esta Política de Privacidade descreve como Dra. Vlada Barzylovych (\"nós\", \"nosso\", \"nos\") coleta, usa e protege suas informações pessoais ao usar nosso site.</p><h2>2. Coleta de Informações</h2><p>Coletamos informações que você nos fornece diretamente, incluindo:</p><ul><li>Nome e informações de contato (telefone, email)</li><li>Informações fornecidas através do formulário de agendamento</li><li>Outras informações que você fornece voluntariamente</li></ul><h2>3. Uso de Informações</h2><p>Usamos as informações coletadas para:</p><ul><li>Fornecer consultas médicas e serviços</li><li>Entrar em contato com você sobre agendamentos</li><li>Melhorar a qualidade de nossos serviços</li></ul><h2>4. Proteção de Informações</h2><p>Tomamos medidas para proteger suas informações pessoais contra acesso não autorizado, alteração, divulgação ou destruição.</p><h2>5. Divulgação de Informações</h2><p>Não vendemos, trocamos ou transferimos suas informações pessoais para terceiros sem seu consentimento, exceto conforme exigido por lei.</p><h2>6. Seus Direitos</h2><p>Você tem o direito de:</p><ul><li>Acessar suas informações pessoais</li><li>Solicitar correção de informações imprecisas</li><li>Solicitar exclusão de suas informações</li><li>Retirar consentimento para processamento de dados</li></ul><h2>7. Contato</h2><p>Se você tiver alguma dúvida sobre esta Política de Privacidade, entre em contato conosco:</p><p>Email: <a href=\"mailto:allergo.online@gmail.com\">allergo.online@gmail.com</a></p><p>Telefone: <a href=\"tel:+380502771244\">+38 (050) 277 12 44</a></p>"
+        },
+        terms: {
+            "page.title": "Termos de Uso",
+            content: "<p>Última atualização: 2025</p><h2>1. Aceitação dos Termos</h2><p>Ao usar este site, você aceita e concorda em cumprir estes Termos de Uso. Se você não concordar com estes termos, por favor, não use este site.</p><h2>2. Uso do Site</h2><p>Este site é destinado para fins informativos e para agendamento de consultas. Você concorda em usar o site apenas para fins legais.</p><h2>3. Informações Médicas</h2><p>As informações apresentadas neste site são apenas para fins informativos gerais e não substituem consulta médica profissional, diagnóstico ou tratamento. Sempre procure aconselhamento de um médico qualificado sobre quaisquer questões relacionadas à saúde.</p><h2>4. Consultas Online</h2><p>As consultas online não substituem uma visita presencial ao médico e não se destinam a fornecer cuidados médicos de emergência. Uma conclusão médico-consultiva não é emitida após uma consulta online.</p><h2>5. Propriedade Intelectual</h2><p>Todo o conteúdo neste site, incluindo texto, gráficos, logotipos e outros materiais, é propriedade de Dra. Vlada Barzylovych ou seus licenciadores e é protegido por leis de direitos autorais.</p><h2>6. Limitação de Responsabilidade</h2><p>Dra. Vlada Barzylovych não é responsável por quaisquer danos diretos, indiretos, incidentais ou consequenciais decorrentes do uso ou incapacidade de usar este site.</p><h2>7. Alterações nos Termos</h2><p>Reservamo-nos o direito de alterar estes Termos de Uso a qualquer momento. As alterações entram em vigor a partir do momento de sua publicação no site.</p><h2>8. Contato</h2><p>Se você tiver alguma dúvida sobre estes Termos de Uso, entre em contato conosco:</p><p>Email: <a href=\"mailto:allergo.online@gmail.com\">allergo.online@gmail.com</a></p><p>Telefone: <a href=\"tel:+380502771244\">+38 (050) 277 12 44</a></p>"
+        },
+        molochna: {
+            download: "Descarregar",
+            downloadRecipes: "Descarregar Receitas (PDF)",
+            recipesTitle: "Receitas",
+            featuresTitle: "Características de Uso da Escada do Leite Ucraniana",
+            recipesDescription: "Para descarregar a coleção de receitas - clique na imagem",
+            clickToDownload: "Clique para descarregar",
+            recipesNote: "<small>*Pode utilizar as imagens em boa qualidade para fins não comerciais, desde que indique obrigatoriamente os direitos de autor: Ph.D. Barzylovych V.D., Dr. Med. Sci. Umanets T.R., Ph.D. Barzylovych A.D., Stelmakh V.V., Hilenko G.I.</small>"
         }
     }
 };
