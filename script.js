@@ -14,6 +14,14 @@ let langButtons;
 let elementsWithI18n;
 let appointmentForm;
 
+function updateBodyPadding() {
+    const header = document.querySelector('.header');
+    if (header) {
+        const headerHeight = header.offsetHeight;
+        document.body.style.paddingTop = headerHeight + 'px';
+    }
+}
+
 function initializeApp() {
     // Initialize DOM elements
     burgerMenu = document.getElementById('burgerMenu');
@@ -27,6 +35,21 @@ function initializeApp() {
         heroTitle.style.opacity = '1';
         heroTitle.style.visibility = 'visible';
     }
+    
+    // Update body padding based on header height
+    updateBodyPadding();
+    
+    // Watch for header height changes using ResizeObserver
+    const header = document.querySelector('.header');
+    if (header && typeof ResizeObserver !== 'undefined') {
+        const resizeObserver = new ResizeObserver(() => {
+            updateBodyPadding();
+        });
+        resizeObserver.observe(header);
+    }
+    
+    // Also update on window resize
+    window.addEventListener('resize', updateBodyPadding);
     
     updateActiveLangButton();
     

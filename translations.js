@@ -16,11 +16,11 @@ const translations = {
             description: "Надання якісної медичної допомоги з індивідуальним підходом до кожного пацієнта. Записайтеся на консультацію вже сьогодні.",
             cta: "Записатися на прийом",
             learn: "Дізнатися більше",
-            feature2: "Лікар із понад 13 роками медичного стажу (практикує з 2011 року)",
+            feature2: "Понад 13 років медичного стажу (практикую з 2011 року)",
             feature3: "Більше 6 років успішних онлайн-консультацій",
             feature4: "Глибокий досвід у протоколах лікування медикаментозної алергії",
             feature5: "Спікер на медичних конференціях",
-            feature6: "Автор <a href=\"molochna-drabyna.html\">Української молочної драбини</a>",
+            feature6: "Автор <a href=\"molochna-drabyna.html\">\"Української молочної драбини\"</a>",
             feature7: "Автор спеціалізованого блогу <a href=\"https://www.instagram.com/vladabarz?igsh=MWNrMmduNjk4bXRjag%3D%3D&utm_source=qr\" target=\"_blank\" rel=\"noopener noreferrer\">\"Здоров'я без кордонів\"</a>"
         },
         about: {
@@ -156,7 +156,6 @@ const translations = {
             legal: "Юридична інформація",
             privacy: "Політика конфіденційності",
             terms: "Умови використання",
-            license: "Ліцензія",
             social: "Соціальні мережі",
             copyright: "© 2025 Dra. Vlada Barzylovych. Всі права захищені."
         },
@@ -188,17 +187,17 @@ const translations = {
             contact: "Contact"
         },
         hero: {
-            title: "Vladyslava Barzylovych",
+            title: "Vlada Barzylovych",
             subtitle1: "Cand. Med. Sc. Pediatrician, Allergist 🇺🇦",
             subtitle2: "Since November 2024, doctor with the right to autonomous practice in Portugal (CÉDULA PROFISSIONAL N° 79747) 🇵🇹",
             description: "Providing quality medical care with an individual approach to each patient. Book your consultation today.",
             cta: "Book an Appointment",
             learn: "Learn More",
-            feature2: "Doctor with over 13 years of medical experience (practicing since 2011)",
+            feature2: "Over 13 years of medical experience (practicing since 2011)",
             feature3: "More than 6 years of successful online consultations",
             feature4: "Deep experience in drug allergy treatment protocols",
             feature5: "Speaker at medical conferences",
-            feature6: "Author of the <a href=\"molochna-drabyna.html\">Ukrainian Milk Ladder</a>",
+            feature6: "Author of <a href=\"molochna-drabyna.html\">\"Ukrainian Milk Ladder\"</a>",
             feature7: "Author of the specialized blog <a href=\"https://www.instagram.com/vladabarz?igsh=MWNrMmduNjk4bXRjag%3D%3D&utm_source=qr\" target=\"_blank\" rel=\"noopener noreferrer\">\"Health Without Borders\"</a>"
         },
         about: {
@@ -334,7 +333,6 @@ const translations = {
             legal: "Legal Information",
             privacy: "Privacy Policy",
             terms: "Terms of Use",
-            license: "License",
             social: "Social Media",
             copyright: "© 2025 Dra. Vlada Barzylovych. All rights reserved."
         },
@@ -366,17 +364,17 @@ const translations = {
             contact: "Contato"
         },
         hero: {
-            title: "Vladyslava Barzylovych",
+            title: "Vlada Barzylovych",
             subtitle1: "Cand. Ciên. Méd. Médica pediatra, alergologista 🇺🇦",
             subtitle2: "Desde novembro de 2024, médica com direito ao exercício autónomo em Portugal (CÉDULA PROFISSIONAL N° 79747) 🇵🇹",
             description: "Fornecendo cuidados médicos de qualidade com uma abordagem individual para cada paciente. Agende sua consulta hoje.",
             cta: "Agendar Consulta",
             learn: "Saber Mais",
-            feature2: "Médica com mais de 13 anos de experiência médica (praticando desde 2011)",
+            feature2: "Mais de 13 anos de experiência médica (praticando desde 2011)",
             feature3: "Mais de 6 anos de consultas online bem-sucedidas",
             feature4: "Experiência profunda em protocolos de tratamento de alergia medicamentosa",
             feature5: "Palestrante em conferências médicas",
-            feature6: "Autora da <a href=\"molochna-drabyna.html\">Escada do Leite Ucraniana</a>",
+            feature6: "Autora da <a href=\"molochna-drabyna.html\">\"Escada do Leite Ucraniana\"</a>",
             feature7: "Autora do blog especializado <a href=\"https://www.instagram.com/vladabarz?igsh=MWNrMmduNjk4bXRjag%3D%3D&utm_source=qr\" target=\"_blank\" rel=\"noopener noreferrer\">\"Saúde Sem Fronteiras\"</a>"
         },
         about: {
@@ -512,7 +510,6 @@ const translations = {
             legal: "Informações Legais",
             privacy: "Política de Privacidade",
             terms: "Termos de Uso",
-            license: "Licença",
             social: "Redes Sociais",
             copyright: "© 2025 Dra. Vlada Barzylovych. Todos os direitos reservados."
         },

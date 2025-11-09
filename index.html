@@ -88,13 +88,13 @@
       href="https://www.doctor-barzylovych.com/"
     />
 
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
     <title>
       Dr. Barzylovych - Pediatrician and Allergist in Porto, Portugal |
       Pediatric Care & Allergy Treatment
     </title>
+
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="styles.css" as="style" />
 
     <!-- Critical CSS inline for immediate rendering -->
     <style>
@@ -123,7 +123,12 @@
     <!-- Main CSS -->
     <link rel="stylesheet" href="styles.css">
     
-    <!-- Swiper CSS - Load after critical CSS -->
+    <!-- Swiper CSS - Load asynchronously (non-critical) -->
+    <link
+      rel="preconnect"
+      href="https://cdn.jsdelivr.net"
+      crossorigin
+    />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
@@ -280,13 +285,36 @@
           <div class="hero-content">
             <div class="hero-image-wrapper">
               <div class="hero-image-container">
-                <img
-                  src="assets/images/hero/main-processed.jpg"
-                  alt="Dra. Vlada Barzylovych — Professional Doctor"
-                  fetchpriority="high"
-                  loading="eager"
-                  decoding="async"
-                />
+                <picture>
+                  <!-- WebP format for modern browsers (only original, responsive versions are PNG) -->
+                  <source
+                    srcset="
+                      assets/images/hero/Vlada-Barz.webp 719w
+                    "
+                    sizes="(min-width: 900px) 500px, (min-width: 600px) 400px, 320px"
+                    type="image/webp"
+                  />
+                  <!-- PNG with responsive sizes -->
+                  <source
+                    srcset="
+                      assets/images/hero/responsive/Vlada-Barz-400x540.png 400w,
+                      assets/images/hero/responsive/Vlada-Barz-500x675.png 500w,
+                      assets/images/hero/responsive/Vlada-Barz-600x810.png 600w,
+                      assets/images/hero/Vlada-Barz.png 719w
+                    "
+                    sizes="(min-width: 900px) 500px, (min-width: 600px) 400px, 320px"
+                    type="image/png"
+                  />
+                  <img
+                    src="assets/images/hero/Vlada-Barz.png"
+                    alt="Dra. Vlada Barzylovych — Professional Doctor"
+                    fetchpriority="high"
+                    loading="eager"
+                    decoding="async"
+                    width="719"
+                    height="969"
+                  />
+                </picture>
               </div>
             </div>
 
@@ -312,26 +340,15 @@
           <ul class="hero-features">
             <li class="hero-feature">
               <div class="hero-feature-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                  <path d="M2 17l10 5 10-5"/>
-                  <path d="M2 12l10 5 10-5"/>
-                </svg>
+                <span>1</span>
               </div>
               <p class="hero-feature-text" data-i18n="hero.feature2">
-                Лікар із понад 13 роками медичного стажу (практикує з 2011 року)
+                Понад 13 років медичного стажу (практикую з 2011 року)
               </p>
             </li>
             <li class="hero-feature">
               <div class="hero-feature-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="3" width="20" height="14" rx="2"/>
-                  <line x1="8" y1="21" x2="16" y2="21"/>
-                  <line x1="12" y1="17" x2="12" y2="21"/>
-                  <circle cx="7" cy="8" r="1"/>
-                  <circle cx="17" cy="8" r="1"/>
-                  <line x1="7" y1="12" x2="17" y2="12"/>
-                </svg>
+                <span>2</span>
               </div>
               <p class="hero-feature-text" data-i18n="hero.feature3">
                 Більше 6 років успішних онлайн-консультацій
@@ -339,12 +356,7 @@
             </li>
             <li class="hero-feature">
               <div class="hero-feature-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="8" y="2" width="8" height="20" rx="2"/>
-                  <line x1="12" y1="6" x2="12" y2="18"/>
-                  <line x1="6" y1="10" x2="18" y2="10"/>
-                  <line x1="6" y1="14" x2="18" y2="14"/>
-                </svg>
+                <span>3</span>
               </div>
               <p class="hero-feature-text" data-i18n="hero.feature4">
                 Глибокий досвід у протоколах лікування медикаментозної алергії
@@ -352,12 +364,7 @@
             </li>
             <li class="hero-feature">
               <div class="hero-feature-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
-                  <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-                  <line x1="12" y1="19" x2="12" y2="23"/>
-                  <line x1="8" y1="23" x2="16" y2="23"/>
-                </svg>
+                <span>4</span>
               </div>
               <p class="hero-feature-text" data-i18n="hero.feature5">
                 Спікер на медичних конференціях
@@ -365,27 +372,15 @@
             </li>
             <li class="hero-feature">
               <div class="hero-feature-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-                  <line x1="8" y1="7" x2="16" y2="7"/>
-                  <line x1="8" y1="11" x2="16" y2="11"/>
-                  <line x1="8" y1="15" x2="12" y2="15"/>
-                </svg>
+                <span>5</span>
               </div>
               <p class="hero-feature-text" data-i18n="hero.feature6">
-                Автор <a href="molochna-drabyna.html">Української молочної драбини</a>
+                Автор <a href="molochna-drabyna.html">"Української молочної драбини"</a>
               </p>
             </li>
             <li class="hero-feature">
               <div class="hero-feature-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                  <path d="M14 2v6h6"/>
-                  <line x1="10" y1="12" x2="18" y2="12"/>
-                  <line x1="10" y1="16" x2="18" y2="16"/>
-                  <line x1="10" y1="20" x2="18" y2="20"/>
-                </svg>
+                <span>6</span>
               </div>
               <p class="hero-feature-text" data-i18n="hero.feature7">
                 Автор спеціалізованого блогу <a href="https://www.instagram.com/vladabarz?igsh=MWNrMmduNjk4bXRjag%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">"Здоров'я без кордонів"</a>
@@ -428,12 +423,36 @@
               </div>
             </div>
             <div class="about-image">
-                <img
-                  src="assets/images/about/about.jpg"
-                  alt="Dra. Vlada Barzylovych — Pediatrician and Allergist"
-                  loading="lazy"
-                  decoding="async"
-                />
+                <picture>
+                  <!-- WebP format for modern browsers -->
+                  <source
+                    srcset="
+                      assets/images/about/about.webp 1667w
+                    "
+                    sizes="(max-width: 768px) 90vw, (max-width: 1200px) 40vw, 500px"
+                    type="image/webp"
+                  />
+                  <!-- JPG fallback with responsive sizes -->
+                  <source
+                    srcset="
+                      assets/images/about/responsive/about-400x600.jpg 400w,
+                      assets/images/about/responsive/about-600x900.jpg 600w,
+                      assets/images/about/responsive/about-800x1200.jpg 800w,
+                      assets/images/about/responsive/about-1000x1500.jpg 1000w,
+                      assets/images/about/about.jpg 1667w
+                    "
+                    sizes="(max-width: 768px) 90vw, (max-width: 1200px) 40vw, 500px"
+                    type="image/jpeg"
+                  />
+                  <img
+                    src="assets/images/about/about.jpg"
+                    alt="Dra. Vlada Barzylovych — Pediatrician and Allergist"
+                    loading="lazy"
+                    decoding="async"
+                    width="1667"
+                    height="2500"
+                  />
+                </picture>
               </div>
           </div>
         </div>
@@ -475,7 +494,6 @@
               <li>
                 <a href="terms-of-use.html" data-i18n="footer.terms">Умови використання</a>
               </li>
-              <li><a href="#" data-i18n="footer.license">Ліцензія</a></li>
             </ul>
           </div>
           <div class="footer-column">
@@ -501,7 +519,7 @@
     <!-- Scroll to Top Button -->
     <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
       <svg
-        xmlns="http://www.w3.org/2000/svg"
+        xmlns="https://www.w3.org/2000/svg"
         width="24"
         height="24"
         viewBox="0 0 24 24"
