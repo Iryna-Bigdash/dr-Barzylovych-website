@@ -51,6 +51,10 @@ function initializeApp() {
     // Also update on window resize
     window.addEventListener('resize', updateBodyPadding);
     
+    // Update subtitle width constraints
+    updateSubtitleWidth();
+    window.addEventListener('resize', updateSubtitleWidth);
+    
     updateActiveLangButton();
     
     setLanguage(currentLanguage);
@@ -59,6 +63,40 @@ function initializeApp() {
     setInterval(() => {
         updateActiveLangButton();
     }, 1000);
+}
+
+function updateSubtitleWidth() {
+    const subtitle1 = document.querySelector('.hero-subtitle1');
+    const subtitle2 = document.querySelector('.hero-subtitle2');
+    
+    if (subtitle1 && subtitle2 && window.innerWidth >= 480) {
+        const subtitle1Width = subtitle1.offsetWidth;
+        subtitle2.style.maxWidth = subtitle1Width + 'px';
+    } else if (subtitle2) {
+        subtitle2.style.maxWidth = '';
+    }
+}
+
+// Watch for subtitle1 width changes using ResizeObserver
+if (typeof ResizeObserver !== 'undefined') {
+    const subtitle1Observer = new ResizeObserver(() => {
+        updateSubtitleWidth();
+    });
+    
+    // Start observing after DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            const subtitle1 = document.querySelector('.hero-subtitle1');
+            if (subtitle1) {
+                subtitle1Observer.observe(subtitle1);
+            }
+        });
+    } else {
+        const subtitle1 = document.querySelector('.hero-subtitle1');
+        if (subtitle1) {
+            subtitle1Observer.observe(subtitle1);
+        }
+    }
 }
 
 if (document.readyState === 'loading') {
@@ -274,18 +312,12 @@ function setLanguage(lang) {
                     element.appendChild(textNode);
                     flagIcons.forEach(flag => element.appendChild(flag));
                 } else {
-                    // Check if element is policy-text (contains HTML content)
-                    const isPolicyText = element.classList.contains('policy-text');
-                    
-                    // Check if translation contains HTML tags
-                    if (isPolicyText || (translation.includes('<') && (translation.includes('</') || translation.includes('/>')))) {
+                    // Check if translation contains HTML tags (for hero-feature-text, about-text, etc.)
+                    if (translation.includes('<') && (translation.includes('</') || translation.includes('/>'))) {
+                        // Translation contains HTML, use innerHTML
                         element.innerHTML = translation;
-                        // SVG flags are now optimized (simple SVG, not embedded images)
-                        const svgImgs = element.querySelectorAll('img[src*="flag-simple.svg"]');
-                        svgImgs.forEach(img => {
-                            img.setAttribute('loading', 'eager');
-                        });
                     } else {
+                        // No HTML in translation, use textContent
                         element.textContent = translation;
                     }
                 }
@@ -303,7 +335,46 @@ function setLanguage(lang) {
     }
     
     document.documentElement.lang = lang;
+    
+    // Update subtitle width after translation update
+    setTimeout(() => {
+        updateSubtitleWidth();
+    }, 100);
 }
+
+function getTranslation(key, lang) {
+    const keys = key.split('.');
+    let value = translations[lang];
+    
+    for (const k of keys) {
+        if (value && typeof value === 'object') {
+            value = value[k];
+        } else {
+            return null;
+        }
+    }
+    
+    return value;
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && href !== '') {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                const headerOffset = 80;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    });
+});
 
 function getTranslation(key, lang) {
     const keys = key.split('.');
