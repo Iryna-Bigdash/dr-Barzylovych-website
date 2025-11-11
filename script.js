@@ -1,7 +1,15 @@
+// Check if we're on the main page (index.html)
+const isMainPage = window.location.pathname === '/' || 
+                   window.location.pathname.endsWith('index.html') || 
+                   window.location.pathname.endsWith('/');
+
 let currentLanguage = 'uk';
 try {
-    if (typeof localStorage !== 'undefined') {
+    if (typeof localStorage !== 'undefined' && isMainPage) {
         currentLanguage = localStorage.getItem('language') || 'uk';
+    } else {
+        // For other pages, always use Ukrainian
+        currentLanguage = 'uk';
     }
 } catch (e) {
     // localStorage not available, use default
@@ -57,8 +65,14 @@ function initializeApp() {
     
     updateActiveLangButton();
     
-    setLanguage(currentLanguage);
-    updateActiveLangButton();
+    // Only apply translations on main page
+    if (isMainPage) {
+        setLanguage(currentLanguage);
+        updateActiveLangButton();
+    } else {
+        // Force Ukrainian on other pages
+        setLanguage('uk');
+    }
     
     setInterval(() => {
         updateActiveLangButton();
@@ -187,6 +201,9 @@ if (document.readyState === 'loading') {
 function setupLangButtons() {
     if (!langButtons || langButtons.length === 0) return;
     
+    // Only setup language buttons on main page
+    if (!isMainPage) return;
+    
     langButtons.forEach(button => {
         button.addEventListener('click', () => {
             const lang = button.getAttribute('data-lang');
@@ -229,7 +246,26 @@ function updateActiveLangButton() {
 }
 
 function setLanguage(lang) {
+    // Only allow language switching on main page
+    if (!isMainPage) {
+        lang = 'uk';
+    }
     currentLanguage = lang;
+    
+    // Show/hide navigation items based on language
+    const ukOnlyNavItems = document.querySelectorAll('.nav-item-uk-only');
+    if (ukOnlyNavItems.length > 0) {
+        if (lang === 'uk') {
+            ukOnlyNavItems.forEach(item => {
+                item.style.display = '';
+            });
+        } else {
+            // Hide for English and Portuguese
+            ukOnlyNavItems.forEach(item => {
+                item.style.display = 'none';
+            });
+        }
+    }
     
     elementsWithI18n.forEach(element => {
         const key = element.getAttribute('data-i18n');
