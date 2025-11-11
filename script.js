@@ -237,8 +237,9 @@ function setLanguage(lang) {
         
         if (translation) {
             if (key === 'logo') {
-                element.textContent = translation;
-                element.setAttribute('translate', 'no');
+                // Logo is now an image, skip text translation
+                // element.textContent = translation;
+                // element.setAttribute('translate', 'no');
             } else if (element.tagName === 'INPUT' && element.type === 'submit') {
                 element.value = translation;
             } else if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {

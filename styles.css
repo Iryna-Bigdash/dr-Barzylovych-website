@@ -163,11 +163,50 @@ img[loading="lazy"].loaded {
 }
 
 .logo a {
-    font-size: clamp(1.1rem, 3vw, 1.5rem);
-    font-weight: 600;
-    color: var(--main-text);
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    letter-spacing: -0.02em;
+}
+
+.logo-img {
+    height: auto;
+    max-height: 50px;
+    width: auto;
+    max-width: 200px;
+    object-fit: contain;
+    transition: var(--transition);
+}
+
+/* Mobile (до 479px) */
+@media screen and (max-width: 479px) {
+    .logo-img {
+        max-height: 35px;
+        max-width: 140px;
+    }
+}
+
+/* Phone (від 480px) */
+@media screen and (min-width: 480px) {
+    .logo-img {
+        max-height: 40px;
+        max-width: 160px;
+    }
+}
+
+/* Tablet (від 768px) */
+@media screen and (min-width: 768px) {
+    .logo-img {
+        max-height: 45px;
+        max-width: 180px;
+    }
+}
+
+/* Desktop (від 1200px) */
+@media screen and (min-width: 1200px) {
+    .logo-img {
+        max-height: 50px;
+        max-width: 200px;
+    }
 }
 
 .nav-list {
