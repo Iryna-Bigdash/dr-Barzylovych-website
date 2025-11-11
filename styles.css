@@ -2039,14 +2039,15 @@ section {
     }
     
     .hero-image-container {
-        max-width: 650px;
+        max-width: 580px;
     }
     
     .hero-image-container picture,
     .hero-image-container img {
-        max-height: 800px;
+        max-height: 580px;
+        object-fit: contain;
     }
-
+    
     section.features {
         padding: 40px 0;
     }
