@@ -110,7 +110,6 @@
       .hero-content{display:grid!important;grid-template-columns:1fr;gap:2rem;align-items:center}
       .hero-text-wrapper{display:flex!important;flex-direction:column;opacity:1!important;visibility:visible!important}
       main{display:block!important;visibility:visible!important}
-      section{display:block!important;visibility:visible!important}
     </style>
     
     <!-- Normalize CSS - Load asynchronously -->
@@ -276,7 +275,7 @@
     </header>
     <main>
       <!-- Hero Section -->
-      <section class="hero" id="hero">
+      <section class="section hero" id="hero">
         <div class="container">
         
           <div style="position:absolute;left:0;top:0;width:1px;height:1px;padding:0;margin:0;border:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">Dra. Vlada Barzylovych - Лікар педіатр, алерголог</div>
@@ -333,54 +332,57 @@
         </div>
       </section>
 
-      <section class="features">
+      <section class="section features">
         <div class="container">
-          <ul class="hero-features">
-            <li class="hero-feature">
-              <div class="hero-feature-decor">
+          <div class="section-header">
+            <h2 class="section-title is-hidden" data-i18n="features.title">Переваги</h2>
+          </div>
+          <ul class="features-list">
+            <li class="feature-item">
+              <div class="feature-decor">
                 <img src="assets/images/1.svg" alt="checkmark" class="checkmark-icon">
               </div>
-              <p class="hero-feature-text" data-i18n="hero.feature2">
+              <p class="feature-text" data-i18n="hero.feature2">
                 Понад 13 років медичного стажу (практикую з 2011 року)
               </p>
             </li>
-            <li class="hero-feature">
-              <div class="hero-feature-decor">
+            <li class="feature-item">
+              <div class="feature-decor">
                 <img src="assets/images/1.svg" alt="checkmark" class="checkmark-icon">
               </div>
-              <p class="hero-feature-text" data-i18n="hero.feature3">
+              <p class="feature-text" data-i18n="hero.feature3">
                 Більше 6 років успішних онлайн-консультацій
               </p>
             </li>
-            <li class="hero-feature">
-              <div class="hero-feature-decor">
+            <li class="feature-item">
+              <div class="feature-decor">
                 <img src="assets/images/1.svg" alt="checkmark" class="checkmark-icon">
               </div>
-              <p class="hero-feature-text" data-i18n="hero.feature4">
+              <p class="feature-text" data-i18n="hero.feature4">
                 Глибокий досвід у протоколах лікування медикаментозної алергії
               </p>
             </li>
-            <li class="hero-feature">
-              <div class="hero-feature-decor">
+            <li class="feature-item">
+              <div class="feature-decor">
                 <img src="assets/images/1.svg" alt="checkmark" class="checkmark-icon">
               </div>
-              <p class="hero-feature-text" data-i18n="hero.feature5">
+              <p class="feature-text" data-i18n="hero.feature5">
                 Спікер на понад 150 медичних конференціях
               </p>
             </li>
-            <li class="hero-feature">
-              <div class="hero-feature-decor">
+            <li class="feature-item">
+              <div class="feature-decor">
                 <img src="assets/images/1.svg" alt="checkmark" class="checkmark-icon">
               </div>
-              <p class="hero-feature-text" data-i18n="hero.feature6">
+              <p class="feature-text" data-i18n="hero.feature6">
                 Автор <a href="molochna-drabyna.html">"Української молочної драбини"</a>
               </p>
             </li>
-            <li class="hero-feature">
-              <div class="hero-feature-decor">
+            <li class="feature-item">
+              <div class="feature-decor">
                 <img src="assets/images/1.svg" alt="checkmark" class="checkmark-icon">
               </div>
-              <p class="hero-feature-text" data-i18n="hero.feature7">
+              <p class="feature-text" data-i18n="hero.feature7">
                 Автор спеціалізованого блогу <a href="https://www.instagram.com/vladabarz?igsh=MWNrMmduNjk4bXRjag%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">"Здоров'я без кордонів"</a>
               </p>
             </li>
@@ -389,7 +391,7 @@
       </section>
 
       <!-- About Section -->
-      <section class="about" id="about">
+      <section class="section about" id="about">
         <div class="container">
           <div class="section-header">
             <h2 class="section-title is-hidden" data-i18n="about.title">Про мене</h2>

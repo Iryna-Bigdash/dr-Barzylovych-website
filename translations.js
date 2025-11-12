@@ -16,16 +16,16 @@ const translations = {
             description: "Надання якісної медичної допомоги з індивідуальним підходом до кожного пацієнта. Записайтеся на консультацію вже сьогодні.",
             cta: "Записатися на прийом",
             learn: "Дізнатися більше",
-            feature2: "Понад <strong>13</strong> років медичного стажу (практикую з <strong>2011</strong> року)",
-            feature3: "Більше <strong>6</strong> років успішних онлайн-консультацій",
-            feature4: "Глибокий досвід у протоколах лікування медикаментозної алергії",
-            feature5: "Спікер на понад <strong>150</strong> медичних конференціях",
-            feature6: "Автор <a href=\"molochna-drabyna.html\">\"Української молочної драбини\"</a>",
-            feature7: "Автор спеціалізованого блогу <a href=\"https://www.instagram.com/vladabarz?igsh=MWNrMmduNjk4bXRjag%3D%3D&utm_source=qr\" target=\"_blank\" rel=\"noopener noreferrer\">\"Здоров'я без кордонів\"</a>"
+            feature2: "Понад <strong>13</strong> років медичного стажу (практикую з <strong>2011</strong> року).",
+            feature3: "Більше <strong>6</strong> років успішних онлайн-консультацій.",
+            feature4: "Глибокий досвід у протоколах лікування медикаментозної алергії.",
+            feature5: "Спікер на понад <strong>150</strong> медичних конференціях.",
+            feature6: "Автор <a href=\"molochna-drabyna.html\">\"Української молочної драбини\"</a>.",
+            feature7: "Автор спеціалізованого блогу <a href=\"https://www.instagram.com/vladabarz?igsh=MWNrMmduNjk4bXRjag%3D%3D&utm_source=qr\" target=\"_blank\" rel=\"noopener noreferrer\">\"Здоров'я без кордонів\"</a>."
         },
         about: {
             title: "Про мене",
-            text2: "<h3>Як алерголог:</h3><ul><li>Проводжу діагностику та лікування пацієнтів з атопічним дерматитом, гострою та хронічною кропивянкою, бронхіальною астмою, алергічним ринітом і іншими алергопатологіями</li><li>Призначаю АСІТ імунотерапія</li><li>Консультую щодо протоколів градуйованого введення продуктів, оральної десенсибілізації</li></ul><h3>Як педіатр:</h3><ul><li>Допомогаю ростити здорових дітей по всьому світу 🌍</li><li>Контролюємо графіки вакцин</li><li>Водимо прикорм</li><li>Не даємо зайвих ліків</li></ul><p>Як мама 2-х дітей – не даю порад, які батьки не зможуть виконати ;)</p>"
+            text2: "<h3>Як алерголог:</h3><ul><li>Проводжу діагностику та лікування пацієнтів з атопічним дерматитом, гострою та хронічною кропивянкою, бронхіальною астмою, алергічним ринітом і іншими алергопатологіями.</li><li>Призначаю АСІТ імунотерапію.</li><li>Консультую щодо протоколів градуйованого введення продуктів, оральної десенсибілізації.</li></ul><h3>Як педіатр:</h3><ul><li>Допомогаю ростити здорових дітей по всьому світу 🌍.</li><li>Контролюємо графіки вакцин.</li><li>Вводимо прикорм.</li><li>Не даємо зайвих ліків.</li></ul><p>Як мама 2-х дітей – не даю порад, які батьки не зможуть виконати ;)</p>"
         },
         services: {
             title: "Мої послуги",
@@ -90,9 +90,9 @@ const translations = {
             "page.title": "Запис на прийом",
             benefits: {
                 title: "На консультації Ви отримаєте:",
-                item1: "Розбір клінічного випадку з наданням рекомендацій",
-                item2: "Коментарі і корекцію рекомендацій по результатам дообстеження",
-                item3: "Загальні рекомендації по тактиці спостереження за дитиною (раціон дитини - алергика, рекомендації по веденню прикорму, по догляду за шкірою і т.і.)"
+                item1: "Розбір клінічного випадку з наданням рекомендацій.",
+                item2: "Коментарі і корекцію рекомендацій по результатам дообстеження.",
+                item3: "Загальні рекомендації по тактиці спостереження за дитиною (раціон дитини - алергика, рекомендації по веденню прикорму, по догляду за шкірою і т.і.)."
             },
             step1: {
                 title: "Оберіть спосіб",
@@ -193,16 +193,16 @@ const translations = {
             description: "Providing quality medical care with an individual approach to each patient. Book your consultation today.",
             cta: "Book an Appointment",
             learn: "Learn More",
-            feature2: "Over <strong>13</strong> years of medical experience (practicing since <strong>2011</strong>)",
-            feature3: "More than <strong>6</strong> years of successful online consultations",
-            feature4: "Deep experience in drug allergy treatment protocols",
-            feature5: "Speaker at over <strong>150</strong> medical conferences",
-            feature6: "Author of <a href=\"molochna-drabyna.html\">\"Ukrainian Milk Ladder\"</a>",
-            feature7: "Author of the specialized blog <a href=\"https://www.instagram.com/vladabarz?igsh=MWNrMmduNjk4bXRjag%3D%3D&utm_source=qr\" target=\"_blank\" rel=\"noopener noreferrer\">\"Health Without Borders\"</a>"
+            feature2: "Over <strong>13</strong> years of medical experience (practicing since <strong>2011</strong>).",
+            feature3: "More than <strong>6</strong> years of successful online consultations.",
+            feature4: "Deep experience in drug allergy treatment protocols.",
+            feature5: "Speaker at over <strong>150</strong> medical conferences.",
+            feature6: "Author of <a href=\"molochna-drabyna.html\">\"Ukrainian Milk Ladder\"</a>.",
+            feature7: "Author of the specialized blog <a href=\"https://www.instagram.com/vladabarz?igsh=MWNrMmduNjk4bXRjag%3D%3D&utm_source=qr\" target=\"_blank\" rel=\"noopener noreferrer\">\"Health Without Borders\"</a>."
         },
         about: {
             title: "About Me",
-            text2: "<h3>As an allergist:</h3><ul><li>I diagnose and treat patients with atopic dermatitis, acute and chronic urticaria, bronchial asthma, allergic rhinitis and other allergopathologies</li><li>I prescribe ASIT immunotherapy</li><li>I consult on protocols for graded food introduction, oral desensitization</li></ul><h3>As a pediatrician:</h3><ul><li>I help raise healthy children around the world 🌍</li><li>We monitor vaccination schedules</li><li>We introduce complementary foods</li><li>We don't prescribe unnecessary medications</li></ul><p>As a mother of 2 children – I don't give advice that parents can't follow ;)</p>"
+            text2: "<h3>As an allergist:</h3><ul><li>I diagnose and treat patients with atopic dermatitis, acute and chronic urticaria, bronchial asthma, allergic rhinitis and other allergopathologies.</li><li>I prescribe ASIT immunotherapy.</li><li>I consult on protocols for graded food introduction, oral desensitization.</li></ul><h3>As a pediatrician:</h3><ul><li>I help raise healthy children around the world 🌍.</li><li>We monitor vaccination schedules.</li><li>We introduce complementary foods.</li><li>We don't prescribe unnecessary medications.</li></ul><p>As a mother of 2 children – I don't give advice that parents can't follow ;)</p>"
         },
         services: {
             title: "My Services",
@@ -267,9 +267,9 @@ const translations = {
             "page.title": "Book an Appointment",
             benefits: {
                 title: "During the consultation you will receive:",
-                item1: "Analysis of the clinical case with recommendations",
-                item2: "Comments and correction of recommendations based on additional examination results",
-                item3: "General recommendations on child monitoring tactics (diet for allergic children, recommendations on complementary feeding, skin care, etc.)"
+                item1: "Analysis of the clinical case with recommendations.",
+                item2: "Comments and correction of recommendations based on additional examination results.",
+                item3: "General recommendations on child monitoring tactics (diet for allergic children, recommendations on complementary feeding, skin care, etc.)."
             },
             step1: {
                 title: "Choose a Method",
@@ -370,16 +370,16 @@ const translations = {
             description: "Fornecendo cuidados médicos de qualidade com uma abordagem individual para cada paciente. Agende sua consulta hoje.",
             cta: "Agendar Consulta",
             learn: "Saber Mais",
-            feature2: "Mais de <strong>13</strong> anos de experiência médica (praticando desde <strong>2011</strong>)",
-            feature3: "Mais de <strong>6</strong> anos de consultas online bem-sucedidas",
-            feature4: "Experiência profunda em protocolos de tratamento de alergia medicamentosa",
-            feature5: "Palestrante em mais de <strong>150</strong> conferências médicas",
-            feature6: "Autora da <a href=\"molochna-drabyna.html\">\"Escada do Leite Ucraniana\"</a>",
-            feature7: "Autora do blog especializado <a href=\"https://www.instagram.com/vladabarz?igsh=MWNrMmduNjk4bXRjag%3D%3D&utm_source=qr\" target=\"_blank\" rel=\"noopener noreferrer\">\"Saúde Sem Fronteiras\"</a>"
+            feature2: "Mais de <strong>13</strong> anos de experiência médica (praticando desde <strong>2011</strong>).",
+            feature3: "Mais de <strong>6</strong> anos de consultas online bem-sucedidas.",
+            feature4: "Experiência profunda em protocolos de tratamento de alergia medicamentosa.",
+            feature5: "Palestrante em mais de <strong>150</strong> conferências médicas.",
+            feature6: "Autora da <a href=\"molochna-drabyna.html\">\"Escada do Leite Ucraniana\"</a>.",
+            feature7: "Autora do blog especializado <a href=\"https://www.instagram.com/vladabarz?igsh=MWNrMmduNjk4bXRjag%3D%3D&utm_source=qr\" target=\"_blank\" rel=\"noopener noreferrer\">\"Saúde Sem Fronteiras\"</a>."
         },
         about: {
             title: "Sobre Mim",
-            text2: "<h3>Como alergologista:</h3><ul><li>Realizo diagnóstico e tratamento de pacientes com dermatite atópica, urticária aguda e crónica, asma brônquica, rinite alérgica e outras alergopatologias</li><li>Prescrevo imunoterapia ASIT</li><li>Consulto sobre protocolos de introdução gradual de alimentos, dessensibilização oral</li></ul><h3>Como pediatra:</h3><ul><li>Ajudo a criar crianças saudáveis em todo o mundo 🌍</li><li>Controlamos os calendários de vacinação</li><li>Introduzimos alimentos complementares</li><li>Não prescrevemos medicamentos desnecessários</li></ul><p>Como mãe de 2 filhos – não dou conselhos que os pais não possam seguir ;)</p>"
+            text2: "<h3>Como alergologista:</h3><ul><li>Realizo diagnóstico e tratamento de pacientes com dermatite atópica, urticária aguda e crónica, asma brônquica, rinite alérgica e outras alergopatologias.</li><li>Prescrevo imunoterapia ASIT.</li><li>Consulto sobre protocolos de introdução gradual de alimentos, dessensibilização oral.</li></ul><h3>Como pediatra:</h3><ul><li>Ajudo a criar crianças saudáveis em todo o mundo 🌍.</li><li>Controlamos os calendários de vacinação.</li><li>Introduzimos alimentos complementares.</li><li>Não prescrevemos medicamentos desnecessários.</li></ul><p>Como mãe de 2 filhos – não dou conselhos que os pais não possam seguir ;)</p>"
         },
         services: {
             title: "Meus Serviços",
@@ -456,9 +456,9 @@ const translations = {
             "page.title": "Agendar Consulta",
             benefits: {
                 title: "Durante a consulta você receberá:",
-                item1: "Análise do caso clínico com recomendações",
-                item2: "Comentários e correção de recomendações com base nos resultados de exames adicionais",
-                item3: "Recomendações gerais sobre táticas de monitoramento da criança (dieta para crianças alérgicas, recomendações sobre alimentação complementar, cuidados com a pele, etc.)"
+                item1: "Análise do caso clínico com recomendações.",
+                item2: "Comentários e correção de recomendações com base nos resultados de exames adicionais.",
+                item3: "Recomendações gerais sobre táticas de monitoramento da criança (dieta para crianças alérgicas, recomendações sobre alimentação complementar, cuidados com a pele, etc.)."
             },
             form: {
                 name: "Nome",

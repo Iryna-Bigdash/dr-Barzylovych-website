@@ -35,7 +35,6 @@
     font-display: optional;
 }
 
-/* ========== ROOT VARIABLES ========== */
 :root {
     --main-text: #2c3e50;
     --main-accent: #f9e076;
@@ -46,7 +45,6 @@
     --transition: all 0.3s ease;
 }
 
-/* ========== GENERAL STYLES (Reset, Body, HTML, Base Tags) ========== */
 * {
     margin: 0;
     padding: 0;
@@ -55,14 +53,13 @@
 
 html {
     scroll-behavior: smooth;
-    font-size: 16px;
 }
 
 body {
     font-family: 'Roboto', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, Helvetica, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
     color: var(--main-text);
     background-color: var(--bg-white);
-    line-height: 1.5;
+    line-height: 1.6;
     letter-spacing: 0.03em;
     overflow-x: hidden;
     font-size: 16px;
@@ -71,9 +68,17 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-h1 {
-    margin: 0;
-    letter-spacing: normal;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+  margin: 0;
+  padding: 0;
 }
 
 h2{
@@ -82,6 +87,8 @@ h2{
     font-weight: 500;
     color: var(--accent3);
     line-height: 1.2;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 h2:first-child {
@@ -93,12 +100,21 @@ h3, h4, h5, h6 {
     font-weight: 500;
     line-height: 1.3;
     color: var(--main-text);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
 
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+    margin-top: 0;
 }
 
 h3 {
     font-size: clamp(1.25rem, 3vw, 1.75rem);
 }
+
 
 a {
     text-decoration: none;
@@ -127,7 +143,6 @@ img[loading="lazy"].loaded {
     opacity: 1;
 }
 
-/* ========== CONTAINER ========== */
 .container {
     width: 100%;
     max-width: 280px; /* Mobile-first: базовий стиль для найменших екранів (до 319px) */
@@ -136,70 +151,6 @@ img[loading="lazy"].loaded {
     outline: 1px solid #ff0000; /* Червоний */
 }
 
-/* Phone (від 320px до 479px) */
-@media screen and (min-width: 320px) and (max-width: 479px) {
-    .container {
-        max-width: 400px;
-        outline: 1px solid #ff8800; /* Помаранчевий */
-    }
-}
-
-
-/* Phone (від 480px до 767px) */
-@media screen and (min-width: 480px) and (max-width: 767px) {
-    .container {
-        max-width: 570px;
-        outline: 1px solid #ffff00; /* Жовтий */
-    }
-}
-
-/* Tablet (від 768px до 1199px) */
-@media screen and (min-width: 768px) and (max-width: 1199px) {
-    .container {
-        max-width: 960px;
-        outline: 1px solid #00ff00; /* Зелений */
-    }
-}
-
-/* Desktop (від 1200px) */
-@media screen and (min-width: 1200px) {
-    .container {
-        max-width: 1200px;
-        outline: 1px solid #0088ff; /* Синій */
-    }
-}
-
-/* Retina дисплеї (додається до існуючих кольорів) */
-@media 
-    (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    .container {
-        outline-width: 1px !important; /* Товстіша лінія для retina */
-    }
-}
-
-/* ========== SECTION ========== */
-.section {
-    padding: 40px 0;
-    font-size: 1rem; /* Базовий розмір 16px для всіх секцій в main */
-    border-bottom: 2px solid rgba(2, 141, 150, 0.2);
-}
-
-@media screen and (min-width: 480px) {
-    .section {
-        padding: 50px 0;
-    }
-}
-
-@media screen and (min-width: 768px) {
-    .section {
-        padding: 60px 0;
-    }
-}
-
-
-/* ========== HEADER ========== */
 .header {
     position: fixed;
     top: 0;
@@ -243,13 +194,46 @@ img[loading="lazy"].loaded {
     
     /* Адаптивні відступи для тексту */
     
+    h2 {
+        margin-top: 1.5rem;
+        margin-bottom: 1.25rem;
+    }
+    
+    h3, h4, h5, h6 {
+        margin-top: 1.25rem;
+        margin-bottom: 0.875rem;
+    }
+    
     .section-title {
         margin-top: 1.5rem;
         margin-bottom: 1.25rem;
     }
-        
+    
+    .section-subtitle {
+        margin-top: 0.625rem;
+        margin-bottom: 1.25rem;
+        line-height: 1.5;
+    }
+    
+    .about-text p {
+        margin-bottom: 0.875rem;
+        line-height: 1.5;
+    }
+    
+    .about-text h3 {
+        margin-top: 1.25rem;
+        margin-bottom: 0.875rem;
+    }
+    
+    .about-text ul li {
+        margin-bottom: 0.375rem;
+        line-height: 1.5;
+    }
+    
+    
     .policy-text p {
         margin-bottom: 0.875rem;
+        line-height: 1.5;
     }
     
     .policy-text h2 {
@@ -264,23 +248,65 @@ img[loading="lazy"].loaded {
     
     .policy-text li {
         margin-bottom: 0.375rem;
+        line-height: 1.5;
     }
 }
 
 /* Phone (від 480px) */
 @media screen and (min-width: 480px) {
+    .container {
+        max-width: 700px;
+    }
+    
     .logo-img {
         max-height: 40px;
         max-width: 160px;
+    }
+    
+    /* Адаптивні відступи для тексту */
+    p {
+        line-height: 1.55;
+    }
+    
+    h2 {
+        margin-top: 1.75rem;
+        margin-bottom: 1.375rem;
+    }
+    
+    h3, h4, h5, h6 {
+        margin-top: 1.375rem;
+        margin-bottom: 0.9375rem;
     }
     
     .section-title {
         margin-top: 1.75rem;
         margin-bottom: 1.375rem;
     }
-
+    
+    .section-subtitle {
+        margin-top: 0.6875rem;
+        margin-bottom: 1.375rem;
+        line-height: 1.55;
+    }
+    
+    .about-text p {
+        margin-bottom: 0.9375rem;
+        line-height: 1.55;
+    }
+    
+    .about-text h3 {
+        margin-top: 1.375rem;
+        margin-bottom: 0.9375rem;
+    }
+    
+    .about-text ul li {
+        margin-bottom: 0.4375rem;
+        line-height: 1.55;
+    }
+    
     .policy-text p {
         margin-bottom: 0.9375rem;
+        line-height: 1.55;
     }
     
     .policy-text h2 {
@@ -295,7 +321,8 @@ img[loading="lazy"].loaded {
     
     .policy-text li {
         margin-bottom: 0.4375rem;
-        }
+        line-height: 1.55;
+    }
 }
 
 /* Tablet (від 768px) */
@@ -306,43 +333,9 @@ img[loading="lazy"].loaded {
     }
     
     /* Адаптивні відступи для тексту */
-    .section-title {
-        margin-top: 2rem;
-        margin-bottom: 1.5rem;
+    p {
+        line-height: 1.6;
     }
-    
-    .section-subtitle {
-        margin-top: 0.75rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .policy-text p {
-        margin-bottom: 1rem;
-    }
-    
-    .policy-text h2 {
-        margin-top: 2rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .policy-text h3 {
-        margin-top: 1.5rem;
-        margin-bottom: 1rem;
-    }
-    
-    .policy-text li {
-        margin-bottom: 0.5rem;
-    }
-}
-
-/* Desktop (від 1200px) */
-@media screen and (min-width: 1200px) {
-    .logo-img {
-        max-height: 50px;
-        max-width: 200px;
-    }
-    
-    /* Адаптивні відступи для тексту */
     
     h2 {
         margin-top: 2rem;
@@ -357,6 +350,27 @@ img[loading="lazy"].loaded {
     .section-title {
         margin-top: 2rem;
         margin-bottom: 1.5rem;
+    }
+    
+    .section-subtitle {
+        margin-top: 0.75rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+    
+    .about-text p {
+        margin-bottom: 1rem;
+        line-height: 1.6;
+    }
+    
+    .about-text h3 {
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .about-text ul li {
+        margin-bottom: 0.5rem;
+        line-height: 1.6;
     }
     
     .policy-text p {
@@ -376,15 +390,83 @@ img[loading="lazy"].loaded {
     
     .policy-text li {
         margin-bottom: 0.5rem;
+        line-height: 1.6;
+    }
+}
+
+/* Desktop (від 1200px) */
+@media screen and (min-width: 1200px) {
+    .logo-img {
+        max-height: 50px;
+        max-width: 200px;
+    }
+    
+    /* Адаптивні відступи для тексту */
+    p {
+        line-height: 1.6;
+    }
+    
+    h2 {
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    h3, h4, h5, h6 {
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .section-title {
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .section-subtitle {
+        margin-top: 0.75rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+    
+    .about-text p {
+        margin-bottom: 1rem;
+        line-height: 1.6;
+    }
+    
+    .about-text h3 {
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .about-text ul li {
+        margin-bottom: 0.5rem;
+        line-height: 1.6;
+    }
+       
+    .policy-text p {
+        margin-bottom: 1rem;
+        line-height: 1.6;
+    }
+    
+    .policy-text h2 {
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .policy-text h3 {
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .policy-text li {
+        margin-bottom: 0.5rem;
+        line-height: 1.6;
     }
 }
 
 .nav-list {
     display: flex;
     list-style: none;
-    flex-direction: column;
-    padding: 2rem;
-    gap: 0;
+    gap: 2rem;
 }
 
 .nav-link {
@@ -514,15 +596,13 @@ img[loading="lazy"].loaded {
     position: absolute;
 }
 
-/* ========== INDEX PAGE - HERO SECTION ========== */
 .hero {
     background: linear-gradient(135deg, var(--text-bg) 0%, var(--bg-white) 50%, var(--text-bg) 100%);
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
-    padding: 40px 0;
-    border-bottom: 2px solid rgba(2, 141, 150, 0.2);
+    padding: 40px 0 0 0;
 }
 
 .hero .container {
@@ -533,12 +613,14 @@ img[loading="lazy"].loaded {
 .hero-content {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 2.5rem;
     align-items: center;
     max-width: 1400px;
     text-align: center;
 }
 
+/* Mobile-first: базові стилі для hero-content (до 767px) */
+/* Зміни для tablet (від 768px) */
 @media screen and (min-width: 768px) {
     .hero-content {
         grid-template-columns: 1fr 1.1fr;
@@ -572,6 +654,7 @@ img[loading="lazy"].loaded {
     display: block;
 }
 
+/* Mobile-first: базові стилі для hero-image-container (до 479px) */
 .hero-image-container {
     max-width: 280px;
     margin: 0 auto;
@@ -608,6 +691,17 @@ img[loading="lazy"].loaded {
     }
 }
 
+/* Original fadeInUp - kept for reference but overridden below for FCP */
+@keyframes fadeInUpOriginal {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 .hero-text-wrapper {
     display: flex;
@@ -617,6 +711,7 @@ img[loading="lazy"].loaded {
     align-items: center;
     order: 2;
     width: 100%;
+    max-width: 100%;
     /* Animation starts from visible state for FCP */
     animation: fadeInUp 0.8s ease-out 0.2s both;
     /* Ensure content is visible before animation starts */
@@ -639,6 +734,7 @@ img[loading="lazy"].loaded {
     }
 }
 
+/* Mobile-first: базові стилі для hero-text-wrapper (до 767px) */
 /* Зміни для tablet (від 768px) */
 @media screen and (min-width: 768px) {
     .hero-text-wrapper {
@@ -664,6 +760,7 @@ img[loading="lazy"].loaded {
     }
 }
 
+/* Mobile-first: базові стилі для hero-title (до 767px) */
 
 .hero-title {
     font-family: 'Alegreya', serif;
@@ -673,6 +770,8 @@ img[loading="lazy"].loaded {
     line-height: 1.2;
     letter-spacing: 0.01em;
     text-align: center;
+
+    max-width: 100%;
     position: relative;
 }
 
@@ -700,9 +799,12 @@ img[loading="lazy"].loaded {
 /* Емоджі прапорів автоматично масштабуються з текстом */
 .hero-subtitle {
     font-feature-settings: "liga" 1, "calt" 1;
+}
+
+.hero-subtitle {
     font-weight: 600;
     text-align: center;
-    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
     color: var(--main-text);
 }
 
@@ -728,6 +830,7 @@ img[loading="lazy"].loaded {
 }
 
 
+/* Mobile-first: базові стилі для hero-subtitle (до 767px) */
 /* Tablet (від 768px) */
 @media screen and (min-width: 768px) {
     .hero-subtitle {
@@ -737,94 +840,53 @@ img[loading="lazy"].loaded {
 
 .hero-button {
   text-align: center;
+
 }
 
-@media screen and (min-width: 768px) {
-    .hero {
-        padding: 40px 0 0 0;
-    }
-
-    .hero-content {
-        gap: 3rem;
-    }
-}
-
-@media screen and (min-width: 1200px) {
-    .hero-title {
-        font-size: 44px;
-    }
-    
-    .hero-content {
-        grid-template-columns: 1fr 1.3fr;
-        gap: 5rem;
-    }
-    
-    .hero-image-container {
-        max-width: 580px;
-    }
-    
-    .hero-image-container picture,
-    .hero-image-container img {
-        max-height: 580px;
-        object-fit: contain;
-    }
-}
-
-/* ========== INDEX PAGE - FEATURES SECTION ========== */
 section.features {
     background-color: var(--bg-white);
+    padding: 40px 0;
 }
 
 .features-list {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-    max-width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    max-width: 1200px;
     margin: 0 auto;
-    list-style: none;
-    padding-left: 0;
-    justify-items: stretch;
 }
 
 .feature-item {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 0.625rem;
+    gap: 1rem;
     width: 100%;
     max-width: 500px;
     position: relative;
-    padding: 0 0.5rem;
-    border-radius: 6px;
+    border-radius: 8px;
     background: rgba(255, 255, 255, 0.5);
-    border: 1px solid transparent;
     transition: var(--transition);
+    border: 1px solid transparent;
 }
 
 .feature-item:hover {
-    transform: translateX(4px);
-}
-
-@media screen and (min-width: 480px) {
-    .features-list {
-        gap: 0.875rem;
-    }
-
-    .feature-item {
-        gap: 0.75rem;
-        padding: 0 0.75rem;
-    }
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(2, 141, 150, 0.2);
+    box-shadow: 0 2px 8px rgba(2, 141, 150, 0.1);
+    transform: translateY(-2px);
 }
 
 .feature-decor {
-    width: 20px;
-    min-width: 20px;
-    height: 20px;
+    width: 24px;
+    min-width: 24px;
+    height: 24px;
     flex-shrink: 0;
     align-self: center;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: var(--transition);
 }
 
 .feature-decor img,
@@ -832,19 +894,20 @@ section.features {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    transition: var(--transition);
 }
 
+.feature-item:hover .feature-decor img,
+.feature-item:hover .feature-decor .checkmark-icon {
+    transform: scale(1.1);
+    opacity: 1;
+}
 
 .feature-text {
     color: var(--main-text);
     flex: 1;
     word-wrap: break-word;
     align-self: center;
-    transition: var(--transition);
-}
-
-.feature-item:hover .feature-text {
-    color: var(--accent3);
 }
 
 .feature-text strong {
@@ -873,319 +936,6 @@ section.features {
     border-bottom-color: #014a50;
 }
 
-/* ========== INDEX PAGE - ABOUT SECTION ========== */
-.about {
-    background-color: var(--text-bg);
-    padding-bottom: 2rem;
-    position: relative;
-}
-
-
-
-.about-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-.about-text p {
-    margin-bottom: 1rem;
-    font-size: 1rem; /* Базовий розмір 16px */
-    text-align: left;
-    text-align-last: left;
-    hyphens: none;
-    line-height: 1.55;
-}
-
-.about-text p:last-of-type {
-    margin-top: 1.5rem;
-    padding: 1rem 1.25rem;
-    background-color: rgba(2, 141, 150, 0.08);
-    border-left: 3px solid var(--accent3);
-    border-radius: 4px;
-    font-style: italic;
-    color: var(--accent3);
-    font-weight: 500;
-}
-
-.about-text h3 {
-    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-    font-family: 'Roboto', sans-serif;
-    font-weight: 600;
-    color: var(--accent3);
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    line-height: 1.4;
-    position: relative;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid rgba(2, 141, 150, 0.2);
-}
-
-.about-text h3:first-child {
-    margin-top: 0;
-}
-
-.about-text ul {
-    list-style: none;
-    padding-left: 0;
-    gap: 0.5rem;
-    display: flex;
-    flex-direction: column;
-}
-
-.about-text ul li {
-    padding: 0 0 0 1.875rem;
-    margin-bottom: 0;
-    position: relative;
-    color: var(--main-text);
-    transition: var(--transition);
-}
-
-.about-text ul li::before {
-    content: "—";
-    position: absolute;
-    left: 0;
-    top: 0.5rem;
-    color: var(--accent3);
-    font-size: 1rem;
-    line-height: 1;
-    opacity: 0.4;
-    transition: var(--transition);
-    width: 1rem;
-}
-
-
-
-
-
-.about-text a {
-    color: #016a72;
-    text-decoration: underline;
-    transition: var(--transition);
-    font-weight: 500;
-}
-
-
-
-.about-text {
-    width: 100%;
-    order: 1;
-    text-align: left;
-    background-color: rgba(255, 255, 255, 0.6);
-    padding: 1rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    transition: var(--transition);
-}
-
-
-
-.about-cta {
-    margin-top: 1.5rem;
-    text-align: center;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(2, 141, 150, 0.15);
-}
-
-.about-cta a {
-    color: #016a72;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: var(--transition);
-    font-weight: 600;
-    display: inline-block;
-    padding: 0.75rem 2rem;
-    background-color: rgba(2, 141, 150, 0.1);
-    border-radius: 8px;
-    border: 2px solid transparent;
-    position: relative;
-    overflow: hidden;
-}
-
-.about-cta a::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.5s;
-}
-
-.about-cta a:hover {
-    color: #ffffff;
-    background-color: var(--accent3);
-    border-color: var(--accent3);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(2, 141, 150, 0.3);
-}
-
-.about-cta a:hover::before {
-    left: 100%;
-}
-
-.about-image {
-    width: 90%;
-    max-width: 320px;
-    order: 2;
-    overflow: hidden;
-    border-radius: 12px;
-    aspect-ratio: 1 / 1;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    transition: var(--transition);
-    position: relative;
-    border: 3px solid rgba(2, 141, 150, 0.15);
-}
-
-.about-image::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(2, 141, 150, 0.1) 0%, transparent 50%);
-    pointer-events: none;
-    opacity: 0;
-    transition: var(--transition);
-}
-
-.about-image:hover {
-    transform: scale(1.02);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-}
-
-.about-image:hover::after {
-    opacity: 1;
-}
-
-.about-image picture,
-.about-image img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
-@media screen and (min-width: 768px) {
-    .about-content {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        gap: 50px;
-    }
-
-    .about-text {
-        flex-basis: 55%;
-        width: auto;
-        order: 1;
-        padding: 2.5rem;
-    }
-
-    .about-image {
-        flex-basis: 45%;
-        max-width: 350px;
-        order: 2;
-        flex-shrink: 0;
-        aspect-ratio: 1 / 1;
-    }
-}
-
-@media screen and (max-width: 479px) {
-    .about-content {
-        align-items: center;
-    }
-    
-    .about-text {
-        width: 100%;
-        margin: 0 auto;
-    }
-    
-    .about-text h3 {
-        margin-top: 1.25rem;
-        margin-bottom: 0.875rem;
-    }
-    
-    .about-text ul {
-        gap: 0.5rem;
-    }
-    
-    .about-text ul li {
-        padding: 0 0 0 1.625rem;
-    }
-}
-
-@media screen and (min-width: 480px) and (max-width: 767px) {
-    .about-content {
-        align-items: center;
-    }
-    
-    .about-text {
-        width: 100%;
-        margin: 0 auto;
-    }
-    
-    .about-text p {
-        margin-bottom: 0.9375rem;
-    }
-    
-    .about-text h3 {
-        margin-top: 1.375rem;
-        margin-bottom: 0.9375rem;
-    }
-    
-    .about-text ul {
-        gap: 0.875rem;
-    }
-    
-    .about-text ul li {
-        padding: 0 0 0 1.75rem;
-    }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1199px) {
-    .about-text p {
-        margin-bottom: 1rem;
-    }
-    
-    .about-text h3 {
-        margin-top: 1.5rem;
-        margin-bottom: 1rem;
-    }
-    
-    .about-text ul {
-        gap: 0.875rem;
-    }
-}
-
-@media screen and (min-width: 1200px) {
-    .about-image {
-        max-width: 500px;
-        aspect-ratio: 1 / 1;
-    }
-    
-    .about-text p {
-        margin-bottom: 1rem;
-    }
-    
-    .about-text h3 {
-        margin-top: 1.5rem;
-        margin-bottom: 1rem;
-    }
-    
-    .about-text ul {
-        gap: 0.875rem;
-    }
-    
-    .about-text ul li {
-        line-height: 1.55;
-    }
-}
-
-/* ========== UTILITIES (Buttons, Animations, Common Classes) ========== */
 .btn {
     display: inline-block;
     padding: 1rem 2rem;
@@ -1245,17 +995,14 @@ section.features {
     width: 1px;
     height: 1px;
     padding: 0;
-    margin: 0;
+    margin: -1px;
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
     opacity: 0;
     pointer-events: none;
-}
-
-.section-header:has(.is-hidden) {
-    display: none;
+    visibility: hidden;
 }
 
 .section-title::after {
@@ -1274,7 +1021,7 @@ section.features {
     display: block;
     width: 100%;
     max-width: 600px;
-    font-size: 1rem; /* Базовий розмір 16px */
+    font-size: clamp(1rem, 2vw, 1.125rem);
     color: var(--main-text);
     text-align: center;
     text-align-last: center;
@@ -1283,9 +1030,118 @@ section.features {
     margin-right: auto;
     margin-top: 0.75rem;
     margin-bottom: 1.5rem;
-    line-height: 1.55;
+    line-height: 1.6;
 }
-/* ========== MOLOCHNA DRABYNA PAGE ========== */
+.about {
+    background-color: var(--text-bg);
+    padding-bottom: 2rem;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.about-text p {
+    margin-bottom: 1rem;
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    text-align: left;
+    text-align-last: left;
+    hyphens: none;
+    line-height: 1.6;
+}
+
+.about-text h3 {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    color: var(--main-text);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.about-text h3:first-child {
+    margin-top: 0;
+}
+
+.about-text ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.about-text ul li {
+    padding-left: 1.5rem;
+    margin-bottom: 0.625rem;
+    position: relative;
+    color: var(--main-text);
+}
+
+.about-text ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--accent3);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.about-text a {
+    color: #016a72;
+    text-decoration: underline;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.about-text a:hover {
+    color: #014a50;
+    text-decoration: underline;
+}
+
+.about-text {
+    width: 90%;
+    order: 1;
+    text-align: left;
+}
+
+.about-cta {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.about-cta a {
+    color: #016a72;
+    text-decoration: underline;
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    transition: var(--transition);
+    font-weight: 600;
+}
+
+.about-cta a:hover {
+    color: #014a50;
+    text-decoration: underline;
+}
+
+.about-image {
+    width: 90%;
+    max-width: 320px;
+    order: 2;
+    overflow: hidden;
+    border-radius: 12px;
+    aspect-ratio: 1 / 1;
+}
+
+.about-image picture,
+.about-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
 .molochna-drabyna-image {
     width: 100%;
     max-width: 1200px;
@@ -1366,7 +1222,7 @@ section.features {
     padding-left: 1.5rem;
     position: relative;
     color: var(--main-text);
-    line-height: 1.55;
+    line-height: 1.6;
     text-align: left;
     text-align-last: left;
     hyphens: none;
@@ -1422,6 +1278,7 @@ section.features {
     color: var(--main-text);
 }
 
+/* Mobile-first: базові стилі для recipes-clickable-image (до 767px) */
 .recipes-clickable-image {
     float: none;
     margin: 0 0 1.5rem 0;
@@ -1442,11 +1299,23 @@ section.features {
     text-decoration: none;
 }
 
+.features-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.features-list li {
+    padding: 0.75rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--main-text);
+    font-size: clamp(1rem, 2vw, 1rem);
+}
 
 .molochna-drabyna-page .about-content {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
     align-items: center;
 }
 
@@ -1475,11 +1344,24 @@ section.features {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     color: var(--main-text);
     font-size: 0.875rem;
-    line-height: 1.5;
+    line-height: 1.6;
     text-align: left;
     text-align-last: left;
     hyphens: none;
     word-spacing: normal;
+}
+/* Mobile-first: базові стилі для molochna-drabyna-page .about-content (до 767px) */
+.molochna-drabyna-page .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.molochna-drabyna-page .molochna-drabyna-image {
+    order: 2;
+}
+
+.molochna-drabyna-page .about-text {
+    order: 1;
 }
 
 /* Tablet (від 768px) */
@@ -1489,6 +1371,34 @@ section.features {
         gap: 3rem;
     }
 
+    .about-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .about-text {
+        flex-basis: 60%;
+        width: auto;
+        order: 1;
+    }
+
+    .about-image {
+        flex-basis: 40%;
+        max-width: 350px;
+        order: 2;
+        flex-shrink: 0;
+        aspect-ratio: 1 / 1;
+    }
+}
+
+/* Desktop (від 1200px) */
+@media screen and (min-width: 1200px) {
+    .about-image {
+        max-width: 500px;
+        aspect-ratio: 1 / 1;
+    }
 }
 
 .services-grid {
@@ -1526,7 +1436,7 @@ section.features {
 .service-description {
     color: var(--main-text);
     opacity: 0.8;
-    font-size: 1rem; /* Базовий розмір 16px */
+    font-size: clamp(1rem, 2vw, 1rem);
     line-height: 1.6;
     margin-bottom: 1rem;
 }
@@ -1838,9 +1748,9 @@ section.features {
     }
 }
 
-/* ========== POLICY PAGES ========== */
+/* Policy Pages Styles */
 .policy-page {
-    padding: 80px 0 40px;
+    padding: 100px 0 60px;
     background-color: var(--bg-white);
     min-height: calc(100vh - 200px);
 }
@@ -1848,7 +1758,7 @@ section.features {
 .policy-content {
     max-width: 900px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 2rem;
 }
 
 .policy-title {
@@ -1862,8 +1772,8 @@ section.features {
 
 .policy-text {
     color: var(--main-text);
-    line-height: 1.55;
-    font-size: 1rem; /* Базовий розмір 16px */
+    line-height: 1.6;
+    font-size: clamp(1rem, 2vw, 1.125rem);
 }
 
 .policy-text h2 {
@@ -1873,7 +1783,7 @@ section.features {
     margin-top: 2rem;
     margin-bottom: 1.5rem;
     font-weight: 600;
-    line-height: 1.3;
+    line-height: 1.2;
 }
 
 .policy-text h2:first-child {
@@ -1886,7 +1796,7 @@ section.features {
     color: var(--accent3);
     margin-top: 1.5rem;
     margin-bottom: 1rem;
-    line-height: 1.4;
+    line-height: 1.3;
 }
 
 .policy-text h3:first-child {
@@ -1895,17 +1805,17 @@ section.features {
 
 .policy-text p {
     margin-bottom: 1rem;
-    line-height: 1.55;
+    line-height: 1.6;
 }
 
 .policy-text ul {
     margin: 1rem 0;
-    padding-left: 1.5rem;
+    padding-left: 2rem;
 }
 
 .policy-text li {
     margin-bottom: 0.5rem;
-    line-height: 1.55;
+    line-height: 1.6;
 }
 
 .policy-text a {
@@ -1919,6 +1829,20 @@ section.features {
     text-decoration: none;
 }
 
+/* Mobile-first: базові стилі для policy-page (до 767px) */
+.policy-page {
+    padding: 80px 0 40px;
+}
+
+.policy-content {
+    padding: 0 1rem;
+}
+
+.policy-text ul {
+    padding-left: 1.5rem;
+}
+
+/* Tablet (від 768px) */
 @media screen and (min-width: 768px) {
     .policy-page {
         padding: 100px 0 60px;
@@ -1926,10 +1850,6 @@ section.features {
 
     .policy-content {
         padding: 0 2rem;
-    }
-
-    .policy-text ul {
-        padding-left: 2rem;
     }
 }
 
@@ -1957,99 +1877,88 @@ section.features {
     min-height: 100px;
 }
 
-/* ========== FOOTER ========== */
 .footer {
     background-color: var(--main-text);
     color: var(--bg-white);
-    position: relative;
+    padding: 60px 0 20px;
 }
 
 .footer-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
+    gap: 3rem;
+    margin-bottom: 3rem;
 }
 
 .footer-title {
     color: var(--main-accent);
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    position: relative;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
 }
 
-
-.footer-contact p{
-    font-size: 12px;
-    line-height: 1.6;
+.footer-contact p,
+.footer-hours p {
+    margin-bottom: 0.75rem;
+    font-size: 0.875rem;
 }
 
 .footer-contact a {
     color: var(--text-bg);
-    font-size: 12px;
-    transition: var(--transition);
-    text-decoration: none;
+    font-size: 0.875rem;
 }
 
 .footer-contact a:hover {
     color: var(--main-accent);
-    border-bottom-color: var(--main-accent);
 }
-
 
 .footer-links {
     list-style: none;
 }
 
+.footer-links li {
+    margin-bottom: 0.75rem;
+}
 
 .footer-links a {
     color: var(--text-bg);
     transition: var(--transition);
-    font-size: 12px;
-    line-height: 1.6;
-    text-decoration: none;
+    font-size: 0.875rem;
 }
 
 .footer-links a:hover {
     color: var(--main-accent);
+    padding-left: 5px;
 }
 
 .footer-social {
     display: flex;
     flex-direction: column;
+    gap: 0.75rem;
 }
 
 .social-link {
     color: var(--text-bg);
     transition: var(--transition);
-    font-size: 14px;
-    text-decoration: none;
-    display: inline-block;
-    position: relative;
+    font-size: 0.875rem;
 }
-
-
 
 .social-link:hover {
     color: var(--main-accent);
-    padding-left: 1.25rem;
+    padding-left: 5px;
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-
-
 .footer-copyright {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     opacity: 0.8;
 }
 
+/* Mobile-first: базові стилі для burger-menu та nav (до 1199px) */
 .burger-menu {
     display: flex;
 }
@@ -2059,7 +1968,7 @@ section.features {
     top: 0;
     left: -100%;
     width: 100%;
-    max-width: 100%;
+    max-width: 400px;
     height: 100vh;
     background-color: var(--bg-white);
     transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -2088,6 +1997,13 @@ section.features {
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+
+.nav-list {
+    flex-direction: column;
+    padding: 2rem;
+    gap: 0;
+    list-style: none;
 }
 
 .nav-list li {
@@ -2152,9 +2068,30 @@ section.features {
     }
 }
 
+/* Mobile-first: базові стилі для hero та features (до 767px) */
+.nav {
+    max-width: 100%;
+}
 
+.hero {
+    min-height: auto;
+    padding: 40px 0 40px 0;
+}
 
+.hero-content {
+    gap: 1.2rem;
+}
 
+section.features {
+    padding: 40px 0;
+}
+
+.features-list {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    max-width: 100%;
+    justify-items: stretch;
+}
 
 .feature-item {
     max-width: 100%;
@@ -2169,12 +2106,18 @@ section.features {
     height: 20px;
 }
 
-
+.feature-text {
+    line-height: 1.5;
+}
 
 .btn {
     width: 100%;
 }
 
+.about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
 
 .services-grid {
     grid-template-columns: 1fr;
@@ -2194,14 +2137,21 @@ section.features {
 
 .footer-content {
     grid-template-columns: 1fr;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+    gap: 2rem;
+}
+
+section {
+    padding: 60px 0;
 }
 
 /* Phone (до 479px) */
 @media screen and (max-width: 479px) {
     html {
         font-size: 16px;
+    }
+
+    .container {
+        padding: 0 0.75rem;
     }
 
     .header-content {
@@ -2228,6 +2178,20 @@ section.features {
     .footer {
         padding: 40px 0 15px;
     }
+
+    .features-list {
+        gap: 1rem;
+    }
+
+    .feature-item {
+        gap: 0.625rem;
+    }
+
+    .feature-decor {
+        width: 18px;
+        min-width: 18px;
+        height: 18px;
+    }
 }
 
 /* Phone (від 480px) */
@@ -2239,6 +2203,18 @@ section.features {
 
 /* Tablet (від 768px) */
 @media screen and (min-width: 768px) {
+    .hero {
+        padding: 40px 0 0 0;
+    }
+
+    .hero-content {
+        gap: 3rem;
+    }
+
+    section.features {
+        padding: 50px 0;
+    }
+
     .features-list {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
@@ -2268,6 +2244,10 @@ section.features {
         grid-template-columns: repeat(3, 1fr);
     }
 
+    .about-content {
+        flex-direction: row;
+        gap: 2rem;
+    }
 
     .appointment-form-wrapper {
         padding: 2.5rem;
@@ -2275,18 +2255,41 @@ section.features {
 
     .footer-content {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
+        gap: 2rem;
     }
 }
 
 /* Desktop (від 1200px) */
 @media screen and (min-width: 1200px) {
+    .hero-title {
+        font-size: 44px;
+    }
+    
+    .hero-content {
+        grid-template-columns: 1fr 1.3fr;
+        gap: 5rem;
+    }
+    
+    .hero-image-container {
+        max-width: 580px;
+    }
+    
+    .hero-image-container picture,
+    .hero-image-container img {
+        max-height: 580px;
+        object-fit: contain;
+    }
+    
+    section.features {
+        padding: 40px 0;
+    }
+
     .footer-content {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-/* ========== SCROLL TO TOP ========== */
+/* Mobile-first: базові стилі для scroll-to-top (до 767px) */
 .scroll-to-top {
     position: fixed;
     bottom: 15px;
@@ -2370,7 +2373,7 @@ section.features {
     outline-offset: 2px;
 }
 
-/* ========== APPOINTMENT PAGE ========== */
+/* Appointment Page Styles */
 .appointment-section {
     padding: 60px 0;
 }
@@ -2449,8 +2452,8 @@ section.features {
 .benefit-text {
     margin: 0;
     color: var(--main-text);
-    line-height: 1.55;
-    font-size: 1rem; /* Базовий розмір 16px */
+    line-height: 1.6;
+    font-size: clamp(1rem, 2vw, 1.125rem);
 }
 
 .appointment-pricing {
@@ -2499,12 +2502,12 @@ section.features {
 .pricing-label {
     font-weight: 600;
     color: var(--main-text);
-    font-size: 1rem; /* Базовий розмір 16px */
+    font-size: clamp(1rem, 2vw, 1.0625rem);
 }
 
 .pricing-value {
     color: var(--accent2);
-    font-size: 1rem; /* Базовий розмір 16px */
+    font-size: clamp(1rem, 2vw, 1.0625rem);
     line-height: 1.5;
 }
 
@@ -2540,8 +2543,8 @@ section.features {
     padding-left: 1.5rem;
     position: relative;
     color: var(--main-text);
-    line-height: 1.55;
-    font-size: 1rem; /* Базовий розмір 16px */
+    line-height: 1.6;
+    font-size: clamp(1rem, 2vw, 1rem);
 }
 
 .notice-list li::before {
@@ -2583,6 +2586,7 @@ section.features {
     font-weight: 600;
 }
 
+/* Mobile-first: базові стилі для appointment-section (до 767px) */
 .appointment-section {
     padding: 40px 0;
 }
@@ -2638,9 +2642,50 @@ section.features {
     }
 }
 
-/* ========== MEDIA QUERIES ========== */
+/* ========== Media Queries для Container Outline (Mobile-First) ========== */
 
-/* ========== PRINT STYLES ========== */
+/* === Phone (від 320px до 479px) === */
+@media screen and (min-width: 320px) and (max-width: 479px) {
+    .container {
+        max-width: 400px;
+        outline: 1px solid #ff8800; /* Помаранчевий */
+    }
+}
+
+/* === Phone (від 480px до 767px) === */
+@media screen and (min-width: 480px) and (max-width: 767px) {
+    .container {
+        max-width: 700px;
+        outline: 1px solid #ffff00; /* Жовтий */
+    }
+}
+
+/* === Tablet (від 768px до 1199px) === */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    .container {
+        max-width: 960px;
+        outline: 1px solid #00ff00; /* Зелений */
+    }
+}
+
+/* === Desktop (від 1200px) === */
+@media screen and (min-width: 1200px) {
+    .container {
+        max-width: 1200px;
+        outline: 1px solid #0088ff; /* Синій */
+    }
+}
+
+/* === Retina дисплеї (додається до існуючих кольорів) === */
+@media 
+    (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .container {
+        outline-width: 1px !important; /* Товстіша лінія для retina */
+    }
+}
+
 @media print {
     .header,
     .burger-menu,
@@ -2655,3 +2700,33 @@ section.features {
     }
     
 }
+
+/* ========== ROOT VARIABLES ========== */
+
+/* ========== GENERAL STYLES (Reset, Body, HTML, Base Tags) ========== */
+
+/* ========== CONTAINER ========== */
+
+/* ========== HEADER ========== */
+
+/* ========== INDEX PAGE - HERO SECTION ========== */
+
+/* ========== INDEX PAGE - FEATURES SECTION ========== */
+
+/* ========== INDEX PAGE - ABOUT SECTION ========== */
+
+/* ========== APPOINTMENT PAGE ========== */
+
+/* ========== MOLOCHNA DRABYNA PAGE ========== */
+
+/* ========== POLICY PAGES ========== */
+
+/* ========== FOOTER ========== */
+
+/* ========== SCROLL TO TOP ========== */
+
+/* ========== UTILITIES (Buttons, Animations, Common Classes) ========== */
+
+/* ========== MEDIA QUERIES ========== */
+
+/* ========== PRINT STYLES ========== */

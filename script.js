@@ -349,7 +349,7 @@ function setLanguage(lang) {
                     element.appendChild(textNode);
                     flagIcons.forEach(flag => element.appendChild(flag));
                 } else {
-                    // Check if translation contains HTML tags (for hero-feature-text, about-text, etc.)
+                    // Check if translation contains HTML tags (for feature-text, about-text, etc.)
                     if (translation.includes('<') && (translation.includes('</') || translation.includes('/>'))) {
                         // Translation contains HTML, use innerHTML
                         element.innerHTML = translation;
