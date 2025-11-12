@@ -69,6 +69,7 @@ function initializeApp() {
     if (isMainPage) {
         setLanguage(currentLanguage);
         updateActiveLangButton();
+        updateLanguageSelect();
     } else {
         // Force Ukrainian on other pages
         setLanguage('uk');
@@ -209,11 +210,33 @@ function setupLangButtons() {
             const lang = button.getAttribute('data-lang');
             setLanguage(lang);
             updateActiveLangButton();
+            updateLanguageSelect();
             localStorage.setItem('language', lang);
             
             document.documentElement.lang = lang;
         });
     });
+
+    // Setup language select dropdown for mobile
+    const languageSelect = document.getElementById('languageSelect');
+    if (languageSelect && isMainPage) {
+        languageSelect.addEventListener('change', () => {
+            const lang = languageSelect.value;
+            setLanguage(lang);
+            updateActiveLangButton();
+            updateLanguageSelect();
+            localStorage.setItem('language', lang);
+            
+            document.documentElement.lang = lang;
+        });
+    }
+}
+
+function updateLanguageSelect() {
+    const languageSelect = document.getElementById('languageSelect');
+    if (languageSelect) {
+        languageSelect.value = currentLanguage;
+    }
 }
 
 if (document.readyState === 'loading') {
