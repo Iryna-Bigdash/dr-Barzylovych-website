@@ -25,10 +25,25 @@ let appointmentForm;
 function updateBodyPadding() {
     const header = document.querySelector('.header');
     if (header) {
-        const headerHeight = header.offsetHeight;
-        document.body.style.paddingTop = headerHeight + 'px';
+        const { height: headerHeight } = header.getBoundingClientRect();
+        document.body.style.paddingTop = `${headerHeight}px`;
     }
 }
+
+// Викликаємо одразу після завантаження DOM
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateBodyPadding);
+} else {
+    updateBodyPadding();
+}
+
+// Викликаємо після повного завантаження сторінки (включаючи зображення)
+window.addEventListener('load', () => {
+    updateBodyPadding();
+    // Додаткова затримка для обробки можливих змін висоти після завантаження зображень
+    setTimeout(updateBodyPadding, 100);
+});
+
 
 function initializeApp() {
     // Initialize DOM elements
@@ -154,6 +169,9 @@ if (burgerMenu && nav && navOverlay) {
             document.body.style.position = '';
             document.body.style.width = '';
         }
+        
+        // Оновлюємо padding після зміни стану меню
+        setTimeout(updateBodyPadding, 50);
     });
 
     navOverlay.addEventListener('click', () => {
@@ -163,6 +181,9 @@ if (burgerMenu && nav && navOverlay) {
         document.body.style.overflow = '';
         document.body.style.position = '';
         document.body.style.width = '';
+        
+        // Оновлюємо padding після закриття меню
+        setTimeout(updateBodyPadding, 50);
     });
 }
 
@@ -178,6 +199,9 @@ function setupNavLinks() {
             document.body.style.overflow = '';
             document.body.style.position = '';
             document.body.style.width = '';
+            
+            // Оновлюємо padding після закриття меню
+            setTimeout(updateBodyPadding, 50);
         });
     });
 
@@ -189,6 +213,9 @@ function setupNavLinks() {
             document.body.style.overflow = '';
             document.body.style.position = '';
             document.body.style.width = '';
+            
+            // Оновлюємо padding після закриття меню
+            setTimeout(updateBodyPadding, 50);
         }
     });
 }
@@ -249,17 +276,7 @@ function updateActiveLangButton() {
     if (!langButtons || langButtons.length === 0) return;
     langButtons.forEach(btn => {
         const lang = btn.getAttribute('data-lang');
-        if (lang === 'uk') {
-            btn.textContent = 'UA';
-            btn.setAttribute('translate', 'no');
-        } else if (lang === 'en') {
-            btn.textContent = 'EN';
-            btn.setAttribute('translate', 'no');
-        } else if (lang === 'pt') {
-            btn.textContent = 'PT';
-            btn.setAttribute('translate', 'no');
-        }
-        
+        // Не змінюємо текст кнопок, тільки клас active
         if (lang === currentLanguage) {
             btn.classList.add('active');
         } else {
@@ -348,12 +365,20 @@ function setLanguage(lang) {
                         element.innerHTML = translation + ' <span class="flag-icon-wrapper"></span>';
                     }
                 } else if (isHeroSubtitle) {
-                    element.innerHTML = translation;
-                    // SVG flags are now optimized (simple SVG, not embedded images)
-                    const svgImgs = element.querySelectorAll('img[src*="flag-simple.svg"]');
-                    svgImgs.forEach(img => {
-                        img.setAttribute('loading', 'eager');
-                    });
+                    // Use innerHTML to preserve SVG flag images
+                    if (translation) {
+                        element.innerHTML = translation;
+                        // Set loading and dimensions for flag SVG images
+                        const flagImgs = element.querySelectorAll('img.flag-icon-inline');
+                        flagImgs.forEach(img => {
+                            img.setAttribute('loading', 'eager');
+                            img.setAttribute('width', '20');
+                            img.setAttribute('height', '14');
+                            img.style.display = 'inline-block';
+                            img.style.verticalAlign = 'middle';
+                            img.style.marginLeft = '4px';
+                        });
+                    }
                 } else if (flagIconWrapper) {
                     const clonedWrapper = flagIconWrapper.cloneNode(true);
                     const textNode = document.createTextNode(translation + ' ');
@@ -957,3 +982,4 @@ function initMolochnaDownload() {
         });
     }
 }
+

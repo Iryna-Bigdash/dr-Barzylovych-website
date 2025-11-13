@@ -11,8 +11,8 @@ const translations = {
         },
         hero: {
             title: "Владислава Барзилович",
-            subtitle1: "К.м.н. Лікар педіатр, алерголог 🇺🇦",
-            subtitle2: "З листопада 2024 року лікар з правом автономної роботи в Португалії (CÉDULA PROFISSIONAL N° 79747) 🇵🇹",
+            subtitle1: "К.м.н. Лікар педіатр, алерголог <img src=\"assets/images/uk-flag.svg\" alt=\"UA\" class=\"flag-icon-inline\" width=\"20\" height=\"14\" style=\"display: inline-block; vertical-align: middle; margin-left: 4px;\">",
+            subtitle2: "З листопада 2024 року лікар з правом автономної роботи в Португалії (CÉDULA PROFISSIONAL N° 79747) <img src=\"assets/images/pt-flag.svg\" alt=\"PT\" class=\"flag-icon-inline\" width=\"20\" height=\"14\" style=\"display: inline-block; vertical-align: middle; margin-left: 4px;\">",
             description: "Надання якісної медичної допомоги з індивідуальним підходом до кожного пацієнта. Записайтеся на консультацію вже сьогодні.",
             cta: "Записатися на прийом",
             learn: "Дізнатися більше",
@@ -188,8 +188,8 @@ const translations = {
         },
         hero: {
             title: "Vlada Barzylovych",
-            subtitle1: "Cand. Med. Sc. Pediatrician, Allergist 🇺🇦",
-            subtitle2: "Since November 2024, doctor with the right to autonomous practice in Portugal (CÉDULA PROFISSIONAL N° 79747) 🇵🇹",
+            subtitle1: "Cand. Med. Sc. Pediatrician, Allergist <img src=\"assets/images/uk-flag.svg\" alt=\"UA\" class=\"flag-icon-inline\" width=\"20\" height=\"14\" style=\"display: inline-block; vertical-align: middle; margin-left: 4px;\">",
+            subtitle2: "Since November 2024, doctor with the right to autonomous practice in Portugal (CÉDULA PROFISSIONAL N° 79747) <img src=\"assets/images/pt-flag.svg\" alt=\"PT\" class=\"flag-icon-inline\" width=\"20\" height=\"14\" style=\"display: inline-block; vertical-align: middle; margin-left: 4px;\">",
             description: "Providing quality medical care with an individual approach to each patient. Book your consultation today.",
             cta: "Book an Appointment",
             learn: "Learn More",
@@ -365,8 +365,8 @@ const translations = {
         },
         hero: {
             title: "Vlada Barzylovych",
-            subtitle1: "Cand. Ciên. Méd. Médica pediatra, alergologista 🇺🇦",
-            subtitle2: "Desde novembro de 2024, médica com direito ao exercício autónomo em Portugal (CÉDULA PROFISSIONAL N° 79747) 🇵🇹",
+            subtitle1: "Cand. Ciên. Méd. Médica pediatra, alergologista <img src=\"assets/images/uk-flag.svg\" alt=\"UA\" class=\"flag-icon-inline\" width=\"20\" height=\"14\" style=\"display: inline-block; vertical-align: middle; margin-left: 4px;\">",
+            subtitle2: "Desde novembro de 2024, médica com direito ao exercício autónomo em Portugal (CÉDULA PROFISSIONAL N° 79747) <img src=\"assets/images/pt-flag.svg\" alt=\"PT\" class=\"flag-icon-inline\" width=\"20\" height=\"14\" style=\"display: inline-block; vertical-align: middle; margin-left: 4px;\">",
             description: "Fornecendo cuidados médicos de qualidade com uma abordagem individual para cada paciente. Agende sua consulta hoje.",
             cta: "Agendar Consulta",
             learn: "Saber Mais",
