@@ -98,33 +98,109 @@
 
     <!-- Critical CSS inline for immediate rendering -->
     <style>
-      *{margin:0;padding:0;box-sizing:border-box}
-      html{scroll-behavior:smooth}
-      body{font-family:'Roboto','Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,Helvetica,'Noto Sans',sans-serif;color:#2c3e50;background-color:#ffffff;line-height:1.6;letter-spacing:0.03em;overflow-x:hidden;font-size:16px;display:block!important;visibility:visible!important;opacity:1!important}
-      h1{font-family:'Alegreya',serif;font-weight:700;font-size:clamp(2.5rem,5vw,4rem);display:block!important;visibility:visible!important}
-      h2{font-size:clamp(2rem,4vw,3.5rem);font-family:'Alegreya',serif;font-weight:500;color:#028d96;line-height:1.1;display:block!important;visibility:visible!important}
-      .container{width:100%;max-width:1200px;margin:0 auto;padding:0 1rem;display:block!important}
-      .header{position:fixed;top:0;left:0;right:0;background-color:#ffffff;box-shadow:0 2px 10px rgba(0,0,0,0.1);z-index:1000;display:block!important;visibility:visible!important}
-      .header-content{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;position:relative}
-      .hero{padding:40px 0 0 0;display:flex;align-items:center;}
-      .hero-content{display:grid!important;grid-template-columns:1fr;gap:2rem;align-items:center}
-      .hero-text-wrapper{display:flex!important;flex-direction:column;opacity:1!important;visibility:visible!important}
-      main{display:block!important;visibility:visible!important}
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Roboto", "Segoe UI", -apple-system, BlinkMacSystemFont,
+          "Helvetica Neue", Arial, Helvetica, "Noto Sans", sans-serif;
+        color: #2c3e50;
+        background-color: #ffffff;
+        line-height: 1.6;
+        letter-spacing: 0.03em;
+        overflow-x: hidden;
+        font-size: 16px;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+      h1 {
+        font-family: "Alegreya", serif;
+        font-weight: 700;
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        display: block !important;
+        visibility: visible !important;
+      }
+      h2 {
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        font-family: "Alegreya", serif;
+        font-weight: 500;
+        color: #028d96;
+        line-height: 1.1;
+        display: block !important;
+        visibility: visible !important;
+      }
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+        display: block !important;
+      }
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: #ffffff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        display: block !important;
+        visibility: visible !important;
+      }
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+        position: relative;
+      }
+      .hero {
+        padding: 40px 0 0 0;
+        display: flex;
+        align-items: center;
+      }
+      .hero-content {
+        display: grid !important;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        align-items: center;
+      }
+      .hero-text-wrapper {
+        display: flex !important;
+        flex-direction: column;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+      main {
+        display: block !important;
+        visibility: visible !important;
+      }
     </style>
-    
+
     <!-- Normalize CSS - Load asynchronously -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"></noscript>
-    
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="styles.css">
-    
-    <!-- Swiper CSS - Load asynchronously (non-critical) -->
     <link
-      rel="preconnect"
-      href="https://cdn.jsdelivr.net"
-      crossorigin
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    /></noscript>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Swiper CSS - Load asynchronously (non-critical) -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
@@ -197,14 +273,26 @@
 
   <body>
     <!-- Ensure content is visible immediately -->
-    <noscript><div style="padding:20px;text-align:center;background:#fff;color:#000;">JavaScript is disabled. Please enable it to view this site.</div></noscript>
+    <noscript
+      ><div
+        style="padding: 20px; text-align: center; background: #fff; color: #000"
+      >
+        JavaScript is disabled. Please enable it to view this site.
+      </div></noscript
+    >
     <!-- Header -->
     <header class="header" id="header">
       <div class="container">
         <div class="header-content">
           <div class="logo">
             <a href="#hero">
-              <img src="assets/images/logo.PNG" alt="Dra. Vlada Barzylovych" class="logo-img" width="200" height="50">
+              <img
+                src="assets/images/logo.PNG"
+                alt="Dra. Vlada Barzylovych"
+                class="logo-img"
+                width="200"
+                height="50"
+              />
             </a>
           </div>
           <nav class="nav" id="nav">
@@ -215,7 +303,10 @@
                 >
               </li>
               <li class="nav-item-uk-only">
-                <a href="molochna-drabyna.html" class="nav-link" data-i18n="nav.services"
+                <a
+                  href="molochna-drabyna.html"
+                  class="nav-link"
+                  data-i18n="nav.services"
                   >Молочна драбина</a
                 >
               </li>
@@ -264,7 +355,12 @@
                 PT
               </button>
             </div>
-            <select class="language-select" id="languageSelect" aria-label="Вибір мови" translate="no">
+            <select
+              class="language-select"
+              id="languageSelect"
+              aria-label="Вибір мови"
+              translate="no"
+            >
               <option value="uk">UA</option>
               <option value="en">EN</option>
               <option value="pt">PT</option>
@@ -282,27 +378,43 @@
       <!-- Hero Section -->
       <section class="section hero" id="hero">
         <div class="container">
-        
-          <div style="position:absolute;left:0;top:0;width:1px;height:1px;padding:0;margin:0;border:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">Dra. Vlada Barzylovych - Лікар педіатр, алерголог</div>
+          <div
+            style="
+              position: absolute;
+              left: 0;
+              top: 0;
+              width: 1px;
+              height: 1px;
+              padding: 0;
+              margin: 0;
+              border: 0;
+              overflow: hidden;
+              clip: rect(0, 0, 0, 0);
+              white-space: nowrap;
+            "
+          >
+            Dra. Vlada Barzylovych - Лікар педіатр, алерголог
+          </div>
           <div class="hero-content">
             <div class="hero-image-wrapper">
               <div class="hero-image-container">
                 <picture>
-                  <!-- WebP format for modern browsers (only original, responsive versions are PNG) -->
                   <source
                     srcset="
-                      assets/images/hero/Vlada-Barz.webp 719w
+                      assets/images/hero/responsive/Vlada-Barz-400x540.webp 400w,
+                      assets/images/hero/responsive/Vlada-Barz-500x675.webp 500w,
+                      assets/images/hero/responsive/Vlada-Barz-600x810.webp 600w,
+                      assets/images/hero/Vlada-Barz.webp                    719w
                     "
                     sizes="(min-width: 900px) 500px, (min-width: 600px) 400px, 320px"
                     type="image/webp"
                   />
-                  <!-- PNG with responsive sizes -->
                   <source
                     srcset="
                       assets/images/hero/responsive/Vlada-Barz-400x540.png 400w,
                       assets/images/hero/responsive/Vlada-Barz-500x675.png 500w,
                       assets/images/hero/responsive/Vlada-Barz-600x810.png 600w,
-                      assets/images/hero/Vlada-Barz.png 719w
+                      assets/images/hero/Vlada-Barz.png                    719w
                     "
                     sizes="(min-width: 900px) 500px, (min-width: 600px) 400px, 320px"
                     type="image/png"
@@ -310,43 +422,78 @@
                   <img
                     src="assets/images/hero/Vlada-Barz.png"
                     alt="Dra. Vlada Barzylovych — Professional Doctor"
+                    width="719"
+                    height="969"
+                    style="aspect-ratio: 719 / 969"
                     fetchpriority="high"
                     loading="eager"
                     decoding="async"
-                    width="719"
-                    height="969"
                   />
                 </picture>
               </div>
             </div>
 
-            <div class="hero-text-wrapper"> 
+            <div class="hero-text-wrapper">
               <h1 class="hero-title" data-i18n="hero.title">
                 Владислава Барзилович
-              </h1> 
-              <p class="hero-subtitle hero-subtitle1" data-i18n="hero.subtitle1">
-                К.м.н. Лікар педіатр, алерголог <img src="assets/images/uk-flag.svg" alt="UA" class="flag-icon-inline" width="20" height="14" style="display: inline-block; vertical-align: middle; margin-left: 4px;">
+              </h1>
+              <p
+                class="hero-subtitle hero-subtitle1"
+                data-i18n="hero.subtitle1"
+              >
+                К.м.н. Лікар педіатр, алерголог
+                <img
+                  src="assets/images/uk-flag.svg"
+                  alt="UA"
+                  class="flag-icon-inline"
+                  width="20"
+                  height="14"
+                  style="
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-left: 4px;
+                  "
+                />
               </p>
-            <p class="hero-subtitle hero-subtitle2" data-i18n="hero.subtitle2">
-              З листопада 2024 року лікар з правом автономної роботи в Португалії (CÉDULA PROFISSIONAL N° 79747) <img src="assets/images/pt-flag.svg" alt="PT" class="flag-icon-inline" width="20" height="14" style="display: inline-block; vertical-align: middle; margin-left: 4px;">
-          </p>
-            </div> 
-
-
+              <p
+                class="hero-subtitle hero-subtitle2"
+                data-i18n="hero.subtitle2"
+              >
+                З листопада 2024 року лікар з правом автономної роботи в
+                Португалії (CÉDULA PROFISSIONAL N° 79747)
+                <img
+                  src="assets/images/pt-flag.svg"
+                  alt="PT"
+                  class="flag-icon-inline"
+                  width="20"
+                  height="14"
+                  style="
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-left: 4px;
+                  "
+                />
+              </p>
+            </div>
           </div>
-          
         </div>
       </section>
 
       <section class="section features">
         <div class="container">
           <div class="section-header">
-            <h2 class="section-title is-hidden" data-i18n="features.title">Переваги</h2>
+            <h2 class="section-title is-hidden" data-i18n="features.title">
+              Переваги
+            </h2>
           </div>
           <ul class="features-list">
             <li class="feature-item">
               <div class="feature-decor feature-decor-circle">
-                <img src="assets/images/1.svg" alt="checkmark" class="checkmark-icon">
+                <img
+                  src="assets/images/1.svg"
+                  alt="checkmark"
+                  class="checkmark-icon"
+                />
               </div>
               <p class="feature-text" data-i18n="hero.feature2">
                 Понад 13 років медичного стажу (практикую з 2011 року)
@@ -354,7 +501,11 @@
             </li>
             <li class="feature-item">
               <div class="feature-decor feature-decor-circle">
-                <img src="assets/images/1.svg" alt="checkmark" class="checkmark-icon">
+                <img
+                  src="assets/images/1.svg"
+                  alt="checkmark"
+                  class="checkmark-icon"
+                />
               </div>
               <p class="feature-text" data-i18n="hero.feature3">
                 Більше 6 років успішних онлайн-консультацій
@@ -362,7 +513,11 @@
             </li>
             <li class="feature-item">
               <div class="feature-decor feature-decor-circle">
-                <img src="assets/images/1.svg" alt="checkmark" class="checkmark-icon">
+                <img
+                  src="assets/images/1.svg"
+                  alt="checkmark"
+                  class="checkmark-icon"
+                />
               </div>
               <p class="feature-text" data-i18n="hero.feature4">
                 Глибокий досвід у протоколах лікування медикаментозної алергії
@@ -370,7 +525,11 @@
             </li>
             <li class="feature-item">
               <div class="feature-decor">
-                <img src="assets/images/1.svg" alt="checkmark" class="checkmark-icon">
+                <img
+                  src="assets/images/1.svg"
+                  alt="checkmark"
+                  class="checkmark-icon"
+                />
               </div>
               <p class="feature-text" data-i18n="hero.feature5">
                 Спікер на понад 150 медичних конференціях
@@ -378,18 +537,35 @@
             </li>
             <li class="feature-item">
               <div class="feature-decor">
-                <img src="assets/images/1.svg" alt="checkmark" class="checkmark-icon">
+                <img
+                  src="assets/images/1.svg"
+                  alt="checkmark"
+                  class="checkmark-icon"
+                />
               </div>
               <p class="feature-text" data-i18n="hero.feature6">
-                Автор <a href="molochna-drabyna.html">"Української молочної драбини"</a>
+                Автор
+                <a href="molochna-drabyna.html"
+                  >"Української молочної драбини"</a
+                >
               </p>
             </li>
             <li class="feature-item">
               <div class="feature-decor">
-                <img src="assets/images/1.svg" alt="checkmark" class="checkmark-icon">
+                <img
+                  src="assets/images/1.svg"
+                  alt="checkmark"
+                  class="checkmark-icon"
+                />
               </div>
               <p class="feature-text" data-i18n="hero.feature7">
-                Автор спеціалізованого блогу <a href="https://www.instagram.com/vladabarz?igsh=MWNrMmduNjk4bXRjag%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">"Здоров'я без кордонів"</a>
+                Автор спеціалізованого блогу
+                <a
+                  href="https://www.instagram.com/vladabarz?igsh=MWNrMmduNjk4bXRjag%3D%3D&utm_source=qr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >"Здоров'я без кордонів"</a
+                >
               </p>
             </li>
           </ul>
@@ -400,53 +576,63 @@
       <section class="section about" id="about">
         <div class="container">
           <div class="section-header">
-            <h2 class="section-title is-hidden" data-i18n="about.title">Про мене</h2>
+            <h2 class="section-title is-hidden" data-i18n="about.title">
+              Про мене
+            </h2>
           </div>
           <div class="about-mobile">
-          <div class="about-content">
-            <div class="about-text">
-              <div data-i18n="about.text2">
-                <h3>Як алерголог:</h3>
-                <ul>
-                  <li>Проводжу діагностику та лікування пацієнтів з атопічним дерматитом, гострою та хронічною кропивянкою, бронхіальною астмою, алергічним ринітом і іншими алергопатологіями</li>
-                  <li>Призначаю АСІТ імунотерапія</li>
-                  <li>Консультую щодо протоколів градуйованого введення продуктів, оральної десенсибілізації</li>
-                </ul>
+            <div class="about-content">
+              <div class="about-text">
+                <div data-i18n="about.text2">
+                  <h3>Як алерголог:</h3>
+                  <ul>
+                    <li>
+                      Проводжу діагностику та лікування пацієнтів з атопічним
+                      дерматитом, гострою та хронічною кропивянкою, бронхіальною
+                      астмою, алергічним ринітом і іншими алергопатологіями
+                    </li>
+                    <li>Призначаю АСІТ імунотерапія</li>
+                    <li>
+                      Консультую щодо протоколів градуйованого введення
+                      продуктів, оральної десенсибілізації
+                    </li>
+                  </ul>
 
-                <h3>Як педіатр:</h3>
-                <ul>
-                  <li>Допомогаю ростити здорових дітей по всьому світу 🌍</li>
-                  <li>Контролюємо графіки вакцин</li>
-                  <li>Водимо прикорм</li>
-                  <li>Не даємо зайвих ліків</li>
-                </ul>
+                  <h3>Як педіатр:</h3>
+                  <ul>
+                    <li>Допомогаю ростити здорових дітей по всьому світу 🌍</li>
+                    <li>Контролюємо графіки вакцин</li>
+                    <li>Водимо прикорм</li>
+                    <li>Не даємо зайвих ліків</li>
+                  </ul>
 
-                <p>Як мама 2-х дітей – не даю порад, які батьки не зможуть виконати ;)</p>
+                  <p>
+                    Як мама 2-х дітей – не даю порад, які батьки не зможуть
+                    виконати ;)
+                  </p>
+                </div>
+                <div class="about-cta">
+                  <a href="appointment.html" data-i18n="appointment.cta">
+                    Записатися на прийом
+                  </a>
+                </div>
               </div>
-              <div class="about-cta">
-                <a href="appointment.html" data-i18n="appointment.cta">
-                  Записатися на прийом
-                </a>
-              </div>
-            </div>
-            <div class="about-image">
+              <div class="about-image">
                 <picture>
                   <!-- WebP format for modern browsers -->
                   <source
-                    srcset="
-                      assets/images/about/about.webp 1667w
-                    "
+                    srcset="assets/images/about/about.webp 1667w"
                     sizes="(max-width: 768px) 90vw, (max-width: 1200px) 40vw, 500px"
                     type="image/webp"
                   />
                   <!-- JPG fallback with responsive sizes -->
                   <source
                     srcset="
-                      assets/images/about/responsive/about-400x600.jpg 400w,
-                      assets/images/about/responsive/about-600x900.jpg 600w,
-                      assets/images/about/responsive/about-800x1200.jpg 800w,
+                      assets/images/about/responsive/about-400x600.jpg    400w,
+                      assets/images/about/responsive/about-600x900.jpg    600w,
+                      assets/images/about/responsive/about-800x1200.jpg   800w,
                       assets/images/about/responsive/about-1000x1500.jpg 1000w,
-                      assets/images/about/about.jpg 1667w
+                      assets/images/about/about.jpg                      1667w
                     "
                     sizes="(max-width: 768px) 90vw, (max-width: 1200px) 40vw, 500px"
                     type="image/jpeg"
@@ -461,40 +647,49 @@
                   />
                 </picture>
               </div>
-          </div>
-        </div>
-
-        <div class="about-tablet">
-          <div class="about-content">
-            <div class="about-text">
-              <h3>Як алерголог:</h3>
-              <ul>
-                <li>Проводжу діагностику та лікування пацієнтів з атопічним дерматитом, гострою та хронічною кропивянкою, бронхіальною астмою, алергічним ринітом і іншими алергопатологіями</li>
-                <li>Призначаю АСІТ імунотерапія</li>
-                <li>Консультую щодо протоколів градуйованого введення продуктів, оральної десенсибілізації</li>
-              </ul>
-            </div>
-
-            <div class="about-text">
-              <h3>Як педіатр:</h3>
-              <ul>
-                <li>Допомогаю ростити здорових дітей по всьому світу 🌍</li>
-                <li>Контролюємо графіки вакцин</li>
-                <li>Водимо прикорм</li>
-                <li>Не даємо зайвих ліків</li>
-              </ul>
             </div>
           </div>
-          <div class="about-cta">
-            <p>Як мама 2-х дітей – не даю порад, які батьки не зможуть виконати ;)</p>
-            <a href="appointment.html" data-i18n="appointment.cta">
-              Записатися на прийом
-            </a>
+
+          <div class="about-tablet">
+            <div class="about-content">
+              <div class="about-text">
+                <h3>Як алерголог:</h3>
+                <ul>
+                  <li>
+                    Проводжу діагностику та лікування пацієнтів з атопічним
+                    дерматитом, гострою та хронічною кропивянкою, бронхіальною
+                    астмою, алергічним ринітом і іншими алергопатологіями
+                  </li>
+                  <li>Призначаю АСІТ імунотерапія</li>
+                  <li>
+                    Консультую щодо протоколів градуйованого введення продуктів,
+                    оральної десенсибілізації
+                  </li>
+                </ul>
+              </div>
+
+              <div class="about-text">
+                <h3>Як педіатр:</h3>
+                <ul>
+                  <li>Допомогаю ростити здорових дітей по всьому світу 🌍</li>
+                  <li>Контролюємо графіки вакцин</li>
+                  <li>Водимо прикорм</li>
+                  <li>Не даємо зайвих ліків</li>
+                </ul>
+              </div>
+            </div>
+            <div class="about-cta">
+              <p>
+                Як мама 2-х дітей – не даю порад, які батьки не зможуть виконати
+                ;)
+              </p>
+              <a href="appointment.html" data-i18n="appointment.cta">
+                Записатися на прийом
+              </a>
+            </div>
           </div>
         </div>
-      </div>
       </section>
-
     </main>
 
     <!-- Footer -->
@@ -505,32 +700,70 @@
             <h3 class="footer-title" data-i18n="footer.contact">Контакти</h3>
             <ul class="footer-links">
               <li>
-                <a href="tel:+380502771244" data-i18n="footer.phone.value" class="footer-link">+38 (050) 277 12 44</a>
+                <a
+                  href="tel:+380502771244"
+                  data-i18n="footer.phone.value"
+                  class="footer-link"
+                  >+38 (050) 277 12 44</a
+                >
               </li>
               <li>
-                <a href="mailto:allergo.online@gmail.com" data-i18n="footer.email.value" class="footer-link">allergo.online@gmail.com</a>
+                <a
+                  href="mailto:allergo.online@gmail.com"
+                  data-i18n="footer.email.value"
+                  class="footer-link"
+                  >allergo.online@gmail.com</a
+                >
               </li>
             </ul>
           </div>
           <div class="footer-contacts">
-            <h3 class="footer-title" data-i18n="footer.legal">Юридична інформація</h3>
+            <h3 class="footer-title" data-i18n="footer.legal">
+              Юридична інформація
+            </h3>
             <ul class="footer-links">
               <li>
-                <a href="privacy-policy.html" data-i18n="footer.privacy" class="footer-link">Політика конфіденційності</a>
+                <a
+                  href="privacy-policy.html"
+                  data-i18n="footer.privacy"
+                  class="footer-link"
+                  >Політика конфіденційності</a
+                >
               </li>
               <li>
-                <a href="terms-of-use.html" data-i18n="footer.terms" class="footer-link">Умови використання</a>
+                <a
+                  href="terms-of-use.html"
+                  data-i18n="footer.terms"
+                  class="footer-link"
+                  >Умови використання</a
+                >
               </li>
             </ul>
           </div>
           <div class="footer-contacts">
-            <h3 class="footer-title" data-i18n="footer.social">Соціальні мережі</h3>
+            <h3 class="footer-title" data-i18n="footer.social">
+              Соціальні мережі
+            </h3>
             <ul class="footer-links">
               <li>
-                <a href="https://www.facebook.com/people/Vladyslava-Barzylovych/100001865270077/" class="footer-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">Facebook</a>
+                <a
+                  href="https://www.facebook.com/people/Vladyslava-Barzylovych/100001865270077/"
+                  class="footer-link"
+                  aria-label="Facebook"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Facebook</a
+                >
               </li>
               <li>
-                <a href="https://www.instagram.com/vladabarz?igsh=MWNrMmduNjk4bXRjag%3D%3D&utm_source=qr" class="footer-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a
+                  href="https://www.instagram.com/vladabarz?igsh=MWNrMmduNjk4bXRjag%3D%3D&utm_source=qr"
+                  class="footer-link"
+                  aria-label="Instagram"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Instagram</a
+                >
               </li>
             </ul>
           </div>
@@ -562,7 +795,9 @@
     <!-- translations.js must load before script.js, so we use defer to maintain order -->
     <script src="translations.js?v=4" defer></script>
     <script src="script.js?v=7" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
+      defer
+    ></script>
   </body>
 </html>
-
