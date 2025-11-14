@@ -212,6 +212,11 @@ img[loading="lazy"].loaded {
 
 
 /* ========== HERO SECTION ========== */
+@media screen and (min-width: 768px) {
+.section.hero{
+padding-bottom: 0;
+}
+}
 .hero {
     background: linear-gradient(135deg, var(--text-bg) 0%, var(--bg-white) 50%, var(--text-bg) 100%);
     display: flex;
