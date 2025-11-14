@@ -89,15 +89,8 @@ h1 {
 }
 
 h2{
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    font-family: 'Alegreya', serif;
-    font-weight: 500;
     color: var(--accent3);
     line-height: 1.2;
-}
-
-h2:first-child {
-    margin-top: 0;
 }
 
 h3, h4, h5, h6 {
@@ -372,7 +365,7 @@ padding-bottom: 0;
 
 @media screen and (min-width: 768px) {
     .hero-title {
-        font-size: 32px;
+        font-size: 34px;
     }
 }
 
@@ -830,6 +823,13 @@ section.features {
     transition: var(--transition);
     flex-shrink: 0;
 }
+@media screen and (min-width: 1100px) {
+    .feature-decor-circle {
+    width: 30px;
+    min-width: 30px;
+    height: 30px; 
+}
+}
 
 .feature-decor-circle .checkmark-icon {
     width: 18px;
@@ -837,6 +837,15 @@ section.features {
     object-fit: contain;
     display: block;
 }
+
+@media screen and (min-width: 1100px) {
+    .feature-decor-circle .checkmark-icon {
+        width: 20px;
+        height: 20px;
+    }
+    
+}
+
 
 .feature-item:hover .feature-decor-circle {
     background-color: rgba(2, 141, 150, 0.15);
@@ -881,7 +890,6 @@ section.features {
 /* ========== INDEX PAGE - ABOUT SECTION ========== */
 .about {
     background-color: var(--text-bg);
-    padding-bottom: 1rem;
     position: relative;
 }
 
@@ -1615,88 +1623,6 @@ section.features {
     margin-bottom: 1rem;
 }
 
-.feedbacks {
-    background-color: var(--text-bg);
-    padding: 80px 0;
-  }
-
-  .feedbacks-swiper {
-    padding: 2rem 0 4rem;
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .feedbacks-swiper .swiper-wrapper {
-    display: flex;
-    align-items: stretch;
-  }
-
-  .feedbacks-swiper .swiper-slide {
-    height: auto;
-    display: flex;
-  }
-
-  .feedbacks-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    align-items: stretch;
-  }
-
-  .feedback-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: var(--bg-white);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    transition: var(--transition);
-    height: 100%;
-    width: 100%;
-  }
-
-  .feedback-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  }
-
-  /* Swiper Pagination Customization */
-  .feedbacks-swiper .swiper-pagination-bullet {
-    background-color: var(--accent3);
-    opacity: 0.5;
-    width: 14px;
-    height: 14px;
-    margin: 0 8px;
-    transition: var(--transition);
-  }
-
-  .feedbacks-swiper .swiper-pagination-bullet-active {
-    background-color: var(--accent3);
-    opacity: 1;
-    transform: scale(1.2);
-  }
-
-  .feedback-stars {
-    color: var(--main-accent);
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
-  }
-
-  .feedback-text {
-    font-family: 'EB Garamond', serif;
-    font-style: italic;
-    color: var(--main-text);
-    flex-grow: 1;
-    margin-bottom: 1.5rem;
-  }
-
-  .feedback-author {
-    font-weight: 600;
-    color: var(--accent2);
-    margin-top: auto;
-  }
-
 .appointment-steps {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -2046,8 +1972,6 @@ section.features {
     background: linear-gradient(180deg, var(--main-text) 0%, #1a2832 100%);
     color: var(--bg-white);
     position: relative;
-    padding: 40px;
-
 }
 
 .footer-contacts-wrapper {
@@ -2267,10 +2191,6 @@ section.features {
     grid-template-columns: 1fr;
 }
 
-.feedbacks-grid {
-    grid-template-columns: 1fr;
-}
-
 .appointment-steps {
     grid-template-columns: 1fr;
 }
@@ -2356,10 +2276,6 @@ section.features {
     }
 
     .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .feedbacks-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -2477,10 +2393,12 @@ section.features {
 }
 
 .appointment-benefits-title {
-    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--accent2);
+    font-size: clamp(1.5rem, 3vw, 1.75rem);
     font-family: 'Alegreya', serif;
     color: var(--accent2);
-    margin-bottom: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
     text-align: center;
 }
 
@@ -2495,14 +2413,17 @@ section.features {
 }
 
 .appointment-benefit-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.5rem;
+
+ display: flex; 
+ align-items: center; 
+ gap: 1rem;
+    padding: 1.5rem; 
     background-color: var(--text-bg);
     border-radius: 8px;
     transition: var(--transition);
+    padding: 1rem;
 }
+
 
 .appointment-benefit-item:hover {
     transform: translateY(-3px);
@@ -2511,7 +2432,6 @@ section.features {
 
 .benefit-icon {
     font-size: 2rem;
-    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2519,19 +2439,11 @@ section.features {
     height: 48px;
 }
 
-.benefit-icon img {
-    width: 100%;
-    height: 100%;
-    max-width: 48px;
-    max-height: 48px;
-    object-fit: contain;
-}
-
 .benefit-text {
     margin: 0;
     color: var(--main-text);
     line-height: 1.55;
-    font-size: 1rem; /* Базовий розмір 16px */
+    font-size: 1rem;
 }
 
 .appointment-pricing {
@@ -2652,7 +2564,6 @@ section.features {
 .appointment-form-header {
     text-align: center;
     margin-bottom: 1rem;
-    max-width: 600px;
 }
 
 .appointment-form-title {
@@ -2668,20 +2579,14 @@ section.features {
     text-align: center;
 }
 
-.benefit-icon {
-    margin: 0 auto;
-}
-
 .pricing-item {
     padding: 1rem;
 }
 
 /* Tablet (від 768px) */
 @media screen and (min-width: 768px) {
-
     .appointment-benefit-item {
         flex-direction: row;
-        text-align: left;
     }
   
 }
