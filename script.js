@@ -21,6 +21,7 @@ let nav;
 let langButtons;
 let elementsWithI18n;
 let appointmentForm;
+let navOverlay = null;
 
 function updateBodyPadding() {
     const header = document.querySelector('.header');
@@ -93,6 +94,9 @@ function initializeApp() {
     setInterval(() => {
         updateActiveLangButton();
     }, 1000);
+    
+    // Setup burger menu after initialization
+    setupBurgerMenu();
 }
 
 function updateSubtitleWidth() {
@@ -136,48 +140,76 @@ if (document.readyState === 'loading') {
 }
 
 function createNavOverlay() {
-    const navOverlay = document.createElement('div');
-    navOverlay.className = 'nav-overlay';
+    const overlay = document.createElement('div');
+    overlay.className = 'nav-overlay';
     if (document.body) {
-        document.body.appendChild(navOverlay);
-        return navOverlay;
+        document.body.appendChild(overlay);
+        return overlay;
     }
     return null;
 }
 
-let navOverlay;
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
+function setupBurgerMenu() {
+    // Отримуємо елементи, якщо вони ще не ініціалізовані
+    if (!burgerMenu) {
+        burgerMenu = document.getElementById('burgerMenu');
+    }
+    if (!nav) {
+        nav = document.getElementById('nav');
+    }
+    if (!navOverlay) {
         navOverlay = createNavOverlay();
-    });
-} else {
-    navOverlay = createNavOverlay();
-}
-
-if (burgerMenu && nav && navOverlay) {
-    burgerMenu.addEventListener('click', (e) => {
-        e.stopPropagation();
+    }
+    
+    if (!burgerMenu || !nav || !navOverlay) {
+        // Якщо елементи ще не готові, спробуємо пізніше
+        setTimeout(setupBurgerMenu, 100);
+        return;
+    }
+    
+    // Перевіряємо, чи вже додані event listeners (щоб не дублювати)
+    if (burgerMenu.dataset.burgerInitialized === 'true') {
+        return;
+    }
+    burgerMenu.dataset.burgerInitialized = 'true';
+    
+    // Функція для обробки кліку
+    const handleBurgerClick = (e) => {
+        if (e) {
+            e.stopPropagation();
+        }
         const isActive = burgerMenu.classList.toggle('active');
         nav.classList.toggle('active', isActive);
         navOverlay.classList.toggle('active', isActive);
         document.body.style.overflow = isActive ? 'hidden' : '';
         
+        // Додаємо/видаляємо клас до body
         if (isActive) {
+            document.body.classList.add('menu-open');
             document.body.style.position = 'fixed';
             document.body.style.width = '100%';
         } else {
+            document.body.classList.remove('menu-open');
             document.body.style.position = '';
             document.body.style.width = '';
         }
         
         // Оновлюємо padding після зміни стану меню
         setTimeout(updateBodyPadding, 50);
-    });
+    };
+    
+    // Додаємо обробники для різних типів подій
+    burgerMenu.addEventListener('click', handleBurgerClick, { passive: false });
+    burgerMenu.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        handleBurgerClick(e);
+    }, { passive: false });
 
     navOverlay.addEventListener('click', () => {
         burgerMenu.classList.remove('active');
         nav.classList.remove('active');
         navOverlay.classList.remove('active');
+        document.body.classList.remove('menu-open');
         document.body.style.overflow = '';
         document.body.style.position = '';
         document.body.style.width = '';
@@ -196,6 +228,7 @@ function setupNavLinks() {
             burgerMenu.classList.remove('active');
             nav.classList.remove('active');
             navOverlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
             document.body.style.overflow = '';
             document.body.style.position = '';
             document.body.style.width = '';
@@ -210,6 +243,7 @@ function setupNavLinks() {
             burgerMenu.classList.remove('active');
             nav.classList.remove('active');
             navOverlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
             document.body.style.overflow = '';
             document.body.style.position = '';
             document.body.style.width = '';
@@ -499,17 +533,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 let lastScroll = 0;
 const header = document.getElementById('header');
 
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 100) {
-        header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
-    } else {
-        header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-    }
-    
-    lastScroll = currentScroll;
-});
+if (header) {
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 100) {
+            header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
+        } else {
+            header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        }
+        
+        lastScroll = currentScroll;
+    });
+}
 
 // Form validation
 function validateEmail(email) {

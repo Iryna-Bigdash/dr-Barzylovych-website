@@ -122,15 +122,7 @@ img {
     object-fit: cover;
 }
 
-img[loading="lazy"] {
-    visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s;
-}
 
-img[loading="lazy"].loaded {
-    visibility: visible;
-    opacity: 1;
-}
 
 /* ========== CONTAINER ========== */
 .container {
@@ -412,9 +404,6 @@ padding-bottom: 0;
     }
 }
 
-.hero-button {
-  text-align: center;
-}
 
 @media screen and (min-width: 768px) {
     .hero-content {
@@ -467,14 +456,7 @@ padding-bottom: 0;
         max-height: 35px;
         max-width: 140px;
     }
-    
-    /* Адаптивні відступи для тексту */
-    
-    .section-title {
-        margin-top: 1.5rem;
-        margin-bottom: 1.25rem;
-    }
-        
+      
     .policy-text p {
         margin-bottom: 0.875rem;
     }
@@ -499,11 +481,6 @@ padding-bottom: 0;
     .logo-img {
         max-height: 40px;
         max-width: 160px;
-    }
-    
-    .section-title {
-        margin-top: 1.75rem;
-        margin-bottom: 1.375rem;
     }
 
     .policy-text p {
@@ -531,18 +508,7 @@ padding-bottom: 0;
         max-height: 45px;
         max-width: 180px;
     }
-    
-    /* Адаптивні відступи для тексту */
-    .section-title {
-        margin-top: 2rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .section-subtitle {
-        margin-top: 0.75rem;
-        margin-bottom: 1.5rem;
-    }
-    
+        
     .policy-text p {
         margin-bottom: 1rem;
     }
@@ -580,12 +546,7 @@ padding-bottom: 0;
         margin-top: 1.5rem;
         margin-bottom: 1rem;
     }
-    
-    .section-title {
-        margin-top: 2rem;
-        margin-bottom: 1.5rem;
-    }
-    
+
     .policy-text p {
         margin-bottom: 1rem;
         line-height: 1.6;
@@ -750,16 +711,173 @@ section.features {
     background-color: var(--bg-white);
 }
 
-.features-list {
+section.features .features-list {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 0.5rem;
-    max-width: 100%;
+    gap: 1rem;
+    max-width: 1200px;
     margin: 0 auto;
     list-style: none;
-    padding-left: 0;
-    justify-items: stretch;
+    padding: 0;
 }
+
+/* ========== MOLOCHNA DRABYNA ABOUT SECTION ========== */
+.molochna-drabyna-about .about-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    align-items: center;
+}
+
+.molochna-drabyna-about .about-text {
+    width: 100%;
+    order: 1;
+}
+
+.molochna-drabyna-about .about-text p {
+    text-align: left;
+    text-align-last: left;
+    hyphens: none;
+    word-spacing: normal;
+}
+
+.molochna-drabyna-about .section-title {
+    text-align: center;
+}
+
+/* Загальні стилі для всіх медіа-контейнерів */
+.media-wrapper,
+.madia-wrapper {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    position: relative;
+    display: block;
+}
+
+/* Для мобільних екранів (до 768px) - додаємо aspect-ratio для відео */
+@media screen and (max-width: 767px) {
+    .media-wrapper,
+    .madia-wrapper {
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+    }
+}
+
+/* Адаптивні стилі для медіа-контейнерів */
+@media screen and (min-width: 480px) and (max-width: 767px) {
+    .media-wrapper,
+    .madia-wrapper {
+        max-width: 450px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    .media-wrapper,
+    .madia-wrapper {
+        max-width: 500px;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .media-wrapper,
+    .madia-wrapper {
+        max-width: 500px;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .molochna-drabyna-about .about-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+}
+
+/* ========== RECIPES SECTION STYLES ========== */
+.recipes-section {
+    background-color: var(--bg-white);
+}
+
+
+/* Спільні стилі для recipes-list та recipes-details в recipes-section */
+.recipes-section .recipes-list,
+.recipes-section .recipes-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    padding-left: 2rem;
+    border-radius: 8px;
+    border: 1px solid rgba(2, 141, 150, 0.1);
+    list-style: none;
+}
+
+.recipes-section .recipes-details {
+    max-width: 100%;
+}
+
+.recipes-section .recipes-list li,
+.recipes-section .recipes-details li {
+    position: relative;
+    text-align: left;
+    transition: var(--transition);
+    color: var(--main-text);
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.recipes-section .recipes-list li::before,
+.recipes-section .recipes-details li::before {
+    content: "•";
+    position: absolute;
+    left: -1.5rem;
+    color: var(--accent3);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.recipes-section .recipes-list li:hover,
+.recipes-section .recipes-details li:hover {
+    transform: translateX(4px);
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.recipes-section .recipes-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+}
+
+@media screen and (min-width: 1200px) {
+    .recipes-section .recipes-content {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 2.5rem;
+        padding: 2rem;
+    }
+}
+
+/* Стилі для recipes-clickable-image вже визначені вище разом з molochna-clickable-image */
+
+.recipes-section .recipes-text-wrapper {
+    flex: 1;
+    min-width: 0;
+    overflow: visible;
+}
+
 
 .feature-item {
     display: flex;
@@ -781,13 +899,26 @@ section.features {
 }
 
 @media screen and (min-width: 480px) {
-    .features-list {
+    section.features .features-list {
         gap: 0.875rem;
     }
 
     .feature-item {
         gap: 0.75rem;
         padding: 0 0.75rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    section.features .features-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        justify-items: stretch;
+    }
+
+    .feature-item {
+        max-width: 100%;
+        gap: 0.875rem;
     }
 }
 
@@ -823,13 +954,6 @@ section.features {
     transition: var(--transition);
     flex-shrink: 0;
 }
-@media screen and (min-width: 1100px) {
-    .feature-decor-circle {
-    width: 30px;
-    min-width: 30px;
-    height: 30px; 
-}
-}
 
 .feature-decor-circle .checkmark-icon {
     width: 18px;
@@ -839,11 +963,16 @@ section.features {
 }
 
 @media screen and (min-width: 1100px) {
+    .feature-decor-circle {
+        width: 30px;
+        min-width: 30px;
+        height: 30px;
+    }
+
     .feature-decor-circle .checkmark-icon {
         width: 20px;
         height: 20px;
     }
-    
 }
 
 
@@ -910,7 +1039,6 @@ section.features {
 
 .about-text p:last-of-type {
     margin-top: 1.5rem;
-    padding: 10px;
     background-color: rgba(2, 141, 150, 0.08);
     border-left: 3px solid var(--accent3);
     border-radius: 4px;
@@ -930,10 +1058,6 @@ section.features {
     position: relative;
     padding-bottom: 0.5rem;
     border-bottom: 2px solid rgba(2, 141, 150, 0.2);
-}
-
-.about-text h3:first-child {
-    margin-top: 0;
 }
 
 .about-text ul {
@@ -1168,7 +1292,7 @@ section.features {
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1200px) {
     .about-tablet .about-content {
         display: grid !important;
         grid-template-columns: 1fr 1fr;
@@ -1297,37 +1421,13 @@ section.features {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.btn-large {
-    padding: 1.25rem 3rem;
-    font-size: 1.125rem;
-    display: inline-block;
-    text-decoration: none;
-}
-
-.appointment-cta {
-    text-align: center;
-    margin-top: 3rem;
-}
-
-
-.section-features{
-    text-align: center;
-    margin-bottom: 2rem;
-}
 
 .section-title {
-    margin-top: 2rem;
     margin-bottom: 1.5rem;
-    position: relative;
-    display: inline-block;
 }
 
-.section-title:first-child {
-    margin-top: 0;
-}
 
-.is-hidden,
-.section-title.is-hidden {
+.is-hidden {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -1345,92 +1445,10 @@ section.features {
     display: none;
 }
 
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    height: 4px;
-    background-color: var(--accent2);
-    border-radius: 2px;
-}
-
-.section-subtitle {
-    display: block;
-    width: 100%;
-    max-width: 600px;
-    font-size: 1rem; /* Базовий розмір 16px */
-    color: var(--main-text);
-    text-align: center;
-    text-align-last: center;
-    opacity: 0.8;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0.75rem;
-    margin-bottom: 1.5rem;
-    line-height: 1.55;
-}
 /* ========== MOLOCHNA DRABYNA PAGE ========== */
-.molochna-drabyna-image {
-    width: 100%;
-    max-width: 1200px;
-    margin: 2rem auto;
-    order: 2;
-    position: relative;
-}
+/* Стилі для медіа-контейнерів в recipes-section *
 
-.molochna-clickable-image {
-    cursor: pointer;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    position: relative;
-}
-
-.molochna-clickable-image:hover {
-    transform: scale(1.02);
-    opacity: 0.9;
-}
-
-.molochna-clickable-image:hover .molochna-image-overlay {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-.molochna-drabyna-image picture,
-.molochna-drabyna-image img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-}
-
-.molochna-image-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 1rem;
-    text-align: center;
-    font-size: 1rem;
-    font-weight: 600;
-    transition: background-color 0.2s ease;
-    pointer-events: none;
-}
-.recipes-content {
-    margin: 0;
-}
-
-@media screen and (min-width: 768px) {
-    .recipes-content {
-        margin: 0 2rem;
-    }
-}
-
+.molochna-clickable-image,
 .recipes-clickable-image {
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.2s ease;
@@ -1438,63 +1456,68 @@ section.features {
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     position: relative;
-    float: left;
-    margin: 0 2rem 1.5rem 0;
-    max-width: 500px;
+    display: block;
     width: 100%;
+    height: 100%;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 768px) {
+    .molochna-clickable-image,
     .recipes-clickable-image {
-        float: none;
-        margin: 0 0 1.5rem 0;
-        max-width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
 }
 
-.recipes-text-wrapper {
-    overflow: hidden;
-}
-
-@media screen and (max-width: 767px) {
-    .recipes-text-wrapper {
-        overflow: visible;
-    }
-}
-
-.recipes-features-list {
-    list-style: none;
-    padding-left: 0;
-    margin: 0 0 1.5rem 0;
-}
-
-.recipes-features-list li {
-    padding: 0.75rem 0;
-    padding-left: 1.5rem;
-    position: relative;
-    color: var(--main-text);
-    line-height: 1.55;
-    text-align: left;
-    text-align-last: left;
-    hyphens: none;
-    word-spacing: normal;
-}
+.molochna-clickable-image:hover,
 .recipes-clickable-image:hover {
     transform: scale(1.02);
     opacity: 0.9;
 }
 
-.recipes-clickable-image:hover .recipes-image-overlay {
-    background-color: rgba(0, 0, 0, 0.8);
+/* Стилі для picture та img всередині медіа-контейнерів */
+.media-wrapper picture,
+.madia-wrapper picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 
-.recipes-clickable-image img {
-    width: 100%;
-    height: auto;
+.media-wrapper img,
+.madia-wrapper img {
     display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: 12px;
 }
 
+@media screen and (min-width: 768px) {
+    .media-wrapper picture,
+    .madia-wrapper picture {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .media-wrapper img,
+    .madia-wrapper img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.molochna-image-overlay,
 .recipes-image-overlay {
     position: absolute;
     bottom: 0;
@@ -1508,62 +1531,18 @@ section.features {
     font-weight: 600;
     transition: background-color 0.2s ease;
     pointer-events: none;
+    z-index: 1;
 }
 
-.recipes-section {
-    background-color: var(--bg-white);
+.molochna-clickable-image:hover .molochna-image-overlay,
+.recipes-clickable-image:hover .recipes-image-overlay {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
-.features-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 2rem;
-    color: var(--main-text);
-}
-
-
-
-
-.appointment-link {
-    text-transform: uppercase;
-    font-weight: 700;
-    text-decoration: underline;
-}
-
-.appointment-link:hover {
-    text-decoration: none;
-}
-
-
-.molochna-drabyna-page .about-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    align-items: center;
-}
-
-.molochna-drabyna-page .about-text {
-    width: 100%;
-    order: 1;
-}
-
-.molochna-drabyna-page .about-text p {
-    text-align: left;
-    text-align-last: left;
-    hyphens: none;
-    word-spacing: normal;
-}
-
-.molochna-drabyna-page .molochna-drabyna-image {
-    width: 100%;
-    max-width: none;
-    margin: 0;
-    order: 2;
-}
 
 .copyright-note {
     margin-top: 2rem;
-    padding-top: 1.5rem;
+    padding: 1rem;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     color: var(--main-text);
     font-size: 0.875rem;
@@ -1574,98 +1553,12 @@ section.features {
     word-spacing: normal;
 }
 
+/* Override для recipes-section - стилі застосовуються через селектор вище (рядок 817) */
+
 /* Tablet (від 768px) */
-@media screen and (min-width: 768px) {
-    .molochna-drabyna-page .about-content {
-        grid-template-columns: 1fr 1fr;
-        gap: 3rem;
-    }
 
-}
 
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-}
 
-.service-card {
-    background-color: var(--bg-white);
-    padding: 2rem;
-    border-radius: 12px;
-    text-align: center;
-    transition: var(--transition);
-    border: 2px solid transparent;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-}
-
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    border-color: var(--main-accent);
-}
-
-.service-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.service-title {
-    color: var(--accent2);
-    margin-bottom: 1rem;
-}
-
-.service-description {
-    color: var(--main-text);
-    opacity: 0.8;
-    font-size: 1rem; /* Базовий розмір 16px */
-    line-height: 1.6;
-    margin-bottom: 1rem;
-}
-
-.appointment-steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 4rem;
-}
-
-.step-card {
-    text-align: center;
-    padding: 2rem;
-    background-color: var(--text-bg);
-    border-radius: 12px;
-    transition: var(--transition);
-}
-
-.step-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-.step-number {
-    width: 60px;
-    height: 60px;
-    background-color: var(--main-accent);
-    color: var(--main-text);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin: 0 auto 1.5rem;
-}
-
-.step-title {
-    color: var(--accent2);
-    margin-bottom: 1rem;
-}
-
-.step-description {
-    color: var(--main-text);
-    opacity: 0.8;
-}
 
 .appointment-form-wrapper {
     max-width: 600px;
@@ -2181,19 +2074,8 @@ section.features {
     }
 }
 
-.feature-item {
-    max-width: 100%;
-    flex-direction: row;
-    align-items: center;
-}
 
-.services-grid {
-    grid-template-columns: 1fr;
-}
 
-.appointment-steps {
-    grid-template-columns: 1fr;
-}
 
 .appointment-form-wrapper {
     padding: 2rem;
@@ -2264,26 +2146,6 @@ section.features {
 
 /* Tablet (від 768px) */
 @media screen and (min-width: 768px) {
-    .features-list {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-        justify-items: stretch;
-    }
-
-    .feature-item {
-        max-width: 100%;
-        gap: 0.875rem;
-    }
-
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .appointment-steps {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-
     .appointment-form-wrapper {
         padding: 2.5rem;
     }
@@ -2413,15 +2275,15 @@ section.features {
 }
 
 .appointment-benefit-item {
-
- display: flex; 
- align-items: center; 
- gap: 1rem;
-    padding: 1.5rem; 
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+    gap: 1rem;
+    padding: 1rem;
     background-color: var(--text-bg);
     border-radius: 8px;
     transition: var(--transition);
-    padding: 1rem;
 }
 
 
@@ -2437,6 +2299,14 @@ section.features {
     justify-content: center;
     width: 48px;
     height: 48px;
+    flex-shrink: 0;
+}
+
+.benefit-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }
 
 .benefit-text {
@@ -2444,6 +2314,8 @@ section.features {
     color: var(--main-text);
     line-height: 1.55;
     font-size: 1rem;
+    flex: 1;
+    min-width: 0;
 }
 
 .appointment-pricing {
@@ -2545,6 +2417,75 @@ section.features {
     font-size: 1.2rem;
 }
 
+/* Стилі для YouTube відео в recipes-section */
+/* Стилі для відео всередині media-wrapper */
+.media-wrapper .recipes-video-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+
+.media-wrapper .recipes-video-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 12px;
+}
+
+
+/* Стилі для appointment-notice в recipes-section */
+.recipes-section .appointment-notice {
+    margin-top: 0;
+}
+
+/* Стилі для CTA блоку в recipes-section */
+.recipes-cta {
+    margin-top: 2rem;
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(2, 141, 150, 0.15);
+}
+
+.recipes-cta-text {
+    margin-bottom: 1rem;
+    color: var(--main-text);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.recipes-cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    font-size: 0.875rem;
+    text-decoration: none;
+    background-color: var(--accent3);
+    color: var(--bg-white);
+    min-width: 190px;
+    height: 50px;
+    box-sizing: border-box;
+}
+
+.recipes-cta-button:hover {
+    background-color: var(--accent2);
+    color: var(--bg-white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
 .checkbox-label {
     display: flex;
     align-items: flex-start;
@@ -2574,10 +2515,7 @@ section.features {
     font-weight: 600;
 }
 
-.appointment-benefit-item {
-    flex-direction: column;
-    text-align: center;
-}
+
 
 .pricing-item {
     padding: 1rem;
@@ -2587,8 +2525,12 @@ section.features {
 @media screen and (min-width: 768px) {
     .appointment-benefit-item {
         flex-direction: row;
+        align-items: center;
     }
-  
+    
+    .benefit-text {
+        text-align: left;
+    }
 }
 
 /* ========== MEDIA QUERIES ========== */
@@ -2608,3 +2550,5 @@ section.features {
     }
     
 }
+
+
