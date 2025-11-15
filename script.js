@@ -1,11 +1,14 @@
-// Check if we're on the main page (index.html)
+// Check if we're on the main page (index.html) or pages that support translation
 const isMainPage = window.location.pathname === '/' || 
                    window.location.pathname.endsWith('index.html') || 
                    window.location.pathname.endsWith('/');
+const isTranslatablePage = isMainPage || 
+                           window.location.pathname.includes('privacy-policy.html') ||
+                           window.location.pathname.includes('terms-of-use.html');
 
 let currentLanguage = 'uk';
 try {
-    if (typeof localStorage !== 'undefined' && isMainPage) {
+    if (typeof localStorage !== 'undefined' && isTranslatablePage) {
         currentLanguage = localStorage.getItem('language') || 'uk';
     } else {
         // For other pages, always use Ukrainian
@@ -81,8 +84,8 @@ function initializeApp() {
     
     updateActiveLangButton();
     
-    // Only apply translations on main page
-    if (isMainPage) {
+    // Apply translations on main page and translatable pages
+    if (isTranslatablePage) {
         setLanguage(currentLanguage);
         updateActiveLangButton();
         updateLanguageSelect();
@@ -263,8 +266,8 @@ if (document.readyState === 'loading') {
 function setupLangButtons() {
     if (!langButtons || langButtons.length === 0) return;
     
-    // Only setup language buttons on main page
-    if (!isMainPage) return;
+    // Setup language buttons on main page and translatable pages
+    if (!isTranslatablePage) return;
     
     langButtons.forEach(button => {
         button.addEventListener('click', () => {
@@ -280,7 +283,7 @@ function setupLangButtons() {
 
     // Setup language select dropdown for mobile
     const languageSelect = document.getElementById('languageSelect');
-    if (languageSelect && isMainPage) {
+    if (languageSelect && isTranslatablePage) {
         languageSelect.addEventListener('change', () => {
             const lang = languageSelect.value;
             setLanguage(lang);
@@ -320,8 +323,8 @@ function updateActiveLangButton() {
 }
 
 function setLanguage(lang) {
-    // Only allow language switching on main page
-    if (!isMainPage) {
+    // Only allow language switching on main page and translatable pages
+    if (!isTranslatablePage) {
         lang = 'uk';
     }
     currentLanguage = lang;

@@ -372,8 +372,7 @@ padding-bottom: 0;
 }
 
 .hero-subtitle1 {
-    text-transform: uppercase;
-    font-size: clamp(0.875rem, 2vw, 1rem);
+    font-size: clamp(1rem, 2vw, 1rem);
     letter-spacing: 0.05em;
     font-weight: 600;
     /* color: var(--accent3); */
@@ -459,12 +458,11 @@ padding-bottom: 0;
     }
         
     .policy-text p {
-        margin-bottom: 0.875rem;
+        margin-bottom: 1rem;
     }
     
     .policy-text h2 {
-        margin-top: 1.5rem;
-        margin-bottom: 1.25rem;
+        margin-bottom: 1rem;
     }
     
     .policy-text h3 {
