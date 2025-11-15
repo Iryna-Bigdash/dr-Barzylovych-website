@@ -475,6 +475,9 @@ function setLanguage(lang) {
     
     document.documentElement.lang = lang;
     
+    // Highlight numbers in feature texts after translation
+    highlightFeatureNumbers();
+    
     // Update subtitle width after translation update
     setTimeout(() => {
         updateSubtitleWidth();
@@ -859,7 +862,85 @@ if (scrollToTopButton) {
 document.addEventListener('DOMContentLoaded', function () {
     initMolochnaDownload();
     initFloatingLabels();
+    highlightFeatureNumbers();
 });
+
+function highlightFeatureNumbers() {
+    const featureTexts = document.querySelectorAll('.feature-text');
+    featureTexts.forEach(element => {
+        // Перевіряємо, чи вже є обгорнуті числа
+        if (element.querySelector('.feature-number')) {
+            return; // Вже обгорнуті
+        }
+        
+        // Обробляємо тільки текстові вузли, уникаючи HTML тегів
+        const walker = document.createTreeWalker(
+            element,
+            NodeFilter.SHOW_TEXT,
+            null,
+            false
+        );
+        
+        const textNodes = [];
+        let node;
+        while (node = walker.nextNode()) {
+            // Перевіряємо, чи текстовий вузол не всередині тегу <a> або іншого тегу
+            let parent = node.parentNode;
+            let isInsideLink = false;
+            while (parent && parent !== element) {
+                if (parent.tagName === 'A' || parent.tagName === 'SCRIPT' || parent.tagName === 'STYLE') {
+                    isInsideLink = true;
+                    break;
+                }
+                parent = parent.parentNode;
+            }
+            
+            if (!isInsideLink && node.textContent.trim().length > 0) {
+                textNodes.push(node);
+            }
+        }
+        
+        // Регулярний вираз для знаходження тільки чисел (не обгортаємо слова після чисел)
+        const numberRegex = /\b(\d+)\b/g;
+        
+        // Обробляємо кожен текстовий вузол
+        textNodes.forEach(textNode => {
+            const text = textNode.textContent;
+            const matches = [];
+            let match;
+            
+            // Збираємо всі збіги (тільки числа)
+            while ((match = numberRegex.exec(text)) !== null) {
+                matches.push({
+                    number: match[1], // Тільки число
+                    index: match.index,
+                    length: match[1].length
+                });
+            }
+            
+            // Замінюємо з кінця, щоб індекси не змінювалися
+            if (matches.length > 0) {
+                let newText = text;
+                for (let i = matches.length - 1; i >= 0; i--) {
+                    const m = matches[i];
+                    const replacement = `<span class="feature-number">${m.number}</span>`;
+                    newText = newText.substring(0, m.index) + replacement + newText.substring(m.index + m.length);
+                }
+                
+                // Створюємо тимчасовий контейнер для вставки HTML
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = newText;
+                
+                // Замінюємо текстовый вузол на нові вузли
+                const fragment = document.createDocumentFragment();
+                while (tempDiv.firstChild) {
+                    fragment.appendChild(tempDiv.firstChild);
+                }
+                textNode.parentNode.replaceChild(fragment, textNode);
+            }
+        });
+    });
+}
 
 function initFloatingLabels() {
     const floatingInputs = document.querySelectorAll('.floating-label input');

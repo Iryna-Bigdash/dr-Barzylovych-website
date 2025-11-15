@@ -705,11 +705,12 @@ section.features {
 section.features .features-list {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 0.6rem;
     max-width: 1200px;
     margin: 0 auto;
     list-style: none;
     padding: 0 1rem;
+    justify-items: center;
 }
 
 /* ========== MOLOCHNA DRABYNA ABOUT SECTION ========== */
@@ -952,9 +953,9 @@ section.features .features-list {
 
 @media screen and (min-width: 768px) {
     .feature-decor {
-        width: 14px;
-        min-width: 14px;
-        height: 14px;
+        width: 12px;
+        min-width: 12px;
+        height: 12px;
     }
 }
 
@@ -978,6 +979,7 @@ section.features .features-list {
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
         justify-items: stretch;
+        /* На планшетах і десктопах не центруємо */
     }
 
     .feature-item {
@@ -1019,6 +1021,11 @@ section.features .features-list {
     font-size: 1.02em;
     position: relative;
     display: inline-block;
+}
+
+.feature-text .feature-number {
+    font-weight: 700;
+    font-size: 1.05em;
 }
 
 .feature-text a {
