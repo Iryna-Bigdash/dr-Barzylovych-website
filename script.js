@@ -94,9 +94,6 @@ function initializeApp() {
         setLanguage('uk');
     }
     
-    setInterval(() => {
-        updateActiveLangButton();
-    }, 1000);
     
     // Setup burger menu after initialization
     setupBurgerMenu();
@@ -189,12 +186,8 @@ function setupBurgerMenu() {
         // Додаємо/видаляємо клас до body
         if (isActive) {
             document.body.classList.add('menu-open');
-            document.body.style.position = 'fixed';
-            document.body.style.width = '100%';
         } else {
             document.body.classList.remove('menu-open');
-            document.body.style.position = '';
-            document.body.style.width = '';
         }
         
         // Оновлюємо padding після зміни стану меню
@@ -214,8 +207,6 @@ function setupBurgerMenu() {
         navOverlay.classList.remove('active');
         document.body.classList.remove('menu-open');
         document.body.style.overflow = '';
-        document.body.style.position = '';
-        document.body.style.width = '';
         
         // Оновлюємо padding після закриття меню
         setTimeout(updateBodyPadding, 50);
@@ -233,8 +224,6 @@ function setupNavLinks() {
             navOverlay.classList.remove('active');
             document.body.classList.remove('menu-open');
             document.body.style.overflow = '';
-            document.body.style.position = '';
-            document.body.style.width = '';
             
             // Оновлюємо padding після закриття меню
             setTimeout(updateBodyPadding, 50);
@@ -248,8 +237,6 @@ function setupNavLinks() {
             navOverlay.classList.remove('active');
             document.body.classList.remove('menu-open');
             document.body.style.overflow = '';
-            document.body.style.position = '';
-            document.body.style.width = '';
             
             // Оновлюємо padding після закриття меню
             setTimeout(updateBodyPadding, 50);
