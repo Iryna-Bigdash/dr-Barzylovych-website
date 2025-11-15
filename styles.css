@@ -112,7 +112,7 @@ img {
     max-width: 280px; /* Mobile-first: базовий стиль для найменших екранів (до 319px) */
     margin: 0 auto;
     padding: 0 1rem;
-    outline: 1px solid #ff0000; /* Червоний */
+    /* outline: 1px solid #ff0000; */
     box-sizing: border-box;
 }
 
@@ -120,7 +120,7 @@ img {
 @media screen and (min-width: 320px) and (max-width: 479px) {
     .container {
         max-width: 400px;
-        outline: 1px solid #ff8800; /* Помаранчевий */
+        /* outline: 1px solid #ff8800; */
     }
 }
 
@@ -129,7 +129,7 @@ img {
 @media screen and (min-width: 480px) and (max-width: 767px) {
     .container {
         max-width: 570px;
-        outline: 1px solid #ffff00; /* Жовтий */
+        /* outline: 1px solid #ffff00;  */
     }
 }
 
@@ -137,7 +137,7 @@ img {
 @media screen and (min-width: 768px) and (max-width: 1199px) {
     .container {
         max-width: 960px;
-        outline: 1px solid #00ff00; /* Зелений */
+        /* outline: 1px solid #00ff00;  */
     }
 }
 
@@ -145,17 +145,7 @@ img {
 @media screen and (min-width: 1200px) {
     .container {
         max-width: 1200px;
-        outline: 1px solid #0088ff; /* Синій */
-    }
-}
-
-/* Retina дисплеї (додається до існуючих кольорів) */
-@media 
-    (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    .container {
-        outline-width: 1px !important; /* Товстіша лінія для retina */
+        /* outline: 1px solid #0088ff;  */
     }
 }
 
