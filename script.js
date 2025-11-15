@@ -326,6 +326,9 @@ function setLanguage(lang) {
     }
     currentLanguage = lang;
     
+    // Re-query all elements with data-i18n to ensure we get all elements, including dynamically added ones
+    elementsWithI18n = document.querySelectorAll('[data-i18n]');
+    
     // Show/hide navigation items based on language
     const ukOnlyNavItems = document.querySelectorAll('.nav-item-uk-only');
     if (ukOnlyNavItems.length > 0) {
@@ -336,6 +339,21 @@ function setLanguage(lang) {
         } else {
             // Hide for English and Portuguese
             ukOnlyNavItems.forEach(item => {
+                item.style.display = 'none';
+            });
+        }
+    }
+    
+    // Show/hide UK-only elements (like appointment buttons)
+    const ukOnlyElements = document.querySelectorAll('.uk-only');
+    if (ukOnlyElements.length > 0) {
+        if (lang === 'uk') {
+            ukOnlyElements.forEach(item => {
+                item.style.display = '';
+            });
+        } else {
+            // Hide for English and Portuguese
+            ukOnlyElements.forEach(item => {
                 item.style.display = 'none';
             });
         }
@@ -431,8 +449,10 @@ function setLanguage(lang) {
                     element.appendChild(textNode);
                     flagIcons.forEach(flag => element.appendChild(flag));
                 } else {
-                    // Check if translation contains HTML tags (for feature-text, about-text, etc.)
-                    if (translation.includes('<') && (translation.includes('</') || translation.includes('/>'))) {
+                    // Special handling for links (A tags)
+                    if (element.tagName === 'A') {
+                        element.textContent = translation;
+                    } else if (translation.includes('<') && (translation.includes('</') || translation.includes('/>'))) {
                         // Translation contains HTML, use innerHTML
                         element.innerHTML = translation;
                     } else {
