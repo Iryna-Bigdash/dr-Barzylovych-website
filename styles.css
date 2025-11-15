@@ -844,6 +844,12 @@ section.features .features-list {
     background-color: var(--bg-white);
 }
 
+.section-title {
+    text-align: center;
+}
+.recipes-title {
+    line-height: -1.5rem;
+}
 
 /* Спільні стилі для recipes-list та recipes-details в recipes-section */
 .recipes-section .recipes-list,
