@@ -744,7 +744,6 @@ section.features .features-list {
     word-spacing: normal;
     margin-bottom: 1rem;
     line-height: 1.6;
-    color: var(--main-text);
     font-size: 1rem;
 }
 
@@ -752,7 +751,6 @@ section.features .features-list {
     margin-top: 2rem;
     padding: 1rem;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
-    color: var(--main-text);
     font-size: 0.875rem;
     line-height: 1.5;
     text-align: left;
@@ -1576,7 +1574,6 @@ section.features .features-list {
     margin-top: 2rem;
     padding: 1rem;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
-    color: var(--main-text);
     font-size: 0.875rem;
     line-height: 1.5;
     text-align: left;
