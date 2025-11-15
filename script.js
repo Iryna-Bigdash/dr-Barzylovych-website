@@ -738,26 +738,72 @@ if (appointmentForm) {
         
         // If validation passed, submit the form
         const formData = new FormData(appointmentForm);
-        Object.fromEntries(formData);
-        
-        // Show success message
+        const submitBtn = document.getElementById('submitBtn');
         const successMessage = document.getElementById('successMessage');
-        if (successMessage) {
-            successMessage.classList.add('show');
+        
+        // Disable submit button during submission
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            // Get submitting text based on current language
+            const submittingText = currentLanguage === 'uk' ? 'Відправка...' : 
+                                   currentLanguage === 'en' ? 'Sending...' : 
+                                   'Enviando...';
+            submitBtn.textContent = submittingText;
         }
         
-        appointmentForm.reset();
-        // Clear errors after successful submission
-        clearError('fullname');
-        clearError('phone');
-        clearError('email');
-        
-        // Hide success message after 5 seconds
-        setTimeout(() => {
-            if (successMessage) {
-                successMessage.classList.remove('show');
+        // Send form data to PHP script
+        fetch('send-email.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
             }
-        }, 5000);
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                // Show success message
+                if (successMessage) {
+                    const successText = successMessage.querySelector('.success-text');
+                    if (successText) {
+                        successText.textContent = data.message;
+                    }
+                    successMessage.classList.add('show');
+                }
+                
+                // Reset form
+                appointmentForm.reset();
+                
+                // Clear errors after successful submission
+                clearError('fullname');
+                clearError('phone');
+                clearError('email');
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    if (successMessage) {
+                        successMessage.classList.remove('show');
+                    }
+                }, 5000);
+            } else {
+                // Show error message
+                alert(data.message || 'Помилка відправки. Будь ласка, спробуйте пізніше.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Помилка відправки. Будь ласка, спробуйте пізніше або зв\'яжіться з нами безпосередньо.');
+        })
+        .finally(() => {
+            // Re-enable submit button
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                const submitTranslation = getTranslation('appointment.form.submit', currentLanguage);
+                submitBtn.textContent = submitTranslation || 'Відправити';
+            }
+        });
     });
 }
 
@@ -994,11 +1040,16 @@ function downloadPDF() {
 }
 
 function downloadMolochnaImage() {
-    const imageUrl = 'assets/images/molochna-drabyna/2400x1350.jpg';
-    const imageName = 'ukrainska-molochna-drabyna.jpg';
+    // Try WebP first, fallback to JPG
+    const imageUrl = 'assets/images/molochna-drabyna/2400x1350_1.webp';
+    const fallbackUrl = 'assets/images/molochna-drabyna/2400x1350.jpg';
+    const imageName = 'ukrainska-molochna-drabyna.webp';
     
     fetch(imageUrl)
-        .then(response => response.blob())
+        .then(response => {
+            if (!response.ok) throw new Error('WebP not available');
+            return response.blob();
+        })
         .then(blob => {
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
@@ -1010,11 +1061,12 @@ function downloadMolochnaImage() {
             document.body.removeChild(a);
         })
         .catch(error => {
+            // Fallback to JPG
             const image = document.getElementById('molochnaDrabynaImg');
-            const fallbackUrl = image ? image.src : 'assets/images/molochna-drabyna/2400x1350.jpg';
+            const fallbackImageUrl = image && image.src.includes('.jpg') ? image.src : fallbackUrl;
             const a = document.createElement('a');
-            a.href = fallbackUrl;
-            a.download = imageName;
+            a.href = fallbackImageUrl;
+            a.download = 'ukrainska-molochna-drabyna.jpg';
             a.target = '_blank';
             document.body.appendChild(a);
             a.click();

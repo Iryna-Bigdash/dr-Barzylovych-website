@@ -74,7 +74,20 @@
           <div class="about-content">
             <div class="madia-wrapper">
               <picture id="molochnaDrabynaClickable" class="molochna-clickable-image">
-                <!-- Responsive JPEG images for different breakpoints -->
+                <!-- WebP format for modern browsers -->
+                <source 
+                  type="image/webp"
+                  srcset="
+                    assets/images/molochna-drabyna/800x450.webp 800w,
+                    assets/images/molochna-drabyna/1200x675.webp 1200w,
+                    assets/images/molochna-drabyna/1600x900.webp 1600w,
+                    assets/images/molochna-drabyna/2400x1350_1.webp 2400w
+                  "
+                  sizes="(max-width: 768px) 100vw, 
+                         (max-width: 1200px) 90vw, 
+                         1200px"
+                />
+                <!-- JPEG fallback for older browsers -->
                 <source 
                   type="image/jpeg"
                   srcset="
@@ -89,7 +102,7 @@
                 />
                 <img
                   id="molochnaDrabynaImg"
-                  src="assets/images/molochna-drabyna/1200x675.jpg"
+                  src="assets/images/molochna-drabyna/1200x675.webp"
                   alt="Українська молочна драбина - натисніть для завантаження"
                   loading="eager"
                   decoding="async"
@@ -142,6 +155,20 @@
               </div>
               <div class="madia-wrapper">
               <picture id="recipesImageClickable" class="recipes-clickable-image">
+                <!-- WebP format for modern browsers -->
+                <source 
+                  type="image/webp"
+                  srcset="
+                    assets/images/recipies/800x450.webp 800w,
+                    assets/images/recipies/1200x675_1.webp 1200w,
+                    assets/images/recipies/1600x900_1.webp 1600w,
+                    assets/images/recipies/2400x1350_2.webp 2400w
+                  "
+                  sizes="(max-width: 768px) 100vw, 
+                         (max-width: 1200px) 40vw, 
+                         500px"
+                />
+                <!-- JPEG fallback for older browsers -->
                 <source 
                   type="image/jpeg"
                   srcset="
@@ -155,7 +182,7 @@
                          500px"
                 />
                 <img
-                  src="assets/images/recipies/1200x675.jpg"
+                  src="assets/images/recipies/1200x675_1.webp"
                   alt="Рецепти Української молочної драбини - натисніть для завантаження PDF"
                   loading="lazy"
                   decoding="async"
@@ -188,13 +215,14 @@
             <div class="media-wrapper">
               <div class="recipes-video-wrapper">
                 <iframe
-                  src="https://www.youtube.com/embed/as2vbpJqzPc"
+                  src="https://www.youtube.com/embed/as2vbpJqzPc?rel=0&modestbranding=1"
                   title="Відео про педіатрію - Dra. Vlada Barzylovych"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowfullscreen
                   class="recipes-video-iframe"
                   loading="lazy"
+                  referrerpolicy="strict-origin-when-cross-origin"
                 ></iframe>
               </div>
             </div>
