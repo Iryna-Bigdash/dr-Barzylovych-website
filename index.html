@@ -55,6 +55,9 @@
 
   <!-- Preload critical CSS -->
   <link rel="preload" href="styles.css" as="style" />
+  
+  <!-- Preload LCP image for optimal performance -->
+  <link rel="preload" as="image" href="assets/images/hero/responsive/Vlada-Barz-600x810.webp" fetchpriority="high" />
 
   <!-- Critical CSS inline for immediate rendering -->
   <style>
@@ -281,7 +284,7 @@
                     " sizes="(min-width: 900px) 500px, (min-width: 600px) 400px, 320px" type="image/png" />
                 <img src="assets/images/hero/Vlada-Barz.png" alt="Dra. Vlada Barzylovych — Professional Doctor"
                   width="719" height="969" style="aspect-ratio: 719 / 969" fetchpriority="high" loading="eager"
-                  decoding="async" />
+                  decoding="sync" />
               </picture>
             </div>
           </div>
@@ -295,8 +298,7 @@
               <img src="assets/images/uk-flag.svg" alt="UA" class="flag-icon-inline" width="20" height="14" />
             </p>
             <p class="hero-subtitle hero-subtitle2" data-i18n="hero.subtitle2">
-              З листопада 2024 року лікар з правом автономної роботи в
-              Португалії (CÉDULA PROFISSIONAL N° 79747)
+              З листопада 2024 року лікар з правом автономної роботи в Португалії<br>(cédula profissional n° 79747)
               <img src="assets/images/pt-flag.svg" alt="PT" class="flag-icon-inline" width="20" height="14" />
             </p>
           </div>
@@ -313,50 +315,38 @@
         </div>
         <ul class="features-list">
           <li class="feature-item">
-            <div class="feature-decor feature-decor-circle">
-              <img src="assets/images/1.svg" alt="checkmark" class="checkmark-icon" />
-            </div>
+            <div class="feature-decor"></div>
             <p class="feature-text" data-i18n="hero.feature2">
-              Понад 13 років медичного стажу (практикую з 2011 року)
+              Маю понад 14 років медичного стажу
             </p>
           </li>
           <li class="feature-item">
-            <div class="feature-decor feature-decor-circle">
-              <img src="assets/images/1.svg" alt="checkmark" class="checkmark-icon" />
-            </div>
+            <div class="feature-decor"></div>
             <p class="feature-text" data-i18n="hero.feature3">
-              Більше 6 років успішних онлайн-консультацій
+              Більше 6 років успішно проводжу онлайн-консультацій
             </p>
           </li>
           <li class="feature-item">
-            <div class="feature-decor feature-decor-circle">
-              <img src="assets/images/1.svg" alt="checkmark" class="checkmark-icon" />
-            </div>
+            <div class="feature-decor"></div>
             <p class="feature-text" data-i18n="hero.feature4">
               Глибокий досвід у протоколах лікування медикаментозної алергії
             </p>
           </li>
           <li class="feature-item">
-            <div class="feature-decor">
-              <img src="assets/images/1.svg" alt="checkmark" class="checkmark-icon" />
-            </div>
+            <div class="feature-decor"></div>
             <p class="feature-text" data-i18n="hero.feature5">
-              Спікер на понад 150 медичних конференціях
+              Спікер на понад 50 медичних конференціях
             </p>
           </li>
           <li class="feature-item">
-            <div class="feature-decor">
-              <img src="assets/images/1.svg" alt="checkmark" class="checkmark-icon" />
-            </div>
+            <div class="feature-decor"></div>
             <p class="feature-text" data-i18n="hero.feature6">
               Автор
               <a href="molochna-drabyna.html">"Української молочної драбини"</a>
             </p>
           </li>
           <li class="feature-item">
-            <div class="feature-decor">
-              <img src="assets/images/1.svg" alt="checkmark" class="checkmark-icon" />
-            </div>
+            <div class="feature-decor"></div>
             <p class="feature-text" data-i18n="hero.feature7">
               Автор спеціалізованого блогу
               <a href="https://www.instagram.com/vladabarz?igsh=MWNrMmduNjk4bXRjag%3D%3D&utm_source=qr" target="_blank"
@@ -375,63 +365,8 @@
             Про мене
           </h2>
         </div>
-        <div class="about-mobile">
-          <div class="about-content">
-            <div class="about-text">
-              <div data-i18n="about.text2">
-                <h3>Як алерголог:</h3>
-                <ul>
-                  <li>
-                    Проводжу діагностику та лікування пацієнтів з атопічним
-                    дерматитом, гострою та хронічною кропивянкою, бронхіальною
-                    астмою, алергічним ринітом і іншими алергопатологіями
-                  </li>
-                  <li>Призначаю АСІТ імунотерапія</li>
-                  <li>
-                    Консультую щодо протоколів градуйованого введення
-                    продуктів, оральної десенсибілізації
-                  </li>
-                </ul>
 
-                <h3>Як педіатр:</h3>
-                <ul>
-                  <li>Допомогаю ростити здорових дітей по всьому світу 🌍</li>
-                  <li>Контролюємо графіки вакцин</li>
-                  <li>Водимо прикорм</li>
-                  <li>Не даємо зайвих ліків</li>
-                </ul>
-              </div>
-              <div class="about-cta">
-                <p class="about-mom-note" data-i18n="about.momNote">
-                  Як мама 2-х дітей – не даю порад, які батьки не зможуть
-                  виконати ;)
-                </p>
-                <a href="appointment.html" data-i18n="appointment.cta" class="uk-only">
-                  Записатися на прийом
-                </a>
-              </div>
-            </div>
-            <div class="about-image">
-              <picture>
-                <!-- WebP format for modern browsers -->
-                <source srcset="assets/images/about/about.webp 1667w"
-                  sizes="(max-width: 768px) 90vw, (max-width: 1200px) 40vw, 500px" type="image/webp" />
-                <!-- JPG fallback with responsive sizes -->
-                <source srcset="
-                      assets/images/about/responsive/about-400x600.jpg    400w,
-                      assets/images/about/responsive/about-600x900.jpg    600w,
-                      assets/images/about/responsive/about-800x1200.jpg   800w,
-                      assets/images/about/responsive/about-1000x1500.jpg 1000w,
-                      assets/images/about/about.jpg                      1667w
-                    " sizes="(max-width: 768px) 90vw, (max-width: 1200px) 40vw, 500px" type="image/jpeg" />
-                <img src="assets/images/about/about.jpg" alt="Dra. Vlada Barzylovych — Pediatrician and Allergist"
-                  loading="eager" decoding="async" width="1667" height="2500" />
-              </picture>
-            </div>
-          </div>
-        </div>
-
-        <div class="about-tablet">
+        <div class="about">
           <div class="about-content" data-i18n="about.text2Tablet">
             <div class="about-text">
               <h3>Як алерголог:</h3>
@@ -468,6 +403,23 @@
               Записатися на прийом
             </a>
           </div>
+          <div class="about-image">
+            <picture>
+              <!-- WebP format for modern browsers -->
+              <source srcset="assets/images/about/about.webp 1667w"
+                sizes="(max-width: 768px) 90vw, (max-width: 1200px) 40vw, 500px" type="image/webp" />
+              <!-- JPG fallback with responsive sizes -->
+              <source srcset="
+                    assets/images/about/responsive/about-400x600.jpg    400w,
+                    assets/images/about/responsive/about-600x900.jpg    600w,
+                    assets/images/about/responsive/about-800x1200.jpg   800w,
+                    assets/images/about/responsive/about-1000x1500.jpg 1000w,
+                    assets/images/about/about.jpg                      1667w
+                  " sizes="(max-width: 768px) 90vw, (max-width: 1200px) 40vw, 500px" type="image/jpeg" />
+              <img src="assets/images/about/about.jpg" alt="Dra. Vlada Barzylovych — Pediatrician and Allergist"
+                loading="eager" decoding="async" width="1667" height="2500" />
+            </picture>
+          </div>
         </div>
       </div>
     </section>
@@ -489,7 +441,7 @@
             </li>
           </ul>
         </div>
-        <div class="footer-contacts">
+        <div class="footer-contacts uk-only">
           <h3 class="footer-title" data-i18n="footer.legal">
             Юридична інформація
           </h3>
@@ -536,7 +488,6 @@
   <!-- translations.js must load before script.js, so we use defer to maintain order -->
   <script src="translations.js?v=4" defer></script>
   <script src="script.js?v=9" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
 </body>
 
 </html>

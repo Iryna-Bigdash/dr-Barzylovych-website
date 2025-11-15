@@ -856,56 +856,7 @@ if (scrollToTopButton) {
     });
 }
 
-function initFeedbacksSwiper() {
-    if (typeof Swiper === 'undefined') {
-        setTimeout(initFeedbacksSwiper, 100);
-        return;
-    }
-
-    const swiperElement = document.querySelector('.feedbacks-swiper');
-    if (!swiperElement) {
-        return;
-    }
-
-    const swiper = new Swiper(swiperElement, {
-        loop: true,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: false,
-        },
-        pagination: {
-            el: swiperElement.querySelector('.swiper-pagination'),
-            clickable: true,
-        },
-        effect: 'slide',
-        speed: 800,
-        breakpoints: {
-            640: {
-                slidesPerView: 1,
-                spaceBetween: 20,
-            },
-            768: {
-                slidesPerView: 2,
-                spaceBetween: 30,
-            },
-            1024: {
-                slidesPerView: 3,
-                spaceBetween: 30,
-            },
-        },
-    });
-
-    const sliderContainer = document.querySelector('.feedbacks-swiper');
-    if (sliderContainer) {
-        sliderContainer.addEventListener('click', function () {
-            swiper.autoplay.stop();
-        });
-    }
-}
-
 document.addEventListener('DOMContentLoaded', function () {
-    // initFeedbacksSwiper(); // Feedbacks section removed
     initMolochnaDownload();
     initFloatingLabels();
 });

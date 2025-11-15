@@ -87,6 +87,7 @@ h3 {
     font-size: clamp(1.25rem, 3vw, 1.75rem);
 }
 
+
 a {
     text-decoration: none;
     color: inherit;
@@ -386,7 +387,6 @@ padding-bottom: 0;
     color: var(--main-text);
     opacity: 0.85;
 }
-
 /* Tablet (від 768px) */
 @media screen and (min-width: 768px) {
     .hero-subtitle {
@@ -457,7 +457,7 @@ padding-bottom: 0;
         max-height: 35px;
         max-width: 140px;
     }
-      
+        
     .policy-text p {
         margin-bottom: 0.875rem;
     }
@@ -509,7 +509,7 @@ padding-bottom: 0;
         max-height: 45px;
         max-width: 180px;
     }
-        
+    
     .policy-text p {
         margin-bottom: 1rem;
     }
@@ -537,7 +537,7 @@ padding-bottom: 0;
     }
     
     /* Адаптивні відступи для тексту */
-
+    
     .policy-text p {
         margin-bottom: 1rem;
         line-height: 1.6;
@@ -863,13 +863,13 @@ section.features .features-list {
 }
 
 .recipes-section .recipes-details {
-    max-width: 100%;
+        max-width: 100%;
 }
 
 .recipes-section .recipes-list li,
 .recipes-section .recipes-details li {
     position: relative;
-    text-align: left;
+        text-align: left;
     transition: var(--transition);
     color: var(--main-text);
     line-height: 1.6;
@@ -928,15 +928,34 @@ section.features .features-list {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 0.625rem;
+    gap: 1.2rem;
     width: 100%;
     max-width: 500px;
     position: relative;
-    padding: 0 0.5rem;
+   
     border-radius: 6px;
     background: rgba(255, 255, 255, 0.5);
     border: 1px solid transparent;
     transition: var(--transition);
+}
+
+.feature-decor {
+    width: 12px;
+    min-width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    align-self: center;
+    border-radius: 50%;
+    background-color: var(--accent3);
+    display: block;
+}
+
+@media screen and (min-width: 768px) {
+    .feature-decor {
+        width: 14px;
+        min-width: 14px;
+        height: 14px;
+    }
 }
 
 .feature-item:hover {
@@ -950,14 +969,14 @@ section.features .features-list {
 
     .feature-item {
         gap: 0.75rem;
-        padding: 0 0.75rem;
+        padding: 0 0 0 1.875rem;
     }
 }
 
 @media screen and (min-width: 768px) {
     section.features .features-list {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
+        gap: 1rem;
         justify-items: stretch;
     }
 
@@ -965,67 +984,22 @@ section.features .features-list {
         max-width: 100%;
         gap: 0.875rem;
     }
-}
-
-.feature-decor {
-    width: 20px;
-    min-width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-    align-self: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.feature-decor img,
-.feature-decor .checkmark-icon {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.feature-decor-circle {
-    width: 24px;
-    min-width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    padding: 0.25em;
-    background-color: rgba(2, 141, 150, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--accent3);
-    transition: var(--transition);
-    flex-shrink: 0;
-}
-
-.feature-decor-circle .checkmark-icon {
-    width: 18px;
-    height: 18px;
-    object-fit: contain;
-    display: block;
-}
-
-@media screen and (min-width: 1100px) {
-    .feature-decor-circle {
-        width: 30px;
-        min-width: 30px;
-        height: 30px;
+    
+    /* Перші 3 елементи - до лівого краю */
+    section.features .features-list li:nth-child(1),
+    section.features .features-list li:nth-child(2),
+    section.features .features-list li:nth-child(3) {
+        justify-self: start;
     }
-
-    .feature-decor-circle .checkmark-icon {
-        width: 20px;
-        height: 20px;
+    
+    /* Наступні 3 елементи - до правого краю */
+    section.features .features-list li:nth-child(4),
+    section.features .features-list li:nth-child(5),
+    section.features .features-list li:nth-child(6) {
+        justify-self: end;
     }
 }
 
-
-.feature-item:hover .feature-decor-circle {
-    background-color: rgba(2, 141, 150, 0.15);
-    border-color: var(--accent3);
-    transform: scale(1.05);
-}
 
 
 .feature-text {
@@ -1071,7 +1045,7 @@ section.features .features-list {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 1.5rem;
 }
 
 .about-text {
@@ -1079,31 +1053,39 @@ section.features .features-list {
     order: 1;
     text-align: left;
     background-color: rgba(255, 255, 255, 0.6);
-    padding: 1rem;
+    padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
     transition: var(--transition);
 }
 
 
 .about-text h3 {
-    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-    font-weight: 600;
+    font-size: clamp(1.15rem, 1.5vw, 1.5rem);
+    font-weight: 800;
     color: var(--accent3);
-    margin-top: 2rem;
+    margin-top: 0;
     margin-bottom: 1rem;
     line-height: 1.4;
     position: relative;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.75rem;
     border-bottom: 2px solid rgba(2, 141, 150, 0.2);
+}
+
+.about-text h3:first-child {
+    margin-top: 0;
 }
 
 .about-text ul {
     list-style: none;
     padding-left: 0;
-    gap: 0.5rem;
+    gap: 0.75rem;
     display: flex;
     flex-direction: column;
+    margin: 0;
+    flex: 1;
 }
 
 .about-text ul li {
@@ -1115,16 +1097,15 @@ section.features .features-list {
 }
 
 .about-text ul li::before {
-    content: "—";
+    content: '';
     position: absolute;
     left: 0;
     top: 0.5rem;
-    color: var(--accent3);
-    font-size: 1rem;
-    line-height: 1;
-    opacity: 0.4;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(2, 141, 150, 0.4);
     transition: var(--transition);
-    width: 1rem;
 }
 
 .about-text a {
@@ -1184,7 +1165,7 @@ section.features .features-list {
 .about-image {
     width: 90%;
     max-width: 320px;
-    order: 2;
+    margin: 1rem auto 0;
     overflow: hidden;
     border-radius: 12px;
     aspect-ratio: 1 / 1;
@@ -1193,6 +1174,12 @@ section.features .features-list {
     position: relative;
     border: 3px solid rgba(2, 141, 150, 0.15);
     background-color: #f0f0f0;
+}
+
+@media screen and (min-width: 768px) {
+    .about-image {
+        display: none;
+    }
 }
 
 .about-image::after {
@@ -1234,15 +1221,8 @@ section.features .features-list {
     object-position: center;
 }
 
-.about .about-mobile {
-    display: block;
-}
 
-.about .about-tablet {
-    display: none;
-    visibility: hidden;
-    opacity: 0;
-}
+
 
 /* Media Queries */
 @media screen and (max-width: 479px) {
@@ -1264,16 +1244,7 @@ section.features .features-list {
         gap: 0.5rem;
     }
     
-    .about-text ul li {
-        padding: 0 0 0 1.625rem;
-    }
     
-    .about-image {
-        width: 85%;
-        max-width: 320px;
-        margin: 0 auto;
-        border-radius: 12px;
-    }
 
     .molochna-drabyna-about .about-text {
         background-color: transparent !important;
@@ -1302,17 +1273,7 @@ section.features .features-list {
         gap: 0.875rem;
     }
     
-    .about-text ul li {
-        padding: 0 0 0 1.75rem;
-    }
     
-    .about-image {
-        width: 85%;
-        max-width: 320px;
-        margin: 0 auto;
-        border-radius: 12px;
-        aspect-ratio: 1 / 1;
-    }
 
     .molochna-drabyna-about .about-text {
         background-color: transparent !important;
@@ -1322,37 +1283,10 @@ section.features .features-list {
     }
 }
 
+
 @media screen and (min-width: 768px) {
-    .about .about-mobile {
-        display: none !important;
-    }
-
-    .about .about-mobile .about-image {
-        display: none;
-    }
-
-    .about .about-tablet {
-        display: block !important;
-        width: 100% !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-}
-
-@media screen and (min-width: 1200px) {
-    .about .about-mobile {
-        display: none !important;
-    }
-
-    .about .about-tablet {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        width: 100% !important;
-    }
-
-    .about-tablet .about-content {
-        display: grid !important;
+    .about-content {
+        display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
         max-width: 1100px;
@@ -1360,62 +1294,26 @@ section.features .features-list {
         align-items: stretch;
     }
 
-    .about-tablet .about-text {
-        width: 100%;
-        max-width: 100%;
-        padding: 2rem;
-        margin: 0;
-        background-color: rgba(255, 255, 255, 0.6);
-        border-radius: 12px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        display: flex;
-        flex-direction: column;
+    .about-text {
         height: 100%;
     }
 
-    .about-tablet .about-text h3 {
-        margin-top: 0;
-        margin-bottom: 1rem;
-        font-size: 1.35rem;
-        padding-bottom: 0.75rem;
-        border-bottom: 2px solid rgba(2, 141, 150, 0.2);
-    }
-
-    .about-tablet .about-text ul {
-        gap: 0.75rem;
-        margin: 0;
-        flex: 1;
-    }
-
-    .about-tablet .about-text ul li {
-        font-size: 0.95rem;
-        line-height: 1.5;
-    }
-
-    .about-tablet .about-cta {
+    .about-cta {
         grid-column: 1 / -1;
         text-align: center;
         padding-top: 1.5rem;
         border-top: 1px solid rgba(2, 141, 150, 0.15);
     }
+}
 
-    .about-tablet .about-cta p:not(.about-mom-note) {
-        margin-bottom: 1rem;
-        padding: 1rem;
-        background-color: rgba(2, 141, 150, 0.08);
-        border-left: 3px solid var(--accent3);
-        border-radius: 4px;
-        font-style: italic;
-        color: var(--accent3);
-        font-weight: 500;
-        font-size: 0.95rem;
-        text-align: left;
+@media screen and (min-width: 1200px) {
+    .about-text h3 {
+        font-size: 1.35rem;
     }
-
-    .about-tablet .about-cta .about-mom-note {
-        padding: 1rem !important;
-        margin-top: 0;
-        margin-bottom: 1rem;
+    
+    .about-text ul li {
+        font-size: 0.95rem;
+        line-height: 1.5;
     }
 }
 
@@ -1493,11 +1391,11 @@ section.features .features-list {
 
 @media screen and (min-width: 768px) {
     .molochna-clickable-image,
-    .recipes-clickable-image {
+.recipes-clickable-image {
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
+    width: 100%;
         height: 100%;
     }
 }
@@ -1771,11 +1669,7 @@ section.features .features-list {
 }
 
 /* ========== POLICY PAGES ========== */
-.policy-page {
-    padding: 80px 0 40px;
-    background-color: var(--bg-white);
-    min-height: calc(100vh - 200px);
-}
+
 
 .policy-content {
     max-width: 900px;
@@ -1785,59 +1679,70 @@ section.features .features-list {
 
 .policy-title {
     font-size: clamp(2rem, 4vw, 2.5rem);
-    font-family: 'Roboto', sans-serif;
-    color: var(--accent2);
-    margin-bottom: 2rem;
+    color: var(--accent3);
+    margin-bottom: 1.5rem;
     text-align: center;
-    font-weight: 600;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.policy-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent3), transparent);
+    border-radius: 2px;
 }
 
 .policy-text {
     color: var(--main-text);
-    line-height: 1.55;
-    font-size: 1rem; /* Базовий розмір 16px */
+    line-height: 1.6;
+    font-size: 1rem;
 }
 
-.policy-text h2 {
-    font-size: clamp(1.5rem, 3vw, 1.75rem);
-    font-family: 'Roboto', sans-serif;
-    color: var(--accent2);
-    margin-top: 2rem;
-    margin-bottom: 1.5rem;
-    font-weight: 600;
-    line-height: 1.3;
-}
 
-.policy-text h2:first-child {
-    margin-top: 0;
-}
 
-.policy-text h3 {
-    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-    font-family: 'Roboto', sans-serif;
-    color: var(--accent3);
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
-    line-height: 1.4;
-}
 
-.policy-text h3:first-child {
-    margin-top: 0;
-}
 
-.policy-text p {
-    margin-bottom: 1rem;
-    line-height: 1.55;
-}
+
+
+
+
+
+
+
 
 .policy-text ul {
+    list-style: none;
+    padding-left: 0;
     margin: 1rem 0;
-    padding-left: 1.5rem;
+    gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
 }
 
-.policy-text li {
-    margin-bottom: 0.5rem;
-    line-height: 1.55;
+.policy-text ul li {
+    padding: 0 0 0 1.875rem;
+    margin-bottom: 0;
+    position: relative;
+
+}
+
+.policy-text ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(2, 141, 150, 0.4);
+    transition: var(--transition);
 }
 
 .policy-text a {
@@ -1851,17 +1756,21 @@ section.features .features-list {
     text-decoration: none;
 }
 
-@media screen and (min-width: 768px) {
-    .policy-page {
-        padding: 100px 0 60px;
-    }
+.policy-page {
+    background-color: var(--text-bg);
+}
 
+@media screen and (min-width: 768px) {
     .policy-content {
         padding: 0 2rem;
     }
 
     .policy-text ul {
-        padding-left: 2rem;
+        gap: 0.75rem;
+    }
+    
+    .policy-text {
+        padding: 3rem;
     }
 }
 
@@ -1898,8 +1807,8 @@ section.features .features-list {
 
 .footer-contacts-wrapper {
   text-align: center;
-  margin-bottom: 1rem;
-  position: relative;
+    margin-bottom: 1rem;
+    position: relative;
   padding-bottom: 1rem;
 }
 
@@ -2304,9 +2213,9 @@ section.features .features-list {
 }
 
 .appointment-benefit-item {
-    display: flex; 
+    display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
     text-align: center;
     gap: 1rem;
     padding: 1rem;
@@ -2438,12 +2347,14 @@ section.features .features-list {
 }
 
 .notice-list li::before {
-    content: "•";
+    content: '';
     position: absolute;
     left: 0;
-    color: var(--accent2);
-    font-weight: bold;
-    font-size: 1.2rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(2, 141, 150, 0.1);
+    top: 0.5rem;
 }
 
 /* Стилі для YouTube відео в recipes-section */
@@ -2556,7 +2467,7 @@ section.features .features-list {
         flex-direction: row;
         align-items: center;
     }
-    
+  
     .benefit-text {
         text-align: left;
     }
